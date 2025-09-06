@@ -1,0 +1,40 @@
+running egg_info
+creating ../../build/drive_controller/drive_controller.egg-info
+writing ../../build/drive_controller/drive_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/drive_controller/drive_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/drive_controller/drive_controller.egg-info/entry_points.txt
+writing requirements to ../../build/drive_controller/drive_controller.egg-info/requires.txt
+writing top-level names to ../../build/drive_controller/drive_controller.egg-info/top_level.txt
+writing manifest file '../../build/drive_controller/drive_controller.egg-info/SOURCES.txt'
+reading manifest file '../../build/drive_controller/drive_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/drive_controller/drive_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build
+creating /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib
+creating /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib/drive_controller
+copying drive_controller/drive_node.py -> /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib/drive_controller
+copying drive_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib/drive_controller
+running install
+running install_lib
+creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller
+copying /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib/drive_controller/drive_node.py -> /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller
+copying /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib/drive_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller/drive_node.py to drive_node.cpython-312.pyc
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share
+creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/ament_index
+creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/ament_index/resource_index
+creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/ament_index/resource_index/packages
+copying resource/drive_controller -> /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/ament_index/resource_index/packages
+creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller
+copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller
+creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/launch
+copying launch/joy_drive.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/launch
+creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/config
+running install_egg_info
+Copying ../../build/drive_controller/drive_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller-0.0.0-py3.12.egg-info
+running install_scripts
+Installing drive_node script to /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/drive_controller
+writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/drive_controller/install.log'

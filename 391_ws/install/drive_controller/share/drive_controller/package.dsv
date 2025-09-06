@@ -1,0 +1,3 @@
+source;share/drive_controller/hook/pythonpath.ps1
+source;share/drive_controller/hook/pythonpath.dsv
+source;share/drive_controller/hook/pythonpath.sh
