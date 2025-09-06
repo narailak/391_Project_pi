@@ -25,6 +25,7 @@ function _colcon_prefix_chain_powershell_source_script {
 _colcon_prefix_chain_powershell_source_script "/opt/ros/jazzy\local_setup.ps1"
 _colcon_prefix_chain_powershell_source_script "/home/tpi5/uros_ws/install\local_setup.ps1"
 _colcon_prefix_chain_powershell_source_script "/home/tpi5/391_Project/391_ws/install\local_setup.ps1"
+_colcon_prefix_chain_powershell_source_script "/home/tpi5/391_Project_pi/install\local_setup.ps1"
 
 # source this prefix
 $env:COLCON_CURRENT_PREFIX=(Split-Path $PSCommandPath -Parent)

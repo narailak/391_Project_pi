@@ -1,0 +1,179 @@
+[0.000000] (-) TimerEvent: {}
+[0.007086] (drive_controller) JobQueued: {'identifier': 'drive_controller', 'dependencies': OrderedDict()}
+[0.007226] (joystick_controller) JobQueued: {'identifier': 'joystick_controller', 'dependencies': OrderedDict()}
+[0.007300] (servo_controller) JobQueued: {'identifier': 'servo_controller', 'dependencies': OrderedDict()}
+[0.007333] (drive_controller) JobStarted: {'identifier': 'drive_controller'}
+[0.053559] (joystick_controller) JobStarted: {'identifier': 'joystick_controller'}
+[0.079411] (servo_controller) JobStarted: {'identifier': 'servo_controller'}
+[0.099926] (-) TimerEvent: {}
+[0.202917] (-) TimerEvent: {}
+[0.304492] (-) TimerEvent: {}
+[0.410107] (-) TimerEvent: {}
+[0.512438] (-) TimerEvent: {}
+[0.615318] (-) TimerEvent: {}
+[0.716651] (-) TimerEvent: {}
+[0.819312] (-) TimerEvent: {}
+[0.920012] (-) TimerEvent: {}
+[1.022324] (-) TimerEvent: {}
+[1.123068] (-) TimerEvent: {}
+[1.223495] (-) TimerEvent: {}
+[1.328578] (-) TimerEvent: {}
+[1.430140] (-) TimerEvent: {}
+[1.530585] (-) TimerEvent: {}
+[1.632496] (-) TimerEvent: {}
+[1.736316] (-) TimerEvent: {}
+[1.836956] (-) TimerEvent: {}
+[1.940318] (-) TimerEvent: {}
+[2.043331] (-) TimerEvent: {}
+[2.144067] (-) TimerEvent: {}
+[2.245345] (-) TimerEvent: {}
+[2.352515] (-) TimerEvent: {}
+[2.452931] (-) TimerEvent: {}
+[2.553617] (-) TimerEvent: {}
+[2.657318] (-) TimerEvent: {}
+[2.758016] (-) TimerEvent: {}
+[2.859928] (-) TimerEvent: {}
+[2.960356] (-) TimerEvent: {}
+[3.062329] (-) TimerEvent: {}
+[3.164010] (-) TimerEvent: {}
+[3.264453] (-) TimerEvent: {}
+[3.366747] (-) TimerEvent: {}
+[3.467518] (-) TimerEvent: {}
+[3.570261] (-) TimerEvent: {}
+[3.677003] (-) TimerEvent: {}
+[3.780342] (-) TimerEvent: {}
+[3.882010] (-) TimerEvent: {}
+[3.984909] (-) TimerEvent: {}
+[4.085573] (-) TimerEvent: {}
+[4.187161] (-) TimerEvent: {}
+[4.290319] (-) TimerEvent: {}
+[4.391940] (-) TimerEvent: {}
+[4.492517] (-) TimerEvent: {}
+[4.593918] (-) TimerEvent: {}
+[4.695782] (-) TimerEvent: {}
+[4.796218] (-) TimerEvent: {}
+[4.899138] (-) TimerEvent: {}
+[5.001072] (-) TimerEvent: {}
+[5.102640] (-) TimerEvent: {}
+[5.203888] (-) TimerEvent: {}
+[5.304939] (-) TimerEvent: {}
+[5.408222] (-) TimerEvent: {}
+[5.510032] (-) TimerEvent: {}
+[5.614939] (-) TimerEvent: {}
+[5.719471] (-) TimerEvent: {}
+[5.822326] (-) TimerEvent: {}
+[5.922755] (-) TimerEvent: {}
+[6.023610] (-) TimerEvent: {}
+[6.126318] (-) TimerEvent: {}
+[6.148436] (servo_controller) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/servo_controller', 'build', '--build-base', '/home/tpi5/391_Project_pi/391_ws/build/servo_controller/build', 'install', '--record', '/home/tpi5/391_Project_pi/391_ws/build/servo_controller/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/tpi5/391_Project_pi/391_ws/src/servo_controller', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'tpi5', 'SSH_CLIENT': 'fe80::317b:a679:f33f:dc90%wlan0 62049 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/tpi5/uros_ws/install/micro_ros_agent/lib:/home/tpi5/uros_ws/install/micro_ros_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/bin/helpers/browser.sh', 'HOME': '/home/tpi5', 'OLDPWD': '/home/tpi5/391_Project_pi', 'TERM_PROGRAM_VERSION': '1.103.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-68d29bb1-ea2a-4a71-ba9e-e1a606f63bcf.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/tpi5/391_Project_pi/391_ws/install:/home/tpi5/391_Project_pi/install:/home/tpi5/391_Project/391_ws/install:/home/tpi5/uros_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'tpi5', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '5', 'PATH': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/bin/remote-cli:/home/tpi5/391_Project/391_ws/install/joystick_controller/bin:/home/tpi5/391_Project/391_ws/install/drive_controller/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-f05dbc096d.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '96', 'AMENT_PREFIX_PATH': '/home/tpi5/391_Project_pi/391_ws/install/servo_controller:/home/tpi5/391_Project_pi/391_ws/install/drive_controller:/home/tpi5/391_Project_pi/install/servo_controller:/home/tpi5/391_Project_pi/install/joystick_controller:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller:/home/tpi5/391_Project/391_ws/install/joystick_controller:/home/tpi5/391_Project/391_ws/install/drive_controller:/home/tpi5/uros_ws/install/micro_ros_setup:/home/tpi5/uros_ws/install/micro_ros_agent:/home/tpi5/uros_ws/install/micro_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/tpi5/391_Project_pi/391_ws/build/servo_controller', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': 'fe80::317b:a679:f33f:dc90%wlan0 62049 fe80::2ecf:67ff:fee8:342e%wlan0 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/tpi5/391_Project_pi/391_ws/build/servo_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/servo_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/uros_ws/install/micro_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/tpi5/uros_ws/install/micro_ros_setup:/home/tpi5/uros_ws/install/micro_ros_agent:/home/tpi5/uros_ws/install/micro_ros_msgs'}, 'shell': False}
+[6.226437] (-) TimerEvent: {}
+[6.326813] (-) TimerEvent: {}
+[6.431177] (-) TimerEvent: {}
+[6.534379] (-) TimerEvent: {}
+[6.634851] (-) TimerEvent: {}
+[6.735344] (-) TimerEvent: {}
+[6.827368] (drive_controller) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/drive_controller', 'build', '--build-base', '/home/tpi5/391_Project_pi/391_ws/build/drive_controller/build', 'install', '--record', '/home/tpi5/391_Project_pi/391_ws/build/drive_controller/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/tpi5/391_Project_pi/391_ws/src/drive_controller', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'tpi5', 'SSH_CLIENT': 'fe80::317b:a679:f33f:dc90%wlan0 62049 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/tpi5/uros_ws/install/micro_ros_agent/lib:/home/tpi5/uros_ws/install/micro_ros_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/bin/helpers/browser.sh', 'HOME': '/home/tpi5', 'OLDPWD': '/home/tpi5/391_Project_pi', 'TERM_PROGRAM_VERSION': '1.103.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-68d29bb1-ea2a-4a71-ba9e-e1a606f63bcf.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/tpi5/391_Project_pi/391_ws/install:/home/tpi5/391_Project_pi/install:/home/tpi5/391_Project/391_ws/install:/home/tpi5/uros_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'tpi5', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '5', 'PATH': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/bin/remote-cli:/home/tpi5/391_Project/391_ws/install/joystick_controller/bin:/home/tpi5/391_Project/391_ws/install/drive_controller/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-f05dbc096d.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '96', 'AMENT_PREFIX_PATH': '/home/tpi5/391_Project_pi/391_ws/install/servo_controller:/home/tpi5/391_Project_pi/391_ws/install/drive_controller:/home/tpi5/391_Project_pi/install/servo_controller:/home/tpi5/391_Project_pi/install/joystick_controller:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller:/home/tpi5/391_Project/391_ws/install/joystick_controller:/home/tpi5/391_Project/391_ws/install/drive_controller:/home/tpi5/uros_ws/install/micro_ros_setup:/home/tpi5/uros_ws/install/micro_ros_agent:/home/tpi5/uros_ws/install/micro_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/tpi5/391_Project_pi/391_ws/build/drive_controller', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': 'fe80::317b:a679:f33f:dc90%wlan0 62049 fe80::2ecf:67ff:fee8:342e%wlan0 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/tpi5/391_Project_pi/391_ws/build/drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/servo_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/uros_ws/install/micro_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/tpi5/uros_ws/install/micro_ros_setup:/home/tpi5/uros_ws/install/micro_ros_agent:/home/tpi5/uros_ws/install/micro_ros_msgs'}, 'shell': False}
+[6.840695] (-) TimerEvent: {}
+[6.943166] (joystick_controller) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/joystick_controller', 'build', '--build-base', '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/build', 'install', '--record', '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/tpi5/391_Project_pi/391_ws/src/joystick_controller', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'tpi5', 'SSH_CLIENT': 'fe80::317b:a679:f33f:dc90%wlan0 62049 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/tpi5/uros_ws/install/micro_ros_agent/lib:/home/tpi5/uros_ws/install/micro_ros_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/bin/helpers/browser.sh', 'HOME': '/home/tpi5', 'OLDPWD': '/home/tpi5/391_Project_pi', 'TERM_PROGRAM_VERSION': '1.103.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-68d29bb1-ea2a-4a71-ba9e-e1a606f63bcf.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/tpi5/391_Project_pi/391_ws/install:/home/tpi5/391_Project_pi/install:/home/tpi5/391_Project/391_ws/install:/home/tpi5/uros_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'tpi5', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '5', 'PATH': '/home/tpi5/.vscode-server/cli/servers/Stable-6f17636121051a53c88d3e605c491d22af2ba755/server/bin/remote-cli:/home/tpi5/391_Project/391_ws/install/joystick_controller/bin:/home/tpi5/391_Project/391_ws/install/drive_controller/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-f05dbc096d.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '96', 'AMENT_PREFIX_PATH': '/home/tpi5/391_Project_pi/391_ws/install/servo_controller:/home/tpi5/391_Project_pi/391_ws/install/drive_controller:/home/tpi5/391_Project_pi/install/servo_controller:/home/tpi5/391_Project_pi/install/joystick_controller:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller:/home/tpi5/391_Project/391_ws/install/joystick_controller:/home/tpi5/391_Project/391_ws/install/drive_controller:/home/tpi5/uros_ws/install/micro_ros_setup:/home/tpi5/uros_ws/install/micro_ros_agent:/home/tpi5/uros_ws/install/micro_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': 'fe80::317b:a679:f33f:dc90%wlan0 62049 fe80::2ecf:67ff:fee8:342e%wlan0 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/servo_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/uros_ws/install/micro_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/tpi5/uros_ws/install/micro_ros_setup:/home/tpi5/uros_ws/install/micro_ros_agent:/home/tpi5/uros_ws/install/micro_ros_msgs'}, 'shell': False}
+[6.984511] (-) TimerEvent: {}
+[7.091350] (-) TimerEvent: {}
+[7.192268] (-) TimerEvent: {}
+[7.293029] (-) TimerEvent: {}
+[7.397707] (servo_controller) StdoutLine: {'line': b'running egg_info\n'}
+[7.398136] (-) TimerEvent: {}
+[7.480750] (servo_controller) StdoutLine: {'line': b'writing ../../build/servo_controller/servo_controller.egg-info/PKG-INFO\n'}
+[7.485979] (servo_controller) StdoutLine: {'line': b'writing dependency_links to ../../build/servo_controller/servo_controller.egg-info/dependency_links.txt\n'}
+[7.492017] (servo_controller) StdoutLine: {'line': b'writing entry points to ../../build/servo_controller/servo_controller.egg-info/entry_points.txt\n'}
+[7.498333] (-) TimerEvent: {}
+[7.499757] (servo_controller) StdoutLine: {'line': b'writing requirements to ../../build/servo_controller/servo_controller.egg-info/requires.txt\n'}
+[7.512504] (servo_controller) StdoutLine: {'line': b'writing top-level names to ../../build/servo_controller/servo_controller.egg-info/top_level.txt\n'}
+[7.600336] (-) TimerEvent: {}
+[7.700986] (-) TimerEvent: {}
+[7.780942] (drive_controller) StdoutLine: {'line': b'running egg_info\n'}
+[7.804417] (-) TimerEvent: {}
+[7.842222] (servo_controller) StdoutLine: {'line': b"reading manifest file '../../build/servo_controller/servo_controller.egg-info/SOURCES.txt'\n"}
+[7.844800] (drive_controller) StdoutLine: {'line': b'writing ../../build/drive_controller/drive_controller.egg-info/PKG-INFO\n'}
+[7.845147] (drive_controller) StdoutLine: {'line': b'writing dependency_links to ../../build/drive_controller/drive_controller.egg-info/dependency_links.txt\n'}
+[7.853394] (servo_controller) StdoutLine: {'line': b"writing manifest file '../../build/servo_controller/servo_controller.egg-info/SOURCES.txt'\n"}
+[7.853702] (servo_controller) StdoutLine: {'line': b'running build\n'}
+[7.853832] (drive_controller) StdoutLine: {'line': b'writing entry points to ../../build/drive_controller/drive_controller.egg-info/entry_points.txt\n'}
+[7.853995] (servo_controller) StdoutLine: {'line': b'running build_py\n'}
+[7.854116] (servo_controller) StdoutLine: {'line': b'running install\n'}
+[7.854219] (drive_controller) StdoutLine: {'line': b'writing requirements to ../../build/drive_controller/drive_controller.egg-info/requires.txt\n'}
+[7.859887] (drive_controller) StdoutLine: {'line': b'writing top-level names to ../../build/drive_controller/drive_controller.egg-info/top_level.txt\n'}
+[7.904529] (-) TimerEvent: {}
+[7.907373] (servo_controller) StdoutLine: {'line': b'running install_lib\n'}
+[8.005908] (-) TimerEvent: {}
+[8.034750] (servo_controller) StdoutLine: {'line': b'running install_data\n'}
+[8.035118] (servo_controller) StdoutLine: {'line': b'copying launch/joy_servo.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_controller/share/servo_controller/launch\n'}
+[8.037705] (servo_controller) StdoutLine: {'line': b'running install_egg_info\n'}
+[8.107372] (-) TimerEvent: {}
+[8.118826] (drive_controller) StdoutLine: {'line': b"reading manifest file '../../build/drive_controller/drive_controller.egg-info/SOURCES.txt'\n"}
+[8.127506] (drive_controller) StdoutLine: {'line': b"writing manifest file '../../build/drive_controller/drive_controller.egg-info/SOURCES.txt'\n"}
+[8.138484] (servo_controller) StdoutLine: {'line': b"removing '/home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages/servo_controller-0.0.1-py3.12.egg-info' (and everything under it)\n"}
+[8.141683] (servo_controller) StdoutLine: {'line': b'Copying ../../build/servo_controller/servo_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages/servo_controller-0.0.1-py3.12.egg-info\n'}
+[8.144399] (servo_controller) StdoutLine: {'line': b'running install_scripts\n'}
+[8.170354] (drive_controller) StdoutLine: {'line': b'running build\n'}
+[8.170690] (drive_controller) StdoutLine: {'line': b'running build_py\n'}
+[8.170829] (drive_controller) StdoutLine: {'line': b'running install\n'}
+[8.201892] (drive_controller) StdoutLine: {'line': b'running install_lib\n'}
+[8.208458] (-) TimerEvent: {}
+[8.298829] (drive_controller) StdoutLine: {'line': b'running install_data\n'}
+[8.300528] (drive_controller) StdoutLine: {'line': b'running install_egg_info\n'}
+[8.308581] (-) TimerEvent: {}
+[8.409018] (-) TimerEvent: {}
+[8.429426] (drive_controller) StdoutLine: {'line': b"removing '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[8.431806] (drive_controller) StdoutLine: {'line': b'Copying ../../build/drive_controller/drive_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller-0.0.0-py3.12.egg-info\n'}
+[8.437382] (drive_controller) StdoutLine: {'line': b'running install_scripts\n'}
+[8.512130] (-) TimerEvent: {}
+[8.612565] (-) TimerEvent: {}
+[8.715537] (-) TimerEvent: {}
+[8.770425] (servo_controller) StdoutLine: {'line': b'Installing servo_node script to /home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/servo_controller\n'}
+[8.775014] (servo_controller) StdoutLine: {'line': b"writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/servo_controller/install.log'\n"}
+[8.816812] (-) TimerEvent: {}
+[8.917373] (joystick_controller) StdoutLine: {'line': b'running egg_info\n'}
+[8.917764] (-) TimerEvent: {}
+[9.020853] (-) TimerEvent: {}
+[9.044406] (servo_controller) CommandEnded: {'returncode': 0}
+[9.078927] (joystick_controller) StdoutLine: {'line': b'writing ../../build/joystick_controller/joystick_controller.egg-info/PKG-INFO\n'}
+[9.084106] (joystick_controller) StdoutLine: {'line': b'writing dependency_links to ../../build/joystick_controller/joystick_controller.egg-info/dependency_links.txt\n'}
+[9.086336] (joystick_controller) StdoutLine: {'line': b'writing entry points to ../../build/joystick_controller/joystick_controller.egg-info/entry_points.txt\n'}
+[9.088325] (joystick_controller) StdoutLine: {'line': b'writing requirements to ../../build/joystick_controller/joystick_controller.egg-info/requires.txt\n'}
+[9.088604] (joystick_controller) StdoutLine: {'line': b'writing top-level names to ../../build/joystick_controller/joystick_controller.egg-info/top_level.txt\n'}
+[9.122609] (-) TimerEvent: {}
+[9.195920] (servo_controller) JobEnded: {'identifier': 'servo_controller', 'rc': 0}
+[9.219262] (drive_controller) StdoutLine: {'line': b'Installing drive_node script to /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/drive_controller\n'}
+[9.222546] (drive_controller) StdoutLine: {'line': b"writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/drive_controller/install.log'\n"}
+[9.222823] (-) TimerEvent: {}
+[9.298717] (joystick_controller) StdoutLine: {'line': b"reading manifest file '../../build/joystick_controller/joystick_controller.egg-info/SOURCES.txt'\n"}
+[9.300620] (joystick_controller) StdoutLine: {'line': b"writing manifest file '../../build/joystick_controller/joystick_controller.egg-info/SOURCES.txt'\n"}
+[9.302112] (joystick_controller) StdoutLine: {'line': b'running build\n'}
+[9.303608] (joystick_controller) StdoutLine: {'line': b'running build_py\n'}
+[9.305119] (joystick_controller) StdoutLine: {'line': b'running install\n'}
+[9.324593] (-) TimerEvent: {}
+[9.339809] (joystick_controller) StdoutLine: {'line': b'running install_lib\n'}
+[9.426327] (-) TimerEvent: {}
+[9.478390] (drive_controller) CommandEnded: {'returncode': 0}
+[9.486798] (joystick_controller) StdoutLine: {'line': b'running install_data\n'}
+[9.487069] (joystick_controller) StdoutLine: {'line': b'running install_egg_info\n'}
+[9.505646] (drive_controller) JobEnded: {'identifier': 'drive_controller', 'rc': 0}
+[9.527758] (-) TimerEvent: {}
+[9.629035] (joystick_controller) StdoutLine: {'line': b"removing '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages/joystick_controller-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[9.629438] (-) TimerEvent: {}
+[9.629696] (joystick_controller) StdoutLine: {'line': b'Copying ../../build/joystick_controller/joystick_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages/joystick_controller-0.0.0-py3.12.egg-info\n'}
+[9.631338] (joystick_controller) StdoutLine: {'line': b'running install_scripts\n'}
+[9.730793] (-) TimerEvent: {}
+[9.833352] (-) TimerEvent: {}
+[9.936133] (-) TimerEvent: {}
+[10.036567] (-) TimerEvent: {}
+[10.141421] (-) TimerEvent: {}
+[10.241904] (-) TimerEvent: {}
+[10.342285] (-) TimerEvent: {}
+[10.402104] (joystick_controller) StdoutLine: {'line': b'Installing joystick_node script to /home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/joystick_controller\n'}
+[10.406807] (joystick_controller) StdoutLine: {'line': b"writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/install.log'\n"}
+[10.443344] (-) TimerEvent: {}
+[10.543805] (-) TimerEvent: {}
+[10.646454] (-) TimerEvent: {}
+[10.665785] (joystick_controller) CommandEnded: {'returncode': 0}
+[10.699265] (joystick_controller) JobEnded: {'identifier': 'joystick_controller', 'rc': 0}
+[10.705870] (-) EventReactorShutdown: {}

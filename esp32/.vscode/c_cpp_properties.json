@@ -10,7 +10,6 @@
             "includePath": [
                 "/home/tpi5/391_Project_pi/esp32/include",
                 "/home/tpi5/391_Project_pi/esp32/src",
-                "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/ESP32Encoder/src",
                 "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/Adafruit BNO055",
                 "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/Adafruit BNO055/utility",
                 "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/Adafruit Unified Sensor",
@@ -18,6 +17,7 @@
                 "/home/tpi5/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                 "/home/tpi5/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code/arduino",
+                "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/ESP32Servo/src",
                 "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/micro_ros_platformio",
                 "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/micro_ros_platformio/libmicroros/include",
                 "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code",
@@ -256,7 +256,6 @@
                 "path": [
                     "/home/tpi5/391_Project_pi/esp32/include",
                     "/home/tpi5/391_Project_pi/esp32/src",
-                    "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/ESP32Encoder/src",
                     "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/Adafruit BNO055",
                     "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/Adafruit BNO055/utility",
                     "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/Adafruit Unified Sensor",
@@ -264,6 +263,7 @@
                     "/home/tpi5/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                     "/home/tpi5/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code/arduino",
+                    "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/ESP32Servo/src",
                     "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/micro_ros_platformio",
                     "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/micro_ros_platformio/libmicroros/include",
                     "/home/tpi5/391_Project_pi/esp32/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code",

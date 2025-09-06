@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: joystick-controller
+Version: 0.0.0
+Summary: Joystick controller package for gamepad input mapping
+Maintainer: tpi5
+Maintainer-email: tpi5@example.com
+License: Apache-2.0
