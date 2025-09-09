@@ -1,0 +1,11 @@
+dual_cam_send_node.py
+package.xml
+setup.py
+../build/cam_sensor/cam_sensor.egg-info/PKG-INFO
+../build/cam_sensor/cam_sensor.egg-info/SOURCES.txt
+../build/cam_sensor/cam_sensor.egg-info/dependency_links.txt
+../build/cam_sensor/cam_sensor.egg-info/entry_points.txt
+../build/cam_sensor/cam_sensor.egg-info/requires.txt
+../build/cam_sensor/cam_sensor.egg-info/top_level.txt
+../build/cam_sensor/cam_sensor.egg-info/zip-safe
+resource/cam_sensor

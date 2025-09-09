@@ -1,0 +1,12 @@
+source;share/cam_sensor/hook/path.ps1
+source;share/cam_sensor/hook/path.dsv
+source;share/cam_sensor/hook/path.sh
+source;share/cam_sensor/hook/pythonpath.ps1
+source;share/cam_sensor/hook/pythonpath.dsv
+source;share/cam_sensor/hook/pythonpath.sh
+source;share/cam_sensor/hook/pythonscriptspath.ps1
+source;share/cam_sensor/hook/pythonscriptspath.dsv
+source;share/cam_sensor/hook/pythonscriptspath.sh
+source;share/cam_sensor/hook/ament_prefix_path.ps1
+source;share/cam_sensor/hook/ament_prefix_path.dsv
+source;share/cam_sensor/hook/ament_prefix_path.sh

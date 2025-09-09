@@ -1,0 +1,2 @@
+[console_scripts]
+dual_cam_send_node = dual_cam_send_node:main

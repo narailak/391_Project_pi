@@ -1,0 +1,2 @@
+[console_scripts]
+drive_node = drive_controller.drive_node:main

@@ -1,0 +1,32 @@
+[2.841s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/cam_sensor': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cam_sensor build --build-base /home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/build install --record /home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/install.log --single-version-externally-managed install_data
+[3.273s] running egg_info
+[3.275s] creating ../build/cam_sensor/cam_sensor.egg-info
+[3.296s] writing ../build/cam_sensor/cam_sensor.egg-info/PKG-INFO
+[3.297s] writing dependency_links to ../build/cam_sensor/cam_sensor.egg-info/dependency_links.txt
+[3.298s] writing entry points to ../build/cam_sensor/cam_sensor.egg-info/entry_points.txt
+[3.299s] writing requirements to ../build/cam_sensor/cam_sensor.egg-info/requires.txt
+[3.299s] writing top-level names to ../build/cam_sensor/cam_sensor.egg-info/top_level.txt
+[3.300s] writing manifest file '../build/cam_sensor/cam_sensor.egg-info/SOURCES.txt'
+[3.357s] reading manifest file '../build/cam_sensor/cam_sensor.egg-info/SOURCES.txt'
+[3.358s] writing manifest file '../build/cam_sensor/cam_sensor.egg-info/SOURCES.txt'
+[3.358s] running build
+[3.359s] running build_py
+[3.359s] creating /home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/build
+[3.360s] creating /home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/build/lib
+[3.360s] copying dual_cam_send_node.py -> /home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/build/lib
+[3.361s] running install
+[3.373s] running install_lib
+[3.396s] copying /home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/build/lib/dual_cam_send_node.py -> /home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/lib/python3.12/site-packages
+[3.398s] byte-compiling /home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/lib/python3.12/site-packages/dual_cam_send_node.py to dual_cam_send_node.cpython-312.pyc
+[3.400s] running install_data
+[3.400s] creating /home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/share/ament_index
+[3.400s] creating /home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/share/ament_index/resource_index
+[3.403s] creating /home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/share/ament_index/resource_index/packages
+[3.403s] copying resource/cam_sensor -> /home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/share/ament_index/resource_index/packages
+[3.403s] copying package.xml -> /home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/share/cam_sensor
+[3.403s] running install_egg_info
+[3.435s] Copying ../build/cam_sensor/cam_sensor.egg-info to /home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/lib/python3.12/site-packages/cam_sensor-0.1.0-py3.12.egg-info
+[3.437s] running install_scripts
+[3.726s] Installing dual_cam_send_node script to /home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/bin
+[3.727s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/install.log'
+[4.203s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/cam_sensor' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/src/install/cam_sensor/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cam_sensor build --build-base /home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/build install --record /home/tpi5/391_Project_pi/391_ws/src/build/cam_sensor/install.log --single-version-externally-managed install_data

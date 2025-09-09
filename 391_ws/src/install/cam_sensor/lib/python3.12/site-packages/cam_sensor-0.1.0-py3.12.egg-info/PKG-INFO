@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: cam-sensor
+Version: 0.1.0
+Summary: ROS 2 node to send frames from multiple USB cameras over TCP with resize.
+Maintainer: your_name
+Maintainer-email: your@email.com
+License: MIT
