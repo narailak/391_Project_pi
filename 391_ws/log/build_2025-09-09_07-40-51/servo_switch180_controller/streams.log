@@ -1,0 +1,39 @@
+[3.229s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/servo_switch180_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/servo_switch180_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/install.log --single-version-externally-managed install_data
+[3.919s] running egg_info
+[3.921s] creating ../../build/servo_switch180_controller/servo_switch180_controller.egg-info
+[3.946s] writing ../../build/servo_switch180_controller/servo_switch180_controller.egg-info/PKG-INFO
+[3.946s] writing dependency_links to ../../build/servo_switch180_controller/servo_switch180_controller.egg-info/dependency_links.txt
+[3.946s] writing entry points to ../../build/servo_switch180_controller/servo_switch180_controller.egg-info/entry_points.txt
+[3.946s] writing requirements to ../../build/servo_switch180_controller/servo_switch180_controller.egg-info/requires.txt
+[3.946s] writing top-level names to ../../build/servo_switch180_controller/servo_switch180_controller.egg-info/top_level.txt
+[3.946s] writing manifest file '../../build/servo_switch180_controller/servo_switch180_controller.egg-info/SOURCES.txt'
+[4.027s] reading manifest file '../../build/servo_switch180_controller/servo_switch180_controller.egg-info/SOURCES.txt'
+[4.029s] writing manifest file '../../build/servo_switch180_controller/servo_switch180_controller.egg-info/SOURCES.txt'
+[4.030s] running build
+[4.031s] running build_py
+[4.032s] creating /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build
+[4.034s] creating /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build/lib
+[4.035s] creating /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build/lib/servo_switch180_controller
+[4.036s] copying servo_switch180_controller/servo_switch180_node.py -> /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build/lib/servo_switch180_controller
+[4.042s] copying servo_switch180_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build/lib/servo_switch180_controller
+[4.043s] running install
+[4.064s] running install_lib
+[4.095s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages/servo_switch180_controller
+[4.095s] copying /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build/lib/servo_switch180_controller/servo_switch180_node.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages/servo_switch180_controller
+[4.095s] copying /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build/lib/servo_switch180_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages/servo_switch180_controller
+[4.096s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages/servo_switch180_controller/servo_switch180_node.py to servo_switch180_node.cpython-312.pyc
+[4.098s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages/servo_switch180_controller/__init__.py to __init__.cpython-312.pyc
+[4.098s] running install_data
+[4.099s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/ament_index
+[4.099s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/ament_index/resource_index
+[4.099s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/ament_index/resource_index/packages
+[4.099s] copying resource/servo_switch180_controller -> /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/ament_index/resource_index/packages
+[4.099s] copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller
+[4.099s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/launch
+[4.099s] copying launch/joy_servo_switch180.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/launch
+[4.101s] running install_egg_info
+[4.145s] Copying ../../build/servo_switch180_controller/servo_switch180_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages/servo_switch180_controller-0.0.1-py3.12.egg-info
+[4.148s] running install_scripts
+[4.535s] Installing servo_switch180_node script to /home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/servo_switch180_controller
+[4.539s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/install.log'
+[4.676s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/servo_switch180_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/servo_switch180_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/install.log --single-version-externally-managed install_data

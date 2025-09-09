@@ -22,7 +22,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'servo_switch180_node = servo_switch180_controller.servo_node:main',
+            'servo_switch180_node = servo_switch180_controller.servo_switch180_node:main',
         ],
     },
 )

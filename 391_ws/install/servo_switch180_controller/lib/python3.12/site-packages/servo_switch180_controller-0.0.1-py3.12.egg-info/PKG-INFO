@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: servo-switch180-controller
+Version: 0.0.1
+Summary: ROS 2 package for servo_switch180 position control
+Maintainer: oat
+Maintainer-email: oatdev@example.com
+License: Apache-2.0
