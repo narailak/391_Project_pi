@@ -58,7 +58,7 @@
   // ---------------- Robot params ----------
   const float WHEEL_RADIUS = 0.060f;     // m
   const float TRACK_WIDTH  = 0.200f;     // m (ระยะล้อซ้าย-ขวา)
-  const float MAX_RPM      = 150.0f;     // ลิมิตรอบล้อ
+  const float MAX_RPM      = 60.0f;     // ลิมิตรอบล้อ
 
   // ความปลอดภัย/ความนิ่มนวล
   const float DEADBAND           = 0.02f;     // m/s / rad/s ใกล้ศูนย์ตัดทิ้ง
@@ -200,7 +200,7 @@
     float wz = (float)m->angular.z;  // หมุน (rad/s)
 
     // ถ้าต้องการคูณความไวการหมุน (เช่น *5) ให้ทำที่นี่:
-     wz *= 3.0f;
+     wz *= 5.0f;
 
     // deadband
     if (fabsf(vx) < DEADBAND) vx = 0.0f;

@@ -1,0 +1,38 @@
+running egg_info
+creating ../../build/linear_controller/linear_controller.egg-info
+writing ../../build/linear_controller/linear_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/linear_controller/linear_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/linear_controller/linear_controller.egg-info/entry_points.txt
+writing requirements to ../../build/linear_controller/linear_controller.egg-info/requires.txt
+writing top-level names to ../../build/linear_controller/linear_controller.egg-info/top_level.txt
+writing manifest file '../../build/linear_controller/linear_controller.egg-info/SOURCES.txt'
+reading manifest file '../../build/linear_controller/linear_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/linear_controller/linear_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build
+creating /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib
+creating /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib/linear_controller
+copying linear_controller/linear_node.py -> /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib/linear_controller
+copying linear_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib/linear_controller
+running install
+running install_lib
+creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller
+copying /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib/linear_controller/linear_node.py -> /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller
+copying /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib/linear_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller/linear_node.py to linear_node.cpython-312.pyc
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/ament_index
+creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/ament_index/resource_index
+creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/ament_index/resource_index/packages
+copying resource/linear_controller -> /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/ament_index/resource_index/packages
+copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller
+creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/launch
+copying launch/joy_linear.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/launch
+creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/config
+running install_egg_info
+Copying ../../build/linear_controller/linear_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller-0.0.0-py3.12.egg-info
+running install_scripts
+Installing linear_node script to /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/linear_controller
+writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/linear_controller/install.log'
