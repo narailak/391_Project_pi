@@ -54,14 +54,14 @@ def send_frame(sock, cam_id, frame_bgr, out_w, out_h, jpeg_q):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--server_ip",   type=str, default="10.223.62.4")
+    ap.add_argument("--server_ip",   type=str, default="192.168.50.177")
     ap.add_argument("--server_port", type=int, default=8080)
     ap.add_argument("--cam_indices", type=int, nargs="+", default=[0, 2])
-    ap.add_argument("--width",  type=int, default=640)
-    ap.add_argument("--height", type=int, default=480)
+    ap.add_argument("--width",  type=int, default=1080)
+    ap.add_argument("--height", type=int, default=1080)
     ap.add_argument("--fps",    type=int, default=30)
     ap.add_argument("--jpeg_quality", type=int, default=80)
-    ap.add_argument("--resize_div",   type=int, default=3)
+    ap.add_argument("--resize_div",   type=int, default=2)
     args = ap.parse_args()
 
     out_w = max(1, args.width  // max(1, args.resize_div))
