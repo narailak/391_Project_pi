@@ -200,7 +200,7 @@
     float wz = (float)m->angular.z;  // หมุน (rad/s)
 
     // ถ้าต้องการคูณความไวการหมุน (เช่น *5) ให้ทำที่นี่:
-     wz *= 5.0f;
+     wz *= 8.0f;
 
     // deadband
     if (fabsf(vx) < DEADBAND) vx = 0.0f;

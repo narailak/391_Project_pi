@@ -11,8 +11,8 @@
 
 // -------- Config --------
 #define SERVO_PIN     18
-#define SERVO_MIN_US  500     // ปรับได้ตามสเปกเซอร์โว (เช่น 500–2400us)
-#define SERVO_MAX_US  2400
+#define SERVO_MIN_US  500     // pulse min
+#define SERVO_MAX_US  2500    // pulse max
 
 // -------- Helpers / Macros --------
 #define RCCHECK(fn) do { rcl_ret_t rc=(fn); if(rc!=RCL_RET_OK){ while(1){ delay(100); } } } while(0)
