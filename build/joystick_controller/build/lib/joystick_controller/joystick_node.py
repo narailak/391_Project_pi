@@ -3,7 +3,7 @@
 
 """
 ROS2 joystick mapper for Flydigi Dune Fox (XInput-like mapping)
-- Subscribe: sensor_msgs/Joy on /white_slot/joy
+- Subscribe: sensor_msgs/Joy on /man/joy
 - Publish:   geometry_msgs/Twist on /cmd_vel
 - Mapping is aligned with your original pygame script:
     LX=ax[0], LY=-ax[1], LT=(ax[2]+1)/2, RX=ax[3], RY=-ax[4], RT=(ax[5]+1)/2,

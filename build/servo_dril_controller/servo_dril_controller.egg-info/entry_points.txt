@@ -1,0 +1,2 @@
+[console_scripts]
+servo_dril_node = servo_dril_controller.servo_dril_node:main
