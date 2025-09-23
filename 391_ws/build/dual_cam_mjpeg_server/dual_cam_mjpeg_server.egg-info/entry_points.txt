@@ -1,0 +1,2 @@
+[console_scripts]
+dual_cam_mjpeg_node = dual_cam_mjpeg_server.node:main

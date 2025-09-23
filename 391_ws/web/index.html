@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>ROS2 Dual Cam Viewer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body{font-family:system-ui, sans-serif;margin:16px;background:#0b0b0f;color:#eee}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#14141a;border-radius:12px;padding:12px}
+img{width:100%;height:auto;border-radius:8px;background:#000}
+.row{display:flex;gap:12px;align-items:center}
+input{width:220px}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/roslib/build/roslib.min.js"></script>
+</head>
+<body>
+<h2>ROS 2 Dual‑Cam (rosbridge)</h2>
+<div class="row">
+<label>WebSocket:</label>
+<input id="ws" value="ws://localhost:9090" />
+<button id="connect">Connect</button>
+<span id="status">disconnected</span>
+</div>
+
+
+<div class="grid" style="margin-top:12px">
+<div class="card"><h3>cam0</h3><img id="cam0" alt="cam0"/></div>
+<div class="card"><h3>cam1</h3><img id="cam1" alt="cam1"/></div>
+</div>
+
+
+<script>
+let ros;
+function subscribe(topicName, imgEl){
+const topic = new ROSLIB.Topic({ ros, name: topicName, messageType: 'sensor_msgs/CompressedImage' });
+topic.subscribe(msg => { imgEl.src = 'data:image/jpeg;base64,' + msg.data; });
+return topic;
+}
+
+
+function connect(){
+const url = document.getElementById('ws').value;
+ros = new ROSLIB.Ros({ url });
+const status = document.getElementById('status');
+ros.on('connection', () => { status.textContent = 'connected';
+subscribe('/cam0/image/compressed', document.getElementById('cam0'));
+subscribe('/cam1/image/compressed', document.getElementById('cam1'));
+});
+ros.on('error', (e) => { status.textContent = 'error: ' + e; });
+ros.on('close', () => { status.textContent = 'closed'; });
+}
+
+
+document.getElementById('connect').addEventListener('click', connect);
+</script>
+</body>
+</html>

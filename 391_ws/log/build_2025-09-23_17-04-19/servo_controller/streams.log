@@ -1,0 +1,39 @@
+[2.325s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/servo_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/servo_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/servo_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/servo_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/servo_controller/install.log --single-version-externally-managed install_data
+[2.872s] running egg_info
+[2.872s] creating ../../build/servo_controller/servo_controller.egg-info
+[2.900s] writing ../../build/servo_controller/servo_controller.egg-info/PKG-INFO
+[2.901s] writing dependency_links to ../../build/servo_controller/servo_controller.egg-info/dependency_links.txt
+[2.902s] writing entry points to ../../build/servo_controller/servo_controller.egg-info/entry_points.txt
+[2.902s] writing requirements to ../../build/servo_controller/servo_controller.egg-info/requires.txt
+[2.902s] writing top-level names to ../../build/servo_controller/servo_controller.egg-info/top_level.txt
+[2.902s] writing manifest file '../../build/servo_controller/servo_controller.egg-info/SOURCES.txt'
+[2.955s] reading manifest file '../../build/servo_controller/servo_controller.egg-info/SOURCES.txt'
+[2.957s] writing manifest file '../../build/servo_controller/servo_controller.egg-info/SOURCES.txt'
+[2.958s] running build
+[2.959s] running build_py
+[2.960s] creating /home/tpi5/391_Project_pi/391_ws/build/servo_controller/build
+[2.960s] creating /home/tpi5/391_Project_pi/391_ws/build/servo_controller/build/lib
+[2.961s] creating /home/tpi5/391_Project_pi/391_ws/build/servo_controller/build/lib/servo_controller
+[2.961s] copying servo_controller/servo_node.py -> /home/tpi5/391_Project_pi/391_ws/build/servo_controller/build/lib/servo_controller
+[2.963s] copying servo_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/build/servo_controller/build/lib/servo_controller
+[2.963s] running install
+[2.975s] running install_lib
+[3.011s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages/servo_controller
+[3.011s] copying /home/tpi5/391_Project_pi/391_ws/build/servo_controller/build/lib/servo_controller/servo_node.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages/servo_controller
+[3.012s] copying /home/tpi5/391_Project_pi/391_ws/build/servo_controller/build/lib/servo_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages/servo_controller
+[3.014s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages/servo_controller/servo_node.py to servo_node.cpython-312.pyc
+[3.017s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages/servo_controller/__init__.py to __init__.cpython-312.pyc
+[3.018s] running install_data
+[3.018s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_controller/share/ament_index
+[3.018s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_controller/share/ament_index/resource_index
+[3.019s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_controller/share/ament_index/resource_index/packages
+[3.019s] copying resource/servo_controller -> /home/tpi5/391_Project_pi/391_ws/install/servo_controller/share/ament_index/resource_index/packages
+[3.020s] copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/servo_controller/share/servo_controller
+[3.020s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_controller/share/servo_controller/launch
+[3.021s] copying launch/joy_servo.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_controller/share/servo_controller/launch
+[3.021s] running install_egg_info
+[3.054s] Copying ../../build/servo_controller/servo_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages/servo_controller-0.0.1-py3.12.egg-info
+[3.056s] running install_scripts
+[3.339s] Installing servo_node script to /home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/servo_controller
+[3.341s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/servo_controller/install.log'
+[3.496s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/servo_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/servo_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/servo_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/servo_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/servo_controller/install.log --single-version-externally-managed install_data

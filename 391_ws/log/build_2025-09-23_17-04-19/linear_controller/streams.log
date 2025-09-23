@@ -1,0 +1,40 @@
+[2.688s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/linear_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/linear_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/linear_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/linear_controller/install.log --single-version-externally-managed install_data
+[3.213s] running egg_info
+[3.214s] creating ../../build/linear_controller/linear_controller.egg-info
+[3.240s] writing ../../build/linear_controller/linear_controller.egg-info/PKG-INFO
+[3.241s] writing dependency_links to ../../build/linear_controller/linear_controller.egg-info/dependency_links.txt
+[3.242s] writing entry points to ../../build/linear_controller/linear_controller.egg-info/entry_points.txt
+[3.242s] writing requirements to ../../build/linear_controller/linear_controller.egg-info/requires.txt
+[3.243s] writing top-level names to ../../build/linear_controller/linear_controller.egg-info/top_level.txt
+[3.243s] writing manifest file '../../build/linear_controller/linear_controller.egg-info/SOURCES.txt'
+[3.303s] reading manifest file '../../build/linear_controller/linear_controller.egg-info/SOURCES.txt'
+[3.306s] writing manifest file '../../build/linear_controller/linear_controller.egg-info/SOURCES.txt'
+[3.351s] running build
+[3.352s] running build_py
+[3.352s] creating /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build
+[3.352s] creating /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib
+[3.352s] creating /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib/linear_controller
+[3.352s] copying linear_controller/linear_node.py -> /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib/linear_controller
+[3.352s] copying linear_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib/linear_controller
+[3.352s] running install
+[3.362s] running install_lib
+[3.391s] creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller
+[3.391s] copying /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib/linear_controller/linear_node.py -> /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller
+[3.391s] copying /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build/lib/linear_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller
+[3.395s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller/linear_node.py to linear_node.cpython-312.pyc
+[3.395s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller/__init__.py to __init__.cpython-312.pyc
+[3.395s] running install_data
+[3.395s] creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/ament_index
+[3.396s] creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/ament_index/resource_index
+[3.396s] creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/ament_index/resource_index/packages
+[3.398s] copying resource/linear_controller -> /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/ament_index/resource_index/packages
+[3.399s] copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller
+[3.399s] creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/launch
+[3.399s] copying launch/joy_linear.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/launch
+[3.399s] creating /home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/config
+[3.399s] running install_egg_info
+[3.425s] Copying ../../build/linear_controller/linear_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller-0.0.0-py3.12.egg-info
+[3.428s] running install_scripts
+[3.668s] Installing linear_node script to /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/linear_controller
+[3.668s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/linear_controller/install.log'
+[3.841s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/linear_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/linear_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/linear_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/linear_controller/install.log --single-version-externally-managed install_data

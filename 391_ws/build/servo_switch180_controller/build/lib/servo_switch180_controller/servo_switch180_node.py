@@ -5,7 +5,7 @@
 ROS2 node: joy_servo
 - Subscribes: /man/joy (sensor_msgs/Joy)
 - Publishes:  /man/cmd_servo_switch180 (std_msgs/Int16)
-- Behavior:   Press D-PAD LEFT to toggle between 0 and 180
+- Behavior:   Press D-PAD RIGHT to toggle between 0 and 180
 - Debounce:   rising-edge + time-based
 """
 
@@ -24,20 +24,20 @@ class JoyServo(Node):
         # -------- Parameters --------
         self.declare_parameter('joy_topic', '/man/joy')
         self.declare_parameter('pub_topic', '/man/cmd_servo_switch180')
-        self.declare_parameter('debounce_time', 0.30)         # วินาที
-        self.declare_parameter('dpad_lr_axis_index', 6)       # แกนซ้าย/ขวา ของ D-Pad
-        self.declare_parameter('dpad_left_button_index', 13)  # fallback: ปุ่ม D-Pad ซ้าย
+        self.declare_parameter('debounce_time', 0.30)          # วินาที
+        self.declare_parameter('dpad_lr_axis_index', 6)        # แกนซ้าย/ขวา ของ D-Pad
+        self.declare_parameter('dpad_right_button_index', 14)  # fallback: ปุ่ม D-Pad ขวา
 
         joy_topic = self.get_parameter('joy_topic').get_parameter_value().string_value
         pub_topic = self.get_parameter('pub_topic').get_parameter_value().string_value
         self.debounce_time = float(self.get_parameter('debounce_time').value)
         self.dpad_lr_axis_index = int(self.get_parameter('dpad_lr_axis_index').value)
-        self.dpad_left_button_index = int(self.get_parameter('dpad_left_button_index').value)
+        self.dpad_right_button_index = int(self.get_parameter('dpad_right_button_index').value)
 
         # -------- State --------
         self.toggle_value = 0           # ค่าเริ่มต้น (0°)
         self.last_press_time = 0.0
-        self.prev_left_active = False   # ใช้ตรวจจับ rising-edge
+        self.prev_right_active = False  # ใช้ตรวจจับ rising-edge
 
         # -------- Publisher --------
         self.pub = self.create_publisher(Int16, pub_topic, qos.qos_profile_system_default)
@@ -60,13 +60,13 @@ class JoyServo(Node):
         axes = list(msg.axes)
         buttons = list(msg.buttons)
 
-        # อ่าน D-Pad ซ้าย: ใช้แกน (axis6 == -1) ถ้าไม่มีใช้ fallback ปุ่ม
-        left_active_by_axis = (self._safe_axis(axes, self.dpad_lr_axis_index, 0.0) <= -0.9)
-        left_active_by_btn  = (self._safe_button(buttons, self.dpad_left_button_index, 0) == 1)
-        left_active = left_active_by_axis or left_active_by_btn
+        # อ่าน D-Pad ขวา: ใช้แกน (axis6 == +1) ถ้าไม่มีใช้ fallback ปุ่ม
+        right_active_by_axis = (self._safe_axis(axes, self.dpad_lr_axis_index, 0.0) >= 0.9)
+        right_active_by_btn  = (self._safe_button(buttons, self.dpad_right_button_index, 0) == 1)
+        right_active = right_active_by_axis or right_active_by_btn
 
         now = time.time()
-        if left_active and not self.prev_left_active and (now - self.last_press_time >= self.debounce_time):
+        if right_active and not self.prev_right_active and (now - self.last_press_time >= self.debounce_time):
             # Toggle ระหว่าง 0 ↔ 180
             self.toggle_value = 180 if self.toggle_value == 0 else 0
             self.last_press_time = now
@@ -75,9 +75,9 @@ class JoyServo(Node):
             out.data = int(self.toggle_value)
             self.pub.publish(out)
 
-            self.get_logger().info(f"D-PAD LEFT pressed → Published {out.data}")
+            self.get_logger().info(f"D-PAD RIGHT pressed → Published {out.data}")
 
-        self.prev_left_active = left_active
+        self.prev_right_active = right_active
 
 
 def main():

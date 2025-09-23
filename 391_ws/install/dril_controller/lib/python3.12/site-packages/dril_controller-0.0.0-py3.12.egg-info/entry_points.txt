@@ -1,0 +1,2 @@
+[console_scripts]
+dril_node = dril_controller.dril_node:main
