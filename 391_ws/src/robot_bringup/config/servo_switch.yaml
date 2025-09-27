@@ -1,0 +1,4 @@
+servo_switch180_node:
+ros__parameters:
+cmd_topic: "/man/cmd_gripper"
+pin: 21

@@ -10,7 +10,7 @@
 #include <std_msgs/msg/int16.h>
 
 // -------- Config --------
-#define SERVO_PIN     18
+#define SERVO_PIN     17
 #define SERVO_MIN_US  500     // pulse min
 #define SERVO_MAX_US  2500    // pulse max
 

@@ -1,0 +1,17 @@
+[2.119s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/joystick_controller/build --no-deps symlink_data
+[2.792s] running develop
+[3.156s] running egg_info
+[3.184s] writing joystick_controller.egg-info/PKG-INFO
+[3.186s] writing dependency_links to joystick_controller.egg-info/dependency_links.txt
+[3.188s] writing entry points to joystick_controller.egg-info/entry_points.txt
+[3.190s] writing requirements to joystick_controller.egg-info/requires.txt
+[3.191s] writing top-level names to joystick_controller.egg-info/top_level.txt
+[3.244s] reading manifest file 'joystick_controller.egg-info/SOURCES.txt'
+[3.246s] writing manifest file 'joystick_controller.egg-info/SOURCES.txt'
+[3.280s] running build_ext
+[3.280s] Creating /home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages/joystick-controller.egg-link (link to .)
+[3.280s] Installing joystick_node script to /home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/joystick_controller
+[3.280s] 
+[3.280s] Installed /home/tpi5/391_Project_pi/391_ws/build/joystick_controller
+[3.281s] running symlink_data
+[3.388s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/joystick_controller/build --no-deps symlink_data

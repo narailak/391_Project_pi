@@ -1,0 +1,5 @@
+drive_node:
+ros__parameters:
+cmd_topic: "/man/cmd_move"
+max_linear: 0.8
+max_angular: 1.2

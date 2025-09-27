@@ -1,0 +1,2 @@
+[console_scripts]
+tao_node = tao_controller.tao_node:main

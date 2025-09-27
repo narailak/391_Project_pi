@@ -1,0 +1,4 @@
+joystick_node:
+ros__parameters:
+joy_topic: "/man/joy"
+deadzone: 0.08

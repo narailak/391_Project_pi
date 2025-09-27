@@ -1,0 +1,38 @@
+running egg_info
+creating ../../build/tao_controller/tao_controller.egg-info
+writing ../../build/tao_controller/tao_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/tao_controller/tao_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/tao_controller/tao_controller.egg-info/entry_points.txt
+writing requirements to ../../build/tao_controller/tao_controller.egg-info/requires.txt
+writing top-level names to ../../build/tao_controller/tao_controller.egg-info/top_level.txt
+writing manifest file '../../build/tao_controller/tao_controller.egg-info/SOURCES.txt'
+reading manifest file '../../build/tao_controller/tao_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/tao_controller/tao_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build
+creating /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build/lib
+creating /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build/lib/tao_controller
+copying tao_controller/tao_node.py -> /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build/lib/tao_controller
+copying tao_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build/lib/tao_controller
+running install
+running install_lib
+creating /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages/tao_controller
+copying /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build/lib/tao_controller/tao_node.py -> /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages/tao_controller
+copying /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build/lib/tao_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages/tao_controller
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages/tao_controller/tao_node.py to tao_node.cpython-312.pyc
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages/tao_controller/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/ament_index
+creating /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/ament_index/resource_index
+creating /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/ament_index/resource_index/packages
+copying resource/tao_controller -> /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/ament_index/resource_index/packages
+copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller
+creating /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/launch
+copying launch/joy_tao.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/launch
+creating /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/config
+running install_egg_info
+Copying ../../build/tao_controller/tao_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages/tao_controller-0.0.0-py3.12.egg-info
+running install_scripts
+Installing tao_node script to /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/tao_controller
+writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/tao_controller/install.log'

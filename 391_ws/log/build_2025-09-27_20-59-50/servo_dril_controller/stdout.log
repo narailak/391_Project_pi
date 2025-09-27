@@ -1,0 +1,28 @@
+running develop
+Removing /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo-dril-controller.egg-link (link to .)
+running egg_info
+writing ../../build/servo_dril_controller/servo_dril_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/servo_dril_controller/servo_dril_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/servo_dril_controller/servo_dril_controller.egg-info/entry_points.txt
+writing requirements to ../../build/servo_dril_controller/servo_dril_controller.egg-info/requires.txt
+writing top-level names to ../../build/servo_dril_controller/servo_dril_controller.egg-info/top_level.txt
+reading manifest file '../../build/servo_dril_controller/servo_dril_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/servo_dril_controller/servo_dril_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+creating /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller
+copying /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build/lib/servo_dril_controller/servo_dril_node.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller
+copying /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build/lib/servo_dril_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller/servo_dril_node.py to servo_dril_node.cpython-312.pyc
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller/__init__.py to __init__.cpython-312.pyc
+running install_data
+copying resource/servo_dril_controller -> /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/ament_index/resource_index/packages
+copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller
+copying launch/joy_servo_dril.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/launch
+running install_egg_info
+Copying ../../build/servo_dril_controller/servo_dril_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller-0.0.1-py3.12.egg-info
+running install_scripts
+Installing servo_dril_node script to /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/servo_dril_controller
+writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/install.log'

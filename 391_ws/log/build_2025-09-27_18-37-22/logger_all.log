@@ -1,0 +1,645 @@
+[0.159s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.159s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffffa0353770>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffa051be60>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffa051be60>>, mixin_verb=('build',))
+[0.216s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.217s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/tpi5/391_Project_pi/391_ws'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src/build) by extensions ['ignore', 'ignore_ament_install']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src/build) by extension 'ignore'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src/build) ignored
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(src/dril_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(src/dril_controller) by extension 'ignore'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(src/dril_controller) by extension 'ignore_ament_install'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(src/dril_controller) by extensions ['colcon_pkg']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(src/dril_controller) by extension 'colcon_pkg'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(src/dril_controller) by extensions ['colcon_meta']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(src/dril_controller) by extension 'colcon_meta'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(src/dril_controller) by extensions ['ros']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(src/dril_controller) by extension 'ros'
+[0.263s] DEBUG:colcon.colcon_core.package_identification:Package 'src/dril_controller' with type 'ros.ament_python' and name 'dril_controller'
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_controller) by extension 'ignore'
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_controller) by extension 'ignore_ament_install'
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_controller) by extensions ['colcon_pkg']
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_controller) by extension 'colcon_pkg'
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_controller) by extensions ['colcon_meta']
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_controller) by extension 'colcon_meta'
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_controller) by extensions ['ros']
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/drive_controller) by extension 'ros'
+[0.264s] DEBUG:colcon.colcon_core.package_identification:Package 'src/drive_controller' with type 'ros.ament_python' and name 'drive_controller'
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_cam_mjpeg_server) by extensions ['ignore', 'ignore_ament_install']
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_cam_mjpeg_server) by extension 'ignore'
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_cam_mjpeg_server) by extension 'ignore_ament_install'
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_cam_mjpeg_server) by extensions ['colcon_pkg']
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_cam_mjpeg_server) by extension 'colcon_pkg'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_cam_mjpeg_server) by extensions ['colcon_meta']
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_cam_mjpeg_server) by extension 'colcon_meta'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_cam_mjpeg_server) by extensions ['ros']
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/dual_cam_mjpeg_server) by extension 'ros'
+[0.265s] DEBUG:colcon.colcon_core.package_identification:Package 'src/dual_cam_mjpeg_server' with type 'ros.ament_python' and name 'dual_cam_mjpeg_server'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_controller) by extension 'ignore'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_controller) by extension 'ignore_ament_install'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_controller) by extensions ['colcon_pkg']
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_controller) by extension 'colcon_pkg'
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_controller) by extensions ['colcon_meta']
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_controller) by extension 'colcon_meta'
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_controller) by extensions ['ros']
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(src/gripper_controller) by extension 'ros'
+[0.266s] DEBUG:colcon.colcon_core.package_identification:Package 'src/gripper_controller' with type 'ros.ament_python' and name 'gripper_controller'
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(src/install) by extensions ['ignore', 'ignore_ament_install']
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/install) by extension 'ignore'
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/install) ignored
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_controller) by extension 'ignore'
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_controller) by extension 'ignore_ament_install'
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_controller) by extensions ['colcon_pkg']
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_controller) by extension 'colcon_pkg'
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_controller) by extensions ['colcon_meta']
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_controller) by extension 'colcon_meta'
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_controller) by extensions ['ros']
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_controller) by extension 'ros'
+[0.268s] DEBUG:colcon.colcon_core.package_identification:Package 'src/joystick_controller' with type 'ros.ament_python' and name 'joystick_controller'
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_controller) by extension 'ignore'
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_controller) by extension 'ignore_ament_install'
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_controller) by extensions ['colcon_pkg']
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_controller) by extension 'colcon_pkg'
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_controller) by extensions ['colcon_meta']
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_controller) by extension 'colcon_meta'
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_controller) by extensions ['ros']
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_controller) by extension 'ros'
+[0.269s] DEBUG:colcon.colcon_core.package_identification:Package 'src/linear_controller' with type 'ros.ament_python' and name 'linear_controller'
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) by extensions ['ignore', 'ignore_ament_install']
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) by extension 'ignore'
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) ignored
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_bringup) by extension 'ignore'
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_bringup) by extension 'ignore_ament_install'
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_bringup) by extensions ['colcon_pkg']
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_bringup) by extension 'colcon_pkg'
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_bringup) by extensions ['colcon_meta']
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_bringup) by extension 'colcon_meta'
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_bringup) by extensions ['ros']
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_bringup) by extension 'ros'
+[0.270s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_bringup' with type 'ros.ament_python' and name 'robot_bringup'
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_dril_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_dril_controller) by extension 'ignore'
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_dril_controller) by extension 'ignore_ament_install'
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_dril_controller) by extensions ['colcon_pkg']
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_dril_controller) by extension 'colcon_pkg'
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_dril_controller) by extensions ['colcon_meta']
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_dril_controller) by extension 'colcon_meta'
+[0.271s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_dril_controller) by extensions ['ros']
+[0.271s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_dril_controller) by extension 'ros'
+[0.271s] DEBUG:colcon.colcon_core.package_identification:Package 'src/servo_dril_controller' with type 'ros.ament_python' and name 'servo_dril_controller'
+[0.271s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_switch180_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.271s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_switch180_controller) by extension 'ignore'
+[0.271s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_switch180_controller) by extension 'ignore_ament_install'
+[0.272s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_switch180_controller) by extensions ['colcon_pkg']
+[0.272s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_switch180_controller) by extension 'colcon_pkg'
+[0.272s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_switch180_controller) by extensions ['colcon_meta']
+[0.272s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_switch180_controller) by extension 'colcon_meta'
+[0.272s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_switch180_controller) by extensions ['ros']
+[0.272s] Level 1:colcon.colcon_core.package_identification:_identify(src/servo_switch180_controller) by extension 'ros'
+[0.272s] DEBUG:colcon.colcon_core.package_identification:Package 'src/servo_switch180_controller' with type 'ros.ament_python' and name 'servo_switch180_controller'
+[0.272s] Level 1:colcon.colcon_core.package_identification:_identify(src/tao_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(src/tao_controller) by extension 'ignore'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(src/tao_controller) by extension 'ignore_ament_install'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(src/tao_controller) by extensions ['colcon_pkg']
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(src/tao_controller) by extension 'colcon_pkg'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(src/tao_controller) by extensions ['colcon_meta']
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(src/tao_controller) by extension 'colcon_meta'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(src/tao_controller) by extensions ['ros']
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(src/tao_controller) by extension 'ros'
+[0.273s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tao_controller' with type 'ros.ament_python' and name 'tao_controller'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extensions ['ignore', 'ignore_ament_install']
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extension 'ignore'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extension 'ignore_ament_install'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extensions ['colcon_pkg']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extension 'colcon_pkg'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extensions ['colcon_meta']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extension 'colcon_meta'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extensions ['ros']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extension 'ros'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extensions ['cmake', 'python']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extension 'cmake'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extension 'python'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extensions ['python_setup_py']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(web) by extension 'python_setup_py'
+[0.274s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.274s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.274s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.274s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.274s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.303s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.303s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.306s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 10 installed packages in /home/tpi5/391_Project_pi/391_ws/install
+[0.307s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 10 installed packages in /home/tpi5/391_Project_pi/install
+[0.309s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 2 installed packages in /home/tpi5/391_Project/391_ws/install
+[0.309s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/tpi5/uros_ws/install
+[0.311s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 200 installed packages in /opt/ros/jazzy
+[0.311s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'dril_controller' build argument 'cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'dril_controller' build argument 'cmake_target' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'dril_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'dril_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'dril_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'dril_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'dril_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'dril_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'dril_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.357s] DEBUG:colcon.colcon_core.verb:Building package 'dril_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tpi5/391_Project_pi/391_ws/build/dril_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tpi5/391_Project_pi/391_ws/install/dril_controller', 'merge_install': False, 'path': '/home/tpi5/391_Project_pi/391_ws/src/dril_controller', 'symlink_install': True, 'test_result_base': None}
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'drive_controller' build argument 'cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'drive_controller' build argument 'cmake_target' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'drive_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'drive_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'drive_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'drive_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'drive_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'drive_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'drive_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.358s] DEBUG:colcon.colcon_core.verb:Building package 'drive_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tpi5/391_Project_pi/391_ws/build/drive_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tpi5/391_Project_pi/391_ws/install/drive_controller', 'merge_install': False, 'path': '/home/tpi5/391_Project_pi/391_ws/src/drive_controller', 'symlink_install': True, 'test_result_base': None}
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'dual_cam_mjpeg_server' build argument 'cmake_args' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'dual_cam_mjpeg_server' build argument 'cmake_target' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'dual_cam_mjpeg_server' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'dual_cam_mjpeg_server' build argument 'cmake_clean_cache' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'dual_cam_mjpeg_server' build argument 'cmake_clean_first' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'dual_cam_mjpeg_server' build argument 'cmake_force_configure' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'dual_cam_mjpeg_server' build argument 'ament_cmake_args' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'dual_cam_mjpeg_server' build argument 'catkin_cmake_args' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'dual_cam_mjpeg_server' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.358s] DEBUG:colcon.colcon_core.verb:Building package 'dual_cam_mjpeg_server' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server', 'merge_install': False, 'path': '/home/tpi5/391_Project_pi/391_ws/src/dual_cam_mjpeg_server', 'symlink_install': True, 'test_result_base': None}
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'gripper_controller' build argument 'cmake_args' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'gripper_controller' build argument 'cmake_target' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'gripper_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'gripper_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'gripper_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'gripper_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'gripper_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'gripper_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'gripper_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.359s] DEBUG:colcon.colcon_core.verb:Building package 'gripper_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tpi5/391_Project_pi/391_ws/build/gripper_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller', 'merge_install': False, 'path': '/home/tpi5/391_Project_pi/391_ws/src/gripper_controller', 'symlink_install': True, 'test_result_base': None}
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'joystick_controller' build argument 'cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'joystick_controller' build argument 'cmake_target' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'joystick_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'joystick_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'joystick_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'joystick_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'joystick_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'joystick_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'joystick_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.359s] DEBUG:colcon.colcon_core.verb:Building package 'joystick_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller', 'merge_install': False, 'path': '/home/tpi5/391_Project_pi/391_ws/src/joystick_controller', 'symlink_install': True, 'test_result_base': None}
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'linear_controller' build argument 'cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'linear_controller' build argument 'cmake_target' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'linear_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'linear_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'linear_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'linear_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'linear_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'linear_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'linear_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.360s] DEBUG:colcon.colcon_core.verb:Building package 'linear_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tpi5/391_Project_pi/391_ws/build/linear_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tpi5/391_Project_pi/391_ws/install/linear_controller', 'merge_install': False, 'path': '/home/tpi5/391_Project_pi/391_ws/src/linear_controller', 'symlink_install': True, 'test_result_base': None}
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_dril_controller' build argument 'cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_dril_controller' build argument 'cmake_target' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_dril_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_dril_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_dril_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_dril_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_dril_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_dril_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_dril_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.360s] DEBUG:colcon.colcon_core.verb:Building package 'servo_dril_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller', 'merge_install': False, 'path': '/home/tpi5/391_Project_pi/391_ws/src/servo_dril_controller', 'symlink_install': True, 'test_result_base': None}
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_switch180_controller' build argument 'cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_switch180_controller' build argument 'cmake_target' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'servo_switch180_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'servo_switch180_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'servo_switch180_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'servo_switch180_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'servo_switch180_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'servo_switch180_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'servo_switch180_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.361s] DEBUG:colcon.colcon_core.verb:Building package 'servo_switch180_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller', 'merge_install': False, 'path': '/home/tpi5/391_Project_pi/391_ws/src/servo_switch180_controller', 'symlink_install': True, 'test_result_base': None}
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'tao_controller' build argument 'cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'tao_controller' build argument 'cmake_target' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'tao_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'tao_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'tao_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'tao_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'tao_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'tao_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'tao_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.361s] DEBUG:colcon.colcon_core.verb:Building package 'tao_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tpi5/391_Project_pi/391_ws/build/tao_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tpi5/391_Project_pi/391_ws/install/tao_controller', 'merge_install': False, 'path': '/home/tpi5/391_Project_pi/391_ws/src/tao_controller', 'symlink_install': True, 'test_result_base': None}
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'robot_bringup' build argument 'cmake_args' from command line to 'None'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'robot_bringup' build argument 'cmake_target' from command line to 'None'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'robot_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'robot_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'robot_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'robot_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'robot_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'robot_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'robot_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.362s] DEBUG:colcon.colcon_core.verb:Building package 'robot_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tpi5/391_Project_pi/391_ws/build/robot_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup', 'merge_install': False, 'path': '/home/tpi5/391_Project_pi/391_ws/src/robot_bringup', 'symlink_install': True, 'test_result_base': None}
+[0.362s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.363s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.364s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tpi5/391_Project_pi/391_ws/src/dril_controller' with build type 'ament_python'
+[0.364s] Level 1:colcon.colcon_core.shell:create_environment_hook('dril_controller', 'ament_prefix_path')
+[0.367s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.367s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/hook/ament_prefix_path.ps1'
+[0.368s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/hook/ament_prefix_path.dsv'
+[0.369s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/hook/ament_prefix_path.sh'
+[0.370s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.370s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.377s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tpi5/391_Project_pi/391_ws/src/drive_controller' with build type 'ament_python'
+[0.377s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_controller', 'ament_prefix_path')
+[0.377s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/hook/ament_prefix_path.ps1'
+[0.379s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/hook/ament_prefix_path.dsv'
+[0.380s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/hook/ament_prefix_path.sh'
+[0.381s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.381s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.387s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tpi5/391_Project_pi/391_ws/src/dual_cam_mjpeg_server' with build type 'ament_python'
+[0.387s] Level 1:colcon.colcon_core.shell:create_environment_hook('dual_cam_mjpeg_server', 'ament_prefix_path')
+[0.388s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/hook/ament_prefix_path.ps1'
+[0.388s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/hook/ament_prefix_path.dsv'
+[0.389s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/hook/ament_prefix_path.sh'
+[0.390s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.390s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.397s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tpi5/391_Project_pi/391_ws/src/gripper_controller' with build type 'ament_python'
+[0.397s] Level 1:colcon.colcon_core.shell:create_environment_hook('gripper_controller', 'ament_prefix_path')
+[0.397s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/hook/ament_prefix_path.ps1'
+[0.398s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/hook/ament_prefix_path.dsv'
+[0.400s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/hook/ament_prefix_path.sh'
+[0.401s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.401s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.747s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tpi5/391_Project_pi/391_ws/src/dril_controller'
+[0.747s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.747s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.095s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tpi5/391_Project_pi/391_ws/src/drive_controller'
+[1.096s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.096s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.431s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tpi5/391_Project_pi/391_ws/src/dual_cam_mjpeg_server'
+[1.432s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.432s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.766s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tpi5/391_Project_pi/391_ws/src/gripper_controller'
+[1.767s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.767s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.832s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/drive_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build --no-deps symlink_data
+[2.867s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/gripper_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build --no-deps symlink_data
+[2.885s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/dril_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dril_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/dril_controller/build --no-deps symlink_data
+[2.894s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/build --no-deps symlink_data
+[4.002s] Level 1:colcon.colcon_core.shell:create_environment_hook('dual_cam_mjpeg_server', 'pythonpath_develop')
+[4.004s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/hook/pythonpath_develop.ps1'
+[4.008s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/build --no-deps symlink_data
+[4.009s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/hook/pythonpath_develop.dsv'
+[4.011s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/hook/pythonpath_develop.sh'
+[4.020s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server' for CMake module files
+[4.023s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server' for CMake config files
+[4.024s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib'
+[4.026s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/bin'
+[4.027s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/pkgconfig/dual_cam_mjpeg_server.pc'
+[4.027s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages'
+[4.028s] Level 1:colcon.colcon_core.shell:create_environment_hook('dual_cam_mjpeg_server', 'pythonpath')
+[4.029s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/hook/pythonpath.ps1'
+[4.031s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/hook/pythonpath.dsv'
+[4.033s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/hook/pythonpath.sh'
+[4.035s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/bin'
+[4.035s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dual_cam_mjpeg_server)
+[4.036s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/package.ps1'
+[4.039s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/package.dsv'
+[4.040s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/package.sh'
+[4.042s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/package.bash'
+[4.045s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/package.zsh'
+[4.046s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/colcon-core/packages/dual_cam_mjpeg_server)
+[4.048s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tpi5/391_Project_pi/391_ws/src/joystick_controller' with build type 'ament_python'
+[4.049s] Level 1:colcon.colcon_core.shell:create_environment_hook('joystick_controller', 'ament_prefix_path')
+[4.049s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/hook/ament_prefix_path.ps1'
+[4.050s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/hook/ament_prefix_path.dsv'
+[4.052s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/hook/ament_prefix_path.sh'
+[4.053s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.053s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.062s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_controller', 'pythonpath_develop')
+[4.063s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/drive_controller/share/drive_controller/hook/pythonpath_develop.ps1'
+[4.064s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/build/drive_controller/share/drive_controller/hook/pythonpath_develop.dsv'
+[4.065s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/drive_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build --no-deps symlink_data
+[4.065s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/drive_controller/share/drive_controller/hook/pythonpath_develop.sh'
+[4.067s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/drive_controller' for CMake module files
+[4.067s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/drive_controller' for CMake config files
+[4.068s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib'
+[4.068s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/bin'
+[4.068s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/pkgconfig/drive_controller.pc'
+[4.069s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages'
+[4.069s] Level 1:colcon.colcon_core.shell:create_environment_hook('drive_controller', 'pythonpath')
+[4.069s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/hook/pythonpath.ps1'
+[4.070s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/hook/pythonpath.dsv'
+[4.072s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/hook/pythonpath.sh'
+[4.075s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/bin'
+[4.075s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(drive_controller)
+[4.076s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/package.ps1'
+[4.077s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/package.dsv'
+[4.078s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/package.sh'
+[4.080s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/package.bash'
+[4.080s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/package.zsh'
+[4.081s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/colcon-core/packages/drive_controller)
+[4.083s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tpi5/391_Project_pi/391_ws/src/linear_controller' with build type 'ament_python'
+[4.083s] Level 1:colcon.colcon_core.shell:create_environment_hook('linear_controller', 'ament_prefix_path')
+[4.083s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/hook/ament_prefix_path.ps1'
+[4.084s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/hook/ament_prefix_path.dsv'
+[4.085s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/hook/ament_prefix_path.sh'
+[4.086s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.086s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.093s] Level 1:colcon.colcon_core.shell:create_environment_hook('dril_controller', 'pythonpath_develop')
+[4.093s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/dril_controller/share/dril_controller/hook/pythonpath_develop.ps1'
+[4.094s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/dril_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dril_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/dril_controller/build --no-deps symlink_data
+[4.094s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/build/dril_controller/share/dril_controller/hook/pythonpath_develop.dsv'
+[4.097s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/dril_controller/share/dril_controller/hook/pythonpath_develop.sh'
+[4.098s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dril_controller' for CMake module files
+[4.099s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dril_controller' for CMake config files
+[4.100s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib'
+[4.100s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/bin'
+[4.100s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/pkgconfig/dril_controller.pc'
+[4.101s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages'
+[4.101s] Level 1:colcon.colcon_core.shell:create_environment_hook('dril_controller', 'pythonpath')
+[4.101s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/hook/pythonpath.ps1'
+[4.102s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/hook/pythonpath.dsv'
+[4.103s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/hook/pythonpath.sh'
+[4.106s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/bin'
+[4.106s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dril_controller)
+[4.106s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/package.ps1'
+[4.107s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/package.dsv'
+[4.109s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/package.sh'
+[4.110s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/package.bash'
+[4.112s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/package.zsh'
+[4.113s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/colcon-core/packages/dril_controller)
+[4.114s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tpi5/391_Project_pi/391_ws/src/servo_dril_controller' with build type 'ament_python'
+[4.115s] Level 1:colcon.colcon_core.shell:create_environment_hook('servo_dril_controller', 'ament_prefix_path')
+[4.115s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/hook/ament_prefix_path.ps1'
+[4.116s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/hook/ament_prefix_path.dsv'
+[4.117s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/hook/ament_prefix_path.sh'
+[4.119s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.119s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.466s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tpi5/391_Project_pi/391_ws/src/joystick_controller'
+[4.466s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.466s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.473s] Level 1:colcon.colcon_core.shell:create_environment_hook('gripper_controller', 'pythonpath_develop')
+[4.473s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/share/gripper_controller/hook/pythonpath_develop.ps1'
+[4.474s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/gripper_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build --no-deps symlink_data
+[4.474s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/share/gripper_controller/hook/pythonpath_develop.dsv'
+[4.475s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/share/gripper_controller/hook/pythonpath_develop.sh'
+[4.476s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller' for CMake module files
+[4.477s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller' for CMake config files
+[4.477s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib'
+[4.478s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/bin'
+[4.478s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/pkgconfig/gripper_controller.pc'
+[4.478s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages'
+[4.478s] Level 1:colcon.colcon_core.shell:create_environment_hook('gripper_controller', 'pythonpath')
+[4.478s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/hook/pythonpath.ps1'
+[4.479s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/hook/pythonpath.dsv'
+[4.480s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/hook/pythonpath.sh'
+[4.481s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/bin'
+[4.481s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gripper_controller)
+[4.482s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/package.ps1'
+[4.482s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/package.dsv'
+[4.483s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/package.sh'
+[4.484s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/package.bash'
+[4.485s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/package.zsh'
+[4.486s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/colcon-core/packages/gripper_controller)
+[4.489s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tpi5/391_Project_pi/391_ws/src/servo_switch180_controller' with build type 'ament_python'
+[4.489s] Level 1:colcon.colcon_core.shell:create_environment_hook('servo_switch180_controller', 'ament_prefix_path')
+[4.489s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/hook/ament_prefix_path.ps1'
+[4.490s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/hook/ament_prefix_path.dsv'
+[4.491s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/hook/ament_prefix_path.sh'
+[4.492s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.492s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.836s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tpi5/391_Project_pi/391_ws/src/linear_controller'
+[4.836s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.836s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.178s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tpi5/391_Project_pi/391_ws/src/servo_dril_controller'
+[5.178s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.178s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.545s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tpi5/391_Project_pi/391_ws/src/servo_switch180_controller'
+[5.546s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.546s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.169s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/joystick_controller/build --no-deps symlink_data
+[6.630s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/linear_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/linear_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build --no-deps symlink_data
+[6.671s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build --no-deps symlink_data
+[6.735s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build --no-deps symlink_data
+[7.434s] Level 1:colcon.colcon_core.shell:create_environment_hook('joystick_controller', 'pythonpath_develop')
+[7.434s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/share/joystick_controller/hook/pythonpath_develop.ps1'
+[7.436s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/share/joystick_controller/hook/pythonpath_develop.dsv'
+[7.437s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/joystick_controller/build --no-deps symlink_data
+[7.438s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/share/joystick_controller/hook/pythonpath_develop.sh'
+[7.440s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller' for CMake module files
+[7.441s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller' for CMake config files
+[7.441s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib'
+[7.442s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/bin'
+[7.442s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/pkgconfig/joystick_controller.pc'
+[7.443s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages'
+[7.443s] Level 1:colcon.colcon_core.shell:create_environment_hook('joystick_controller', 'pythonpath')
+[7.443s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/hook/pythonpath.ps1'
+[7.444s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/hook/pythonpath.dsv'
+[7.446s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/hook/pythonpath.sh'
+[7.447s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/bin'
+[7.448s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(joystick_controller)
+[7.448s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/package.ps1'
+[7.449s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/package.dsv'
+[7.450s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/package.sh'
+[7.451s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/package.bash'
+[7.453s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/package.zsh'
+[7.454s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/colcon-core/packages/joystick_controller)
+[7.455s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tpi5/391_Project_pi/391_ws/src/tao_controller' with build type 'ament_python'
+[7.455s] Level 1:colcon.colcon_core.shell:create_environment_hook('tao_controller', 'ament_prefix_path')
+[7.455s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/hook/ament_prefix_path.ps1'
+[7.456s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/hook/ament_prefix_path.dsv'
+[7.458s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/hook/ament_prefix_path.sh'
+[7.460s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[7.460s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.932s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tpi5/391_Project_pi/391_ws/src/tao_controller'
+[7.933s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[7.933s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.941s] Level 1:colcon.colcon_core.shell:create_environment_hook('linear_controller', 'pythonpath_develop')
+[7.942s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/linear_controller/share/linear_controller/hook/pythonpath_develop.ps1'
+[7.942s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/linear_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/linear_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build --no-deps symlink_data
+[7.943s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/build/linear_controller/share/linear_controller/hook/pythonpath_develop.dsv'
+[7.944s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/linear_controller/share/linear_controller/hook/pythonpath_develop.sh'
+[7.946s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/linear_controller' for CMake module files
+[7.947s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/linear_controller' for CMake config files
+[7.948s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib'
+[7.948s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/bin'
+[7.948s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/pkgconfig/linear_controller.pc'
+[7.948s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages'
+[7.948s] Level 1:colcon.colcon_core.shell:create_environment_hook('linear_controller', 'pythonpath')
+[7.949s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/hook/pythonpath.ps1'
+[7.949s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/hook/pythonpath.dsv'
+[7.951s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/hook/pythonpath.sh'
+[7.952s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/bin'
+[7.953s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(linear_controller)
+[7.953s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/package.ps1'
+[7.954s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/package.dsv'
+[7.957s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/package.sh'
+[7.958s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/package.bash'
+[7.959s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/package.zsh'
+[7.962s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/colcon-core/packages/linear_controller)
+[7.962s] Level 1:colcon.colcon_core.shell:create_environment_hook('servo_dril_controller', 'pythonpath_develop')
+[7.963s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/share/servo_dril_controller/hook/pythonpath_develop.ps1'
+[7.964s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/share/servo_dril_controller/hook/pythonpath_develop.dsv'
+[7.964s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/share/servo_dril_controller/hook/pythonpath_develop.sh'
+[7.965s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller' for CMake module files
+[7.966s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller' for CMake config files
+[7.966s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib'
+[7.967s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build --no-deps symlink_data
+[7.967s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/bin'
+[7.967s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/pkgconfig/servo_dril_controller.pc'
+[7.967s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages'
+[7.968s] Level 1:colcon.colcon_core.shell:create_environment_hook('servo_dril_controller', 'pythonpath')
+[7.968s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/hook/pythonpath.ps1'
+[7.969s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/hook/pythonpath.dsv'
+[7.969s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/hook/pythonpath.sh'
+[7.970s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/bin'
+[7.970s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(servo_dril_controller)
+[7.971s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/package.ps1'
+[7.971s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/package.dsv'
+[7.972s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/package.sh'
+[7.973s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/package.bash'
+[7.973s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/package.zsh'
+[7.974s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/colcon-core/packages/servo_dril_controller)
+[7.975s] Level 1:colcon.colcon_core.shell:create_environment_hook('servo_switch180_controller', 'pythonpath_develop')
+[7.975s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/share/servo_switch180_controller/hook/pythonpath_develop.ps1'
+[7.976s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/build --no-deps symlink_data
+[7.976s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/share/servo_switch180_controller/hook/pythonpath_develop.dsv'
+[7.977s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller/share/servo_switch180_controller/hook/pythonpath_develop.sh'
+[7.978s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller' for CMake module files
+[7.978s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller' for CMake config files
+[7.979s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib'
+[7.979s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/bin'
+[7.979s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/pkgconfig/servo_switch180_controller.pc'
+[7.980s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages'
+[7.980s] Level 1:colcon.colcon_core.shell:create_environment_hook('servo_switch180_controller', 'pythonpath')
+[7.980s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/hook/pythonpath.ps1'
+[7.981s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/hook/pythonpath.dsv'
+[7.981s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/hook/pythonpath.sh'
+[7.982s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/bin'
+[7.982s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(servo_switch180_controller)
+[7.983s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/package.ps1'
+[7.983s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/package.dsv'
+[7.984s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/package.sh'
+[7.984s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/package.bash'
+[7.985s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/package.zsh'
+[7.985s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/colcon-core/packages/servo_switch180_controller)
+[8.824s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/tao_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/tao_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build --no-deps symlink_data
+[9.712s] Level 1:colcon.colcon_core.shell:create_environment_hook('tao_controller', 'pythonpath_develop')
+[9.712s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/tao_controller/share/tao_controller/hook/pythonpath_develop.ps1'
+[9.713s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/tao_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/tao_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build --no-deps symlink_data
+[9.713s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/build/tao_controller/share/tao_controller/hook/pythonpath_develop.dsv'
+[9.714s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/tao_controller/share/tao_controller/hook/pythonpath_develop.sh'
+[9.715s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/tao_controller' for CMake module files
+[9.716s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/tao_controller' for CMake config files
+[9.716s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib'
+[9.717s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/bin'
+[9.717s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/pkgconfig/tao_controller.pc'
+[9.717s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages'
+[9.717s] Level 1:colcon.colcon_core.shell:create_environment_hook('tao_controller', 'pythonpath')
+[9.717s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/hook/pythonpath.ps1'
+[9.718s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/hook/pythonpath.dsv'
+[9.719s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/hook/pythonpath.sh'
+[9.720s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/bin'
+[9.720s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tao_controller)
+[9.720s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/package.ps1'
+[9.721s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/package.dsv'
+[9.722s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/package.sh'
+[9.726s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/package.bash'
+[9.727s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/package.zsh'
+[9.728s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/colcon-core/packages/tao_controller)
+[9.728s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tpi5/391_Project_pi/391_ws/src/robot_bringup' with build type 'ament_python'
+[9.728s] Level 1:colcon.colcon_core.shell:create_environment_hook('robot_bringup', 'ament_prefix_path')
+[9.728s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/hook/ament_prefix_path.ps1'
+[9.730s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/hook/ament_prefix_path.dsv'
+[9.731s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/hook/ament_prefix_path.sh'
+[9.732s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[9.732s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[10.096s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tpi5/391_Project_pi/391_ws/src/robot_bringup'
+[10.096s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[10.096s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[10.961s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/robot_bringup': AMENT_PREFIX_PATH=/home/tpi5/391_Project_pi/391_ws/install/tao_controller:/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller:/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller:/home/tpi5/391_Project_pi/391_ws/install/linear_controller:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller:/home/tpi5/391_Project_pi/391_ws/install/gripper_controller:/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server:/home/tpi5/391_Project_pi/391_ws/install/drive_controller:/home/tpi5/391_Project_pi/391_ws/install/dril_controller:/home/tpi5/391_Project_pi/391_ws/install/robot_bringup:/home/tpi5/391_Project_pi/install/tao_controller:/home/tpi5/391_Project_pi/install/servo_switch180_controller:/home/tpi5/391_Project_pi/install/servo_dril_controller:/home/tpi5/391_Project_pi/install/servo_controller:/home/tpi5/391_Project_pi/install/linear_controller:/home/tpi5/391_Project_pi/install/joystick_controller:/home/tpi5/391_Project_pi/install/gripper_controller:/home/tpi5/391_Project_pi/install/dual_cam_mjpeg_server:/home/tpi5/391_Project_pi/install/drive_controller:/home/tpi5/391_Project_pi/install/dril_controller:/home/tpi5/391_Project/391_ws/install/joystick_controller:/home/tpi5/391_Project/391_ws/install/drive_controller:/home/tpi5/uros_ws/install/micro_ros_setup:/home/tpi5/uros_ws/install/micro_ros_agent:/home/tpi5/uros_ws/install/micro_ros_msgs:/opt/ros/jazzy PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/robot_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/tao_controller:/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller:/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller:/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/linear_controller:/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/joystick_controller:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/gripper_controller:/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server:/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/drive_controller:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/dril_controller:/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/robot_bringup/src:/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/tao_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/servo_switch180_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/servo_dril_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/servo_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/linear_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/gripper_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/dual_cam_mjpeg_server/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/dril_controller/lib/python3.12/site-packages:/home/tpi5/391_Project/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/uros_ws/install/micro_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/build --no-deps symlink_data
+[11.841s] Level 1:colcon.colcon_core.shell:create_environment_hook('robot_bringup', 'pythonpath_develop')
+[11.841s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/robot_bringup/src/share/robot_bringup/hook/pythonpath_develop.ps1'
+[11.842s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/robot_bringup' returned '0': AMENT_PREFIX_PATH=/home/tpi5/391_Project_pi/391_ws/install/tao_controller:/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller:/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller:/home/tpi5/391_Project_pi/391_ws/install/linear_controller:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller:/home/tpi5/391_Project_pi/391_ws/install/gripper_controller:/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server:/home/tpi5/391_Project_pi/391_ws/install/drive_controller:/home/tpi5/391_Project_pi/391_ws/install/dril_controller:/home/tpi5/391_Project_pi/391_ws/install/robot_bringup:/home/tpi5/391_Project_pi/install/tao_controller:/home/tpi5/391_Project_pi/install/servo_switch180_controller:/home/tpi5/391_Project_pi/install/servo_dril_controller:/home/tpi5/391_Project_pi/install/servo_controller:/home/tpi5/391_Project_pi/install/linear_controller:/home/tpi5/391_Project_pi/install/joystick_controller:/home/tpi5/391_Project_pi/install/gripper_controller:/home/tpi5/391_Project_pi/install/dual_cam_mjpeg_server:/home/tpi5/391_Project_pi/install/drive_controller:/home/tpi5/391_Project_pi/install/dril_controller:/home/tpi5/391_Project/391_ws/install/joystick_controller:/home/tpi5/391_Project/391_ws/install/drive_controller:/home/tpi5/uros_ws/install/micro_ros_setup:/home/tpi5/uros_ws/install/micro_ros_agent:/home/tpi5/uros_ws/install/micro_ros_msgs:/opt/ros/jazzy PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/robot_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/tao_controller:/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/servo_switch180_controller:/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller:/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/linear_controller:/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/joystick_controller:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/gripper_controller:/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server:/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/drive_controller:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/dril_controller:/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/391_ws/build/robot_bringup/src:/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/tao_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/servo_switch180_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/servo_dril_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/servo_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/linear_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/gripper_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/dual_cam_mjpeg_server/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/391_Project_pi/install/dril_controller/lib/python3.12/site-packages:/home/tpi5/391_Project/391_ws/install/joystick_controller/lib/python3.12/site-packages:/home/tpi5/391_Project/391_ws/install/drive_controller/lib/python3.12/site-packages:/home/tpi5/uros_ws/install/micro_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/build --no-deps symlink_data
+[11.842s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/build/robot_bringup/src/share/robot_bringup/hook/pythonpath_develop.dsv'
+[11.843s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/build/robot_bringup/src/share/robot_bringup/hook/pythonpath_develop.sh'
+[11.844s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup' for CMake module files
+[11.845s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup' for CMake config files
+[11.846s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/lib'
+[11.846s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/bin'
+[11.846s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/lib/pkgconfig/robot_bringup.pc'
+[11.846s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/lib/python3.12/site-packages'
+[11.846s] Level 1:colcon.colcon_core.shell:create_environment_hook('robot_bringup', 'pythonpath')
+[11.847s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/hook/pythonpath.ps1'
+[11.847s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/hook/pythonpath.dsv'
+[11.849s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/hook/pythonpath.sh'
+[11.851s] Level 1:colcon.colcon_core.environment:checking '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/bin'
+[11.851s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robot_bringup)
+[11.851s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/package.ps1'
+[11.852s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/package.dsv'
+[11.853s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/package.sh'
+[11.854s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/package.bash'
+[11.856s] INFO:colcon.colcon_core.shell:Creating package script '/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/package.zsh'
+[11.857s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/colcon-core/packages/robot_bringup)
+[11.859s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[11.859s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[11.859s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[11.860s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[11.869s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[11.870s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[11.870s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[11.870s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[11.871s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[11.871s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[11.871s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tpi5/391_Project_pi/391_ws/install/local_setup.ps1'
+[11.873s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tpi5/391_Project_pi/391_ws/install/_local_setup_util_ps1.py'
+[11.874s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tpi5/391_Project_pi/391_ws/install/setup.ps1'
+[11.877s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tpi5/391_Project_pi/391_ws/install/local_setup.sh'
+[11.878s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tpi5/391_Project_pi/391_ws/install/_local_setup_util_sh.py'
+[11.879s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tpi5/391_Project_pi/391_ws/install/setup.sh'
+[11.881s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tpi5/391_Project_pi/391_ws/install/local_setup.bash'
+[11.883s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tpi5/391_Project_pi/391_ws/install/setup.bash'
+[11.885s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tpi5/391_Project_pi/391_ws/install/local_setup.zsh'
+[11.887s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tpi5/391_Project_pi/391_ws/install/setup.zsh'

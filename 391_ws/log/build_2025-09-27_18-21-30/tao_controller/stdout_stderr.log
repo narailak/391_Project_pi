@@ -1,0 +1,18 @@
+running develop
+running egg_info
+writing tao_controller.egg-info/PKG-INFO
+writing dependency_links to tao_controller.egg-info/dependency_links.txt
+writing entry points to tao_controller.egg-info/entry_points.txt
+writing requirements to tao_controller.egg-info/requires.txt
+writing top-level names to tao_controller.egg-info/top_level.txt
+reading manifest file 'tao_controller.egg-info/SOURCES.txt'
+writing manifest file 'tao_controller.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages/tao-controller.egg-link (link to .)
+Installing tao_node script to /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/tao_controller
+
+Installed /home/tpi5/391_Project_pi/391_ws/build/tao_controller
+running symlink_data
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/tao_controller/resource/tao_controller -> /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/ament_index/resource_index/packages
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/tao_controller/package.xml -> /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/tao_controller/launch/joy_tao.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/launch

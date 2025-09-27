@@ -1,0 +1,6 @@
+servo_node:
+ros__parameters:
+cmd_topic: "/man/cmd_servo"
+pin: 19
+min_us: 500
+max_us: 2500

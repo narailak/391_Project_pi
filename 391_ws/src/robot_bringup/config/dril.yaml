@@ -1,0 +1,4 @@
+dril_node:
+ros__parameters:
+sub_topic: "/man/moter_dril"
+pub_rpm_topic: "/man/moter_dril/rpm"

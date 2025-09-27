@@ -1,0 +1,21 @@
+[1.731s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/servo_switch180_controller': PYTHONPATH=/home/tpi5/391_Project_pi/build/servo_switch180_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/install/servo_switch180_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/servo_switch180_controller build --build-base /home/tpi5/391_Project_pi/build/servo_switch180_controller/build install --record /home/tpi5/391_Project_pi/build/servo_switch180_controller/install.log --single-version-externally-managed install_data
+[2.140s] running egg_info
+[2.165s] writing ../../../build/servo_switch180_controller/servo_switch180_controller.egg-info/PKG-INFO
+[2.167s] writing dependency_links to ../../../build/servo_switch180_controller/servo_switch180_controller.egg-info/dependency_links.txt
+[2.167s] writing entry points to ../../../build/servo_switch180_controller/servo_switch180_controller.egg-info/entry_points.txt
+[2.168s] writing requirements to ../../../build/servo_switch180_controller/servo_switch180_controller.egg-info/requires.txt
+[2.169s] writing top-level names to ../../../build/servo_switch180_controller/servo_switch180_controller.egg-info/top_level.txt
+[2.235s] reading manifest file '../../../build/servo_switch180_controller/servo_switch180_controller.egg-info/SOURCES.txt'
+[2.236s] writing manifest file '../../../build/servo_switch180_controller/servo_switch180_controller.egg-info/SOURCES.txt'
+[2.237s] running build
+[2.238s] running build_py
+[2.238s] running install
+[2.250s] running install_lib
+[2.284s] running install_data
+[2.284s] running install_egg_info
+[2.315s] removing '/home/tpi5/391_Project_pi/install/servo_switch180_controller/lib/python3.12/site-packages/servo_switch180_controller-0.0.1-py3.12.egg-info' (and everything under it)
+[2.315s] Copying ../../../build/servo_switch180_controller/servo_switch180_controller.egg-info to /home/tpi5/391_Project_pi/install/servo_switch180_controller/lib/python3.12/site-packages/servo_switch180_controller-0.0.1-py3.12.egg-info
+[2.317s] running install_scripts
+[2.523s] Installing servo_switch180_node script to /home/tpi5/391_Project_pi/install/servo_switch180_controller/lib/servo_switch180_controller
+[2.524s] writing list of installed files to '/home/tpi5/391_Project_pi/build/servo_switch180_controller/install.log'
+[2.614s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/servo_switch180_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/build/servo_switch180_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/install/servo_switch180_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/servo_switch180_controller build --build-base /home/tpi5/391_Project_pi/build/servo_switch180_controller/build install --record /home/tpi5/391_Project_pi/build/servo_switch180_controller/install.log --single-version-externally-managed install_data

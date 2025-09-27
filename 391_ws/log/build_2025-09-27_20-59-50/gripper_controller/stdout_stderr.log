@@ -1,0 +1,28 @@
+running develop
+Removing /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper-controller.egg-link (link to .)
+running egg_info
+writing ../../build/gripper_controller/gripper_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/gripper_controller/gripper_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/gripper_controller/gripper_controller.egg-info/entry_points.txt
+writing requirements to ../../build/gripper_controller/gripper_controller.egg-info/requires.txt
+writing top-level names to ../../build/gripper_controller/gripper_controller.egg-info/top_level.txt
+reading manifest file '../../build/gripper_controller/gripper_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/gripper_controller/gripper_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+creating /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller
+copying /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build/lib/gripper_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller
+copying /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build/lib/gripper_controller/gripper_node.py -> /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller/gripper_node.py to gripper_node.cpython-312.pyc
+running install_data
+copying resource/gripper_controller -> /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/ament_index/resource_index/packages
+copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller
+copying launch/joy_gripper.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/launch
+running install_egg_info
+Copying ../../build/gripper_controller/gripper_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller-0.0.0-py3.12.egg-info
+running install_scripts
+Installing gripper_node script to /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/gripper_controller
+writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/install.log'

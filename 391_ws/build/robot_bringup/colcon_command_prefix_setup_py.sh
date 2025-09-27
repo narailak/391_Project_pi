@@ -1,0 +1,10 @@
+# generated from colcon_core/shell/template/command_prefix.sh.em
+. "/home/tpi5/391_Project_pi/391_ws/install/dril_controller/share/dril_controller/package.sh"
+. "/home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/package.sh"
+. "/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/package.sh"
+. "/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/package.sh"
+. "/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/share/joystick_controller/package.sh"
+. "/home/tpi5/391_Project_pi/391_ws/install/linear_controller/share/linear_controller/package.sh"
+. "/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/package.sh"
+. "/home/tpi5/391_Project_pi/391_ws/install/servo_switch180_controller/share/servo_switch180_controller/package.sh"
+. "/home/tpi5/391_Project_pi/391_ws/install/tao_controller/share/tao_controller/package.sh"

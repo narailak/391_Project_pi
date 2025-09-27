@@ -1,0 +1,40 @@
+[2.785s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/gripper_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gripper_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/install.log --single-version-externally-managed install_data
+[3.240s] running egg_info
+[3.240s] creating ../../build/gripper_controller/gripper_controller.egg-info
+[3.266s] writing ../../build/gripper_controller/gripper_controller.egg-info/PKG-INFO
+[3.266s] writing dependency_links to ../../build/gripper_controller/gripper_controller.egg-info/dependency_links.txt
+[3.267s] writing entry points to ../../build/gripper_controller/gripper_controller.egg-info/entry_points.txt
+[3.267s] writing requirements to ../../build/gripper_controller/gripper_controller.egg-info/requires.txt
+[3.267s] writing top-level names to ../../build/gripper_controller/gripper_controller.egg-info/top_level.txt
+[3.268s] writing manifest file '../../build/gripper_controller/gripper_controller.egg-info/SOURCES.txt'
+[3.323s] reading manifest file '../../build/gripper_controller/gripper_controller.egg-info/SOURCES.txt'
+[3.324s] writing manifest file '../../build/gripper_controller/gripper_controller.egg-info/SOURCES.txt'
+[3.325s] running build
+[3.325s] running build_py
+[3.325s] creating /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build
+[3.325s] creating /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build/lib
+[3.325s] creating /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build/lib/gripper_controller
+[3.328s] copying gripper_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build/lib/gripper_controller
+[3.328s] copying gripper_controller/gripper_node.py -> /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build/lib/gripper_controller
+[3.328s] running install
+[3.338s] running install_lib
+[3.365s] creating /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller
+[3.365s] copying /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build/lib/gripper_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller
+[3.365s] copying /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build/lib/gripper_controller/gripper_node.py -> /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller
+[3.367s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller/__init__.py to __init__.cpython-312.pyc
+[3.367s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller/gripper_node.py to gripper_node.cpython-312.pyc
+[3.369s] running install_data
+[3.369s] creating /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/ament_index
+[3.369s] creating /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/ament_index/resource_index
+[3.370s] creating /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/ament_index/resource_index/packages
+[3.370s] copying resource/gripper_controller -> /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/ament_index/resource_index/packages
+[3.370s] copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller
+[3.371s] creating /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/launch
+[3.371s] copying launch/joy_gripper.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/launch
+[3.372s] creating /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/share/gripper_controller/config
+[3.372s] running install_egg_info
+[3.402s] Copying ../../build/gripper_controller/gripper_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller-0.0.0-py3.12.egg-info
+[3.404s] running install_scripts
+[3.681s] Installing gripper_node script to /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/gripper_controller
+[3.682s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/install.log'
+[4.050s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/gripper_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gripper_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/install.log --single-version-externally-managed install_data

@@ -1,0 +1,17 @@
+[1.344s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/tao_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/tao_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build --no-deps symlink_data
+[1.800s] running develop
+[2.048s] running egg_info
+[2.071s] writing tao_controller.egg-info/PKG-INFO
+[2.071s] writing dependency_links to tao_controller.egg-info/dependency_links.txt
+[2.072s] writing entry points to tao_controller.egg-info/entry_points.txt
+[2.073s] writing requirements to tao_controller.egg-info/requires.txt
+[2.073s] writing top-level names to tao_controller.egg-info/top_level.txt
+[2.121s] reading manifest file 'tao_controller.egg-info/SOURCES.txt'
+[2.122s] writing manifest file 'tao_controller.egg-info/SOURCES.txt'
+[2.146s] running build_ext
+[2.147s] Creating /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages/tao-controller.egg-link (link to .)
+[2.147s] Installing tao_node script to /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/tao_controller
+[2.148s] 
+[2.148s] Installed /home/tpi5/391_Project_pi/391_ws/build/tao_controller
+[2.148s] running symlink_data
+[2.239s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/tao_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/tao_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build --no-deps symlink_data

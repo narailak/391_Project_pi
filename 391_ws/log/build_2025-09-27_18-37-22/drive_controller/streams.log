@@ -1,0 +1,17 @@
+[2.454s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/drive_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build --no-deps symlink_data
+[3.127s] running develop
+[3.397s] running egg_info
+[3.422s] writing drive_controller.egg-info/PKG-INFO
+[3.423s] writing dependency_links to drive_controller.egg-info/dependency_links.txt
+[3.424s] writing entry points to drive_controller.egg-info/entry_points.txt
+[3.424s] writing requirements to drive_controller.egg-info/requires.txt
+[3.425s] writing top-level names to drive_controller.egg-info/top_level.txt
+[3.474s] reading manifest file 'drive_controller.egg-info/SOURCES.txt'
+[3.476s] writing manifest file 'drive_controller.egg-info/SOURCES.txt'
+[3.508s] running build_ext
+[3.508s] Creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive-controller.egg-link (link to .)
+[3.510s] Installing drive_node script to /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/drive_controller
+[3.510s] 
+[3.510s] Installed /home/tpi5/391_Project_pi/391_ws/build/drive_controller
+[3.510s] running symlink_data
+[3.687s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/drive_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build --no-deps symlink_data

@@ -1,0 +1,5 @@
+gripper_node:
+ros__parameters:
+joy_topic: "/man/joy"
+pub_topic: "/man/cmd_gripper"
+debounce_time: 0.30

@@ -1,0 +1,28 @@
+running develop
+running egg_info
+creating src/robot_bringup.egg-info
+writing src/robot_bringup.egg-info/PKG-INFO
+writing dependency_links to src/robot_bringup.egg-info/dependency_links.txt
+writing requirements to src/robot_bringup.egg-info/requires.txt
+writing top-level names to src/robot_bringup.egg-info/top_level.txt
+writing manifest file 'src/robot_bringup.egg-info/SOURCES.txt'
+reading manifest file 'src/robot_bringup.egg-info/SOURCES.txt'
+writing manifest file 'src/robot_bringup.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/lib/python3.12/site-packages/robot-bringup.egg-link (link to src)
+
+Installed /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/src
+running symlink_data
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/resource/robot_bringup -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/ament_index/resource_index/packages
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/package.xml -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/launch/bringup.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/launch
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/launch/bringup_noservo.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/launch
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/launch/bringup_all.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/launch
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/config/joystick.yaml -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/config
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/config/drive.yaml -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/config
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/config/linear.yaml -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/config
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/config/servo.yaml -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/config
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/config/servo_switch.yaml -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/config
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/config/gripper.yaml -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/config
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/config/dril.yaml -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/config
+symbolically linking /home/tpi5/391_Project_pi/391_ws/build/robot_bringup/config/cam.yaml -> /home/tpi5/391_Project_pi/391_ws/install/robot_bringup/share/robot_bringup/config

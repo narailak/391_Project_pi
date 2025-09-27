@@ -55,7 +55,7 @@ struct ServoChan {
 // ========== Factory helpers ==========
 static ServoChan make_gripper(){
   ServoChan ch{};                                  /* zero-init ทั้งก้อน */
-  ch.pin       = 21;                               /* pin */
+  ch.pin       = 16;                               /* pin */
   ch.min_us    = 500;                              /* min_us */
   ch.max_us    = 2500;                             /* max_us */
   ch.sub_topic = "/man/cmd_gripper";               /* sub_topic */
@@ -80,7 +80,7 @@ static ServoChan make_dril(){
 
 static ServoChan make_sw180(){
   ServoChan ch{};
-  ch.pin       = 18;                               /* pin */
+  ch.pin       = 17;                               /* pin */
   ch.min_us    = 500;                              /* min_us */
   ch.max_us    = 2500;                             /* max_us */
   ch.sub_topic = "/man/cmd_servo_switch180";       /* sub_topic */

@@ -1,0 +1,20 @@
+[2.536s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/build --no-deps symlink_data --force
+[3.136s] running develop
+[3.394s] running egg_info
+[3.421s] writing dual_cam_mjpeg_server.egg-info/PKG-INFO
+[3.422s] writing dependency_links to dual_cam_mjpeg_server.egg-info/dependency_links.txt
+[3.423s] writing entry points to dual_cam_mjpeg_server.egg-info/entry_points.txt
+[3.424s] writing requirements to dual_cam_mjpeg_server.egg-info/requires.txt
+[3.425s] writing top-level names to dual_cam_mjpeg_server.egg-info/top_level.txt
+[3.481s] reading manifest file 'dual_cam_mjpeg_server.egg-info/SOURCES.txt'
+[3.481s] writing manifest file 'dual_cam_mjpeg_server.egg-info/SOURCES.txt'
+[3.591s] running build_ext
+[3.591s] Creating /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages/dual-cam-mjpeg-server.egg-link (link to .)
+[3.598s] Installing dual_cam_mjpeg_node script to /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/dual_cam_mjpeg_server
+[3.598s] 
+[3.598s] Installed /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server
+[3.598s] running symlink_data
+[3.599s] symbolically linking /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/resource/dual_cam_mjpeg_server -> /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/ament_index/resource_index/packages
+[3.599s] symbolically linking /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/package.xml -> /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server
+[3.599s] symbolically linking /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/launch/dual_cam_mjpeg.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/share/dual_cam_mjpeg_server/launch
+[3.997s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/build --no-deps symlink_data --force
