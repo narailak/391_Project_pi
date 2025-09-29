@@ -1,0 +1,5 @@
+/**:
+  ros__parameters:
+    topic_cmd: /man/cmd_linear
+    speed_default: 3000        # ตัวอย่างค่า
+    accel_default: 12000

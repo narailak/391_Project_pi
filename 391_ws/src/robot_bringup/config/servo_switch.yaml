@@ -1,4 +1,6 @@
-servo_switch180_node:
-ros__parameters:
-cmd_topic: "/man/cmd_gripper"
-pin: 21
+/**:
+  ros__parameters:
+    topic_cmd: /man/cmd_servo_switch180
+    angle_a: 0
+    angle_b: 180
+    debounce_s: 0.25

@@ -1,4 +1,5 @@
-linear_node:
-ros__parameters:
-cmd_topic: "/man/cmd_linear"
-max_speed: 20000
+/**:
+  ros__parameters:
+    topic_cmd: /man/cmd_linear
+    speed_default: 3000        # ตัวอย่างค่า
+    accel_default: 12000

@@ -1,0 +1,8 @@
+/**:
+  ros__parameters:
+    wheel_radius: 0.06
+    track_width: 0.20
+    vx_max: 0.8
+    wz_max: 3.8
+    cmd_topic: /man/cmd_move
+    use_sim_time: false

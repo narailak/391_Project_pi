@@ -1,5 +1,6 @@
-gripper_node:
-ros__parameters:
-joy_topic: "/man/joy"
-pub_topic: "/man/cmd_gripper"
-debounce_time: 0.30
+/**:
+  ros__parameters:
+    topic_cmd: /man/cmd_gripper
+    servo_pin: 18              # หรือค่าที่คุณใช้จริง
+    min_deg: 0
+    max_deg: 180

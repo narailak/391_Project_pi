@@ -5,7 +5,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     return LaunchDescription([
-        DeclareLaunchArgument('cam0', default_value='1'),
+        DeclareLaunchArgument('cam0', default_value='0'),
         DeclareLaunchArgument('cam1', default_value='2'),
         DeclareLaunchArgument('width', default_value='640'),
         DeclareLaunchArgument('height', default_value='480'),

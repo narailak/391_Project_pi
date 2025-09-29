@@ -1,4 +1,5 @@
-joystick_node:
-ros__parameters:
-joy_topic: "/man/joy"
-deadzone: 0.08
+/**:
+  ros__parameters:
+    joy_topic: /man/joy
+    deadzone: 0.08
+    device_name: "Xbox 360 Controller"

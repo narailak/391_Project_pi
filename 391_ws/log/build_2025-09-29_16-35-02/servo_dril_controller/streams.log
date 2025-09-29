@@ -1,0 +1,39 @@
+[2.836s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/servo_dril_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/servo_dril_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/install.log --single-version-externally-managed install_data
+[3.327s] running egg_info
+[3.329s] creating ../../build/servo_dril_controller/servo_dril_controller.egg-info
+[3.359s] writing ../../build/servo_dril_controller/servo_dril_controller.egg-info/PKG-INFO
+[3.360s] writing dependency_links to ../../build/servo_dril_controller/servo_dril_controller.egg-info/dependency_links.txt
+[3.361s] writing entry points to ../../build/servo_dril_controller/servo_dril_controller.egg-info/entry_points.txt
+[3.362s] writing requirements to ../../build/servo_dril_controller/servo_dril_controller.egg-info/requires.txt
+[3.363s] writing top-level names to ../../build/servo_dril_controller/servo_dril_controller.egg-info/top_level.txt
+[3.363s] writing manifest file '../../build/servo_dril_controller/servo_dril_controller.egg-info/SOURCES.txt'
+[3.427s] reading manifest file '../../build/servo_dril_controller/servo_dril_controller.egg-info/SOURCES.txt'
+[3.429s] writing manifest file '../../build/servo_dril_controller/servo_dril_controller.egg-info/SOURCES.txt'
+[3.430s] running build
+[3.430s] running build_py
+[3.431s] creating /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build
+[3.431s] creating /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build/lib
+[3.432s] creating /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build/lib/servo_dril_controller
+[3.433s] copying servo_dril_controller/servo_dril_node.py -> /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build/lib/servo_dril_controller
+[3.434s] copying servo_dril_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build/lib/servo_dril_controller
+[3.437s] running install
+[3.448s] running install_lib
+[3.483s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller
+[3.484s] copying /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build/lib/servo_dril_controller/servo_dril_node.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller
+[3.484s] copying /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build/lib/servo_dril_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller
+[3.489s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller/servo_dril_node.py to servo_dril_node.cpython-312.pyc
+[3.489s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller/__init__.py to __init__.cpython-312.pyc
+[3.489s] running install_data
+[3.489s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/ament_index
+[3.490s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/ament_index/resource_index
+[3.490s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/ament_index/resource_index/packages
+[3.490s] copying resource/servo_dril_controller -> /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/ament_index/resource_index/packages
+[3.491s] copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller
+[3.492s] creating /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/launch
+[3.493s] copying launch/joy_servo_dril.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/share/servo_dril_controller/launch
+[3.495s] running install_egg_info
+[3.527s] Copying ../../build/servo_dril_controller/servo_dril_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages/servo_dril_controller-0.0.1-py3.12.egg-info
+[3.529s] running install_scripts
+[3.761s] Installing servo_dril_node script to /home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/servo_dril_controller
+[3.763s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/install.log'
+[3.884s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/servo_dril_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/servo_dril_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/servo_dril_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/servo_dril_controller/install.log --single-version-externally-managed install_data

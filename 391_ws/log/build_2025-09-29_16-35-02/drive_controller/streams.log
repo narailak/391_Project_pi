@@ -1,0 +1,40 @@
+[2.851s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/drive_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drive_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/drive_controller/install.log --single-version-externally-managed install_data
+[3.412s] running egg_info
+[3.412s] creating ../../build/drive_controller/drive_controller.egg-info
+[3.438s] writing ../../build/drive_controller/drive_controller.egg-info/PKG-INFO
+[3.439s] writing dependency_links to ../../build/drive_controller/drive_controller.egg-info/dependency_links.txt
+[3.441s] writing entry points to ../../build/drive_controller/drive_controller.egg-info/entry_points.txt
+[3.441s] writing requirements to ../../build/drive_controller/drive_controller.egg-info/requires.txt
+[3.441s] writing top-level names to ../../build/drive_controller/drive_controller.egg-info/top_level.txt
+[3.441s] writing manifest file '../../build/drive_controller/drive_controller.egg-info/SOURCES.txt'
+[3.531s] reading manifest file '../../build/drive_controller/drive_controller.egg-info/SOURCES.txt'
+[3.533s] writing manifest file '../../build/drive_controller/drive_controller.egg-info/SOURCES.txt'
+[3.533s] running build
+[3.536s] running build_py
+[3.537s] creating /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build
+[3.537s] creating /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib
+[3.537s] creating /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib/drive_controller
+[3.539s] copying drive_controller/drive_node.py -> /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib/drive_controller
+[3.539s] copying drive_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib/drive_controller
+[3.539s] running install
+[3.562s] running install_lib
+[3.602s] creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller
+[3.603s] copying /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib/drive_controller/drive_node.py -> /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller
+[3.603s] copying /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build/lib/drive_controller/__init__.py -> /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller
+[3.607s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller/drive_node.py to drive_node.cpython-312.pyc
+[3.607s] byte-compiling /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller/__init__.py to __init__.cpython-312.pyc
+[3.608s] running install_data
+[3.608s] creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/ament_index
+[3.609s] creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/ament_index/resource_index
+[3.609s] creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/ament_index/resource_index/packages
+[3.610s] copying resource/drive_controller -> /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/ament_index/resource_index/packages
+[3.610s] copying package.xml -> /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller
+[3.611s] creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/launch
+[3.612s] copying launch/joy_drive.launch.py -> /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/launch
+[3.615s] creating /home/tpi5/391_Project_pi/391_ws/install/drive_controller/share/drive_controller/config
+[3.617s] running install_egg_info
+[3.669s] Copying ../../build/drive_controller/drive_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller-0.0.0-py3.12.egg-info
+[3.669s] running install_scripts
+[3.925s] Installing drive_node script to /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/drive_controller
+[3.925s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/drive_controller/install.log'
+[4.060s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/drive_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drive_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/drive_controller/install.log --single-version-externally-managed install_data

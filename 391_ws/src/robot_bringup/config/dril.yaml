@@ -1,4 +1,7 @@
-dril_node:
-ros__parameters:
-sub_topic: "/man/moter_dril"
-pub_rpm_topic: "/man/moter_dril/rpm"
+/**:
+  ros__parameters:
+    topic_cmd: /man/moter_dril          # ตามที่คุณตั้ง
+    pwm_pin: 4
+    in1_pin: 16
+    in2_pin: 17
+    rpm_pub: /man/moter_dril/rpm

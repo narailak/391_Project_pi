@@ -1,0 +1,6 @@
+/**:
+  ros__parameters:
+    topic_cmd: /man/cmd_gripper
+    servo_pin: 18              # หรือค่าที่คุณใช้จริง
+    min_deg: 0
+    max_deg: 180
