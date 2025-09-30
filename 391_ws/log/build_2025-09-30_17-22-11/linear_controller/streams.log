@@ -1,0 +1,21 @@
+[2.122s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/linear_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/linear_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/linear_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/linear_controller/install.log --single-version-externally-managed install_data
+[2.674s] running egg_info
+[2.703s] writing ../../build/linear_controller/linear_controller.egg-info/PKG-INFO
+[2.703s] writing dependency_links to ../../build/linear_controller/linear_controller.egg-info/dependency_links.txt
+[2.706s] writing entry points to ../../build/linear_controller/linear_controller.egg-info/entry_points.txt
+[2.707s] writing requirements to ../../build/linear_controller/linear_controller.egg-info/requires.txt
+[2.710s] writing top-level names to ../../build/linear_controller/linear_controller.egg-info/top_level.txt
+[2.771s] reading manifest file '../../build/linear_controller/linear_controller.egg-info/SOURCES.txt'
+[2.773s] writing manifest file '../../build/linear_controller/linear_controller.egg-info/SOURCES.txt'
+[2.774s] running build
+[2.774s] running build_py
+[2.774s] running install
+[2.785s] running install_lib
+[2.815s] running install_data
+[2.815s] running install_egg_info
+[2.846s] removing '/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller-0.0.0-py3.12.egg-info' (and everything under it)
+[2.846s] Copying ../../build/linear_controller/linear_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages/linear_controller-0.0.0-py3.12.egg-info
+[2.851s] running install_scripts
+[3.067s] Installing linear_node script to /home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/linear_controller
+[3.068s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/linear_controller/install.log'
+[3.219s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/linear_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/linear_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/linear_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/linear_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/linear_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/linear_controller/install.log --single-version-externally-managed install_data

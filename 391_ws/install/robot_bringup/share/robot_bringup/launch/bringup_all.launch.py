@@ -1,7 +1,9 @@
 from launch import LaunchDescription
-from launch.actions import GroupAction, IncludeLaunchDescription, SetEnvironmentVariable, OpaqueFunction, LogInfo
+from launch.actions import GroupAction, IncludeLaunchDescription, SetEnvironmentVariable, OpaqueFunction, LogInfo, DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node, PushRosNamespace
+from launch.conditions import IfCondition
+from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
 import os
 
@@ -13,9 +15,19 @@ def _pkg_exists(name: str) -> bool:
         return False
 
 def generate_launch_description():
+    # ---------- Namespace / Domain ----------
     ns = 'man'
     set_domain = SetEnvironmentVariable(name='ROS_DOMAIN_ID', value=os.environ.get('ROS_DOMAIN_ID', '96'))
 
+    # ---------- Flags ----------
+    enable_cams_arg = DeclareLaunchArgument(
+        'enable_cams',
+        default_value='false',
+        description='เปิด (true) / ปิด (false) กล้องและ MJPEG server'
+    )
+    enable_cams = LaunchConfiguration('enable_cams')
+
+    # ---------- Paths ----------
     pkg_share = get_package_share_directory('robot_bringup')
     def cfg(name: str):
         return os.path.join(pkg_share, 'config', name)
@@ -31,7 +43,7 @@ def generate_launch_description():
                 name='joy_node',
                 parameters=[{'dev': '/dev/input/js0', 'deadzone': 0.08}],
                 output='screen',
-                # บังคับ absolute /joy ให้กลายเป็นชื่อ relative "joy" => /man/joy
+                # บังคับ absolute /joy ให้เป็น relative "joy" => /man/joy
                 remappings=[('/joy', 'joy')],
             ))
         else:
@@ -99,21 +111,28 @@ def generate_launch_description():
         else:
             actions.append(LogInfo(msg='[bringup] skip tao_controller (not found)'))
 
-        # 9) cam_sensor / dual_cam_send_node
+        # 9) cam_sensor / dual_cam_send_node  (เปิดเมื่อ enable_cams==true)
         if _pkg_exists('cam_sensor'):
-            actions.append(Node(package='cam_sensor', executable='dual_cam_send_node', name='dual_cam_send_node',
-                                parameters=[cfg('cam.yaml')], output='screen'))
+            actions.append(Node(
+                package='cam_sensor',
+                executable='dual_cam_send_node',
+                name='dual_cam_send_node',
+                parameters=[cfg('cam.yaml')],
+                output='screen',
+                condition=IfCondition(enable_cams)
+            ))
         else:
             actions.append(LogInfo(msg='[bringup] skip cam_sensor (not found)'))
 
-        # 10) dual_cam_mjpeg_server (ผ่าน launch ของมันเอง)
+        # 10) dual_cam_mjpeg_server (เปิดเมื่อ enable_cams==true)
         if _pkg_exists('dual_cam_mjpeg_server'):
             actions.append(
                 IncludeLaunchDescription(
                     PythonLaunchDescriptionSource(
                         os.path.join(get_package_share_directory('dual_cam_mjpeg_server'),
                                      'launch', 'dual_cam_mjpeg.launch.py')
-                    )
+                    ),
+                    condition=IfCondition(enable_cams)
                 )
             )
         else:
@@ -121,4 +140,8 @@ def generate_launch_description():
 
         return [GroupAction(actions)]
 
-    return LaunchDescription([set_domain, OpaqueFunction(function=make_group)])
+    return LaunchDescription([
+        set_domain,
+        enable_cams_arg,
+        OpaqueFunction(function=make_group)
+    ])

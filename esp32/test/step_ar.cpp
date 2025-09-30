@@ -39,11 +39,11 @@ void setup() {
 void loop() {
   // เดินหน้า 6400 สเต็ป
   Serial.println("[INFO] Forward 6400 steps");
-  step(true, 6400, PULSE_HIGH_US, PULSE_LOW_US);
-  delay(500);
+  step(true, 3200, PULSE_HIGH_US, PULSE_LOW_US);
+  delay(3000);
 
   // ถอยหลัง 6400 สเต็ป
   Serial.println("[INFO] Backward 6400 steps");
-  step(false, 6400, PULSE_HIGH_US, PULSE_LOW_US);
+  step(false, 3200, PULSE_HIGH_US, PULSE_LOW_US);
   delay(500);
 }

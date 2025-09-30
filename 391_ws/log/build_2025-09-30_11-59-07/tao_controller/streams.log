@@ -1,0 +1,21 @@
+[2.270s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/tao_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/tao_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/tao_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/tao_controller/install.log --single-version-externally-managed install_data
+[2.757s] running egg_info
+[2.784s] writing ../../build/tao_controller/tao_controller.egg-info/PKG-INFO
+[2.785s] writing dependency_links to ../../build/tao_controller/tao_controller.egg-info/dependency_links.txt
+[2.785s] writing entry points to ../../build/tao_controller/tao_controller.egg-info/entry_points.txt
+[2.786s] writing requirements to ../../build/tao_controller/tao_controller.egg-info/requires.txt
+[2.787s] writing top-level names to ../../build/tao_controller/tao_controller.egg-info/top_level.txt
+[2.845s] reading manifest file '../../build/tao_controller/tao_controller.egg-info/SOURCES.txt'
+[2.846s] writing manifest file '../../build/tao_controller/tao_controller.egg-info/SOURCES.txt'
+[2.846s] running build
+[2.846s] running build_py
+[2.846s] running install
+[2.858s] running install_lib
+[2.892s] running install_data
+[2.892s] running install_egg_info
+[2.926s] removing '/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages/tao_controller-0.0.0-py3.12.egg-info' (and everything under it)
+[2.928s] Copying ../../build/tao_controller/tao_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages/tao_controller-0.0.0-py3.12.egg-info
+[2.929s] running install_scripts
+[3.161s] Installing tao_node script to /home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/tao_controller
+[3.162s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/tao_controller/install.log'
+[3.290s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/tao_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/tao_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/tao_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/tao_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/tao_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/tao_controller/install.log --single-version-externally-managed install_data

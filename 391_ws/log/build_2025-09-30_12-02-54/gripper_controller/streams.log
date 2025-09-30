@@ -1,0 +1,21 @@
+[3.259s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/gripper_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gripper_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/install.log --single-version-externally-managed install_data
+[3.865s] running egg_info
+[3.923s] writing ../../build/gripper_controller/gripper_controller.egg-info/PKG-INFO
+[3.923s] writing dependency_links to ../../build/gripper_controller/gripper_controller.egg-info/dependency_links.txt
+[3.927s] writing entry points to ../../build/gripper_controller/gripper_controller.egg-info/entry_points.txt
+[3.927s] writing requirements to ../../build/gripper_controller/gripper_controller.egg-info/requires.txt
+[3.927s] writing top-level names to ../../build/gripper_controller/gripper_controller.egg-info/top_level.txt
+[4.066s] reading manifest file '../../build/gripper_controller/gripper_controller.egg-info/SOURCES.txt'
+[4.068s] writing manifest file '../../build/gripper_controller/gripper_controller.egg-info/SOURCES.txt'
+[4.069s] running build
+[4.069s] running build_py
+[4.070s] running install
+[4.083s] running install_lib
+[4.121s] running install_data
+[4.123s] running install_egg_info
+[4.166s] removing '/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller-0.0.0-py3.12.egg-info' (and everything under it)
+[4.168s] Copying ../../build/gripper_controller/gripper_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages/gripper_controller-0.0.0-py3.12.egg-info
+[4.168s] running install_scripts
+[4.655s] Installing gripper_node script to /home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/gripper_controller
+[4.655s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/install.log'
+[5.006s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/gripper_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/gripper_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/gripper_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gripper_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/gripper_controller/install.log --single-version-externally-managed install_data

@@ -7,10 +7,10 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument('cam0', default_value='0'),
         DeclareLaunchArgument('cam1', default_value='2'),
-        DeclareLaunchArgument('width', default_value='640'),
-        DeclareLaunchArgument('height', default_value='480'),
+        DeclareLaunchArgument('width', default_value='480'),
+        DeclareLaunchArgument('height', default_value='360'),
         DeclareLaunchArgument('fps', default_value='30'),
-        DeclareLaunchArgument('jpeg_q', default_value='60'),
+        DeclareLaunchArgument('jpeg_q', default_value='40'),
         DeclareLaunchArgument('http_host', default_value='0.0.0.0'),
         DeclareLaunchArgument('http_port', default_value='8080'),
 

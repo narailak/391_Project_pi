@@ -35,7 +35,7 @@ class JoyTao(Node):
         super().__init__("joy_tao")
 
         # ---------- Parameters ----------
-        self.declare_parameter('n', 4) # จำนวน ที่เอาไปหาร 360
+        self.declare_parameter('n', 2) # จำนวน ที่เอาไปหาร 360
         self.declare_parameter('y_button_index', 3)      # Xbox layout: Y=3
         self.declare_parameter('debounce_time', 0.25)     # วินาที
         self.declare_parameter('publish_initial_zero', True)

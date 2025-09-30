@@ -1,0 +1,20 @@
+[2.949s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/dril_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dril_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dril_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/dril_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/dril_controller/install.log --single-version-externally-managed install_data
+[3.482s] running egg_info
+[3.537s] writing ../../build/dril_controller/dril_controller.egg-info/PKG-INFO
+[3.546s] writing dependency_links to ../../build/dril_controller/dril_controller.egg-info/dependency_links.txt
+[3.555s] writing entry points to ../../build/dril_controller/dril_controller.egg-info/entry_points.txt
+[3.568s] writing requirements to ../../build/dril_controller/dril_controller.egg-info/requires.txt
+[3.572s] writing top-level names to ../../build/dril_controller/dril_controller.egg-info/top_level.txt
+[3.635s] reading manifest file '../../build/dril_controller/dril_controller.egg-info/SOURCES.txt'
+[3.636s] writing manifest file '../../build/dril_controller/dril_controller.egg-info/SOURCES.txt'
+[3.642s] running build
+[3.642s] running build_py
+[3.642s] running install
+[3.652s] running install_lib
+[3.679s] running install_data
+[3.679s] running install_egg_info
+[3.710s] removing '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages/dril_controller-0.0.0-py3.12.egg-info' (and everything under it)
+[3.711s] Copying ../../build/dril_controller/dril_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages/dril_controller-0.0.0-py3.12.egg-info
+[3.713s] running install_scripts
+[3.837s] error: [Errno 2] No such file or directory: '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages/dual_cam_mjpeg_server-0.1.0-py3.12.egg-info/PKG-INFO'
+[4.015s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/dril_controller' returned '1': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dril_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dril_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/dril_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/dril_controller/install.log --single-version-externally-managed install_data

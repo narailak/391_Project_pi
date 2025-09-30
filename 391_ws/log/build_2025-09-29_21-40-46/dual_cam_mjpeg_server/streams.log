@@ -1,0 +1,21 @@
+[4.606s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/dual_cam_mjpeg_server': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dual_cam_mjpeg_server build --build-base /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/build install --record /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/install.log --single-version-externally-managed install_data
+[6.210s] running egg_info
+[6.283s] writing ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/PKG-INFO
+[6.284s] writing dependency_links to ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/dependency_links.txt
+[6.293s] writing entry points to ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/entry_points.txt
+[6.294s] writing requirements to ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/requires.txt
+[6.294s] writing top-level names to ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/top_level.txt
+[6.480s] reading manifest file '../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/SOURCES.txt'
+[6.481s] writing manifest file '../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/SOURCES.txt'
+[6.481s] running build
+[6.481s] running build_py
+[6.486s] running install
+[6.509s] running install_lib
+[6.582s] running install_data
+[6.582s] running install_egg_info
+[6.677s] removing '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages/dual_cam_mjpeg_server-0.1.0-py3.12.egg-info' (and everything under it)
+[6.677s] Copying ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info to /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages/dual_cam_mjpeg_server-0.1.0-py3.12.egg-info
+[6.687s] running install_scripts
+[7.007s] Installing dual_cam_mjpeg_node script to /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/dual_cam_mjpeg_server
+[7.013s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/install.log'
+[7.631s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/dual_cam_mjpeg_server' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dual_cam_mjpeg_server build --build-base /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/build install --record /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/install.log --single-version-externally-managed install_data

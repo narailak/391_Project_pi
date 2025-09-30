@@ -5,7 +5,7 @@
 ROS2 node: gripper_node
 - Subscribes: /man/joy (sensor_msgs/Joy)
 - Publishes:  /man/cmd_gripper (std_msgs/Int16)
-- Behavior:   Press X to toggle between 40 and 0 (publish on rising-edge only)
+- Behavior:   Press X to toggle between  and 0 (publish on rising-edge only)
 - Debounce:   rising-edge + time-based
 """
 
