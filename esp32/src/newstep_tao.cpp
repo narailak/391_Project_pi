@@ -1,8 +1,9 @@
 // ================= ESP32 + micro-ROS Stepper (TB6600)
 // Absolute Angle via /man/cmd_tao (std_msgs/Int16, deg 0..359)
-// - ไปถึงเป้าหมายแล้ว "หยุดนิ่ง" ไม่เดินต่อเอง
-// - Debounce คำสั่ง, Deadband กัน jitter, กันคำสั่งซ้ำ
-// - ส่งฟีดแบ็กมุมปัจจุบัน Int16 ที่ /man/cmd_tao/fb ทุก ~100 ms
+// - Debounce/Deadband กัน jitter, กันคำสั่งซ้ำ
+// - ไปถึงเป้าหมายแล้ว "หยุดนิ่ง", ไม่เดินต่อเอง
+// - ปลด ENA อัตโนมัติหลังถึงเป้า/ว่างนาน (มอเตอร์เย็นลง)
+// - ส่งฟีดแบ็กมุม (Int16) ที่ /man/cmd_tao/fb ทุก ~100 ms
 // ----------------------------------------------------------------
 
 #include <Arduino.h>
@@ -17,10 +18,10 @@
 #include "soc/gpio_reg.h"
 
 // ---------------- Pins (ปรับตามการต่อจริง) ----------------
-static const int  PIN_PUL = 25;   // TB6600: PUL+ -> GPIO25,  PUL- -> GND
-static const int  PIN_DIR = 26;   // TB6600: DIR+ -> GPIO26,  DIR- -> GND
-static const int  PIN_ENA = 27;   // TB6600: ENA+ -> GPIO27, ENA- -> GND (ส่วนใหญ่ Active-LOW)
-static const bool ENA_ACTIVE_LOW = true; // TB6600 ทั่วไป LOW=Enable, HIGH=Disable
+static const int  PIN_PUL = 25;   
+static const int  PIN_DIR = 26;   
+static const int  PIN_ENA = 27;   
+static const bool ENA_ACTIVE_LOW = true; // TB6600 ทั่วไป: LOW=Enable, HIGH=Disable
 
 // ---------------- Stepper configuration ----------------
 static const int   BASE_STEPS_PER_REV = 200;  // 1.8° => 200 steps/rev
@@ -30,17 +31,18 @@ static const float GEAR_RATIO         = 1.0f;
 static const long  STEPS_PER_REV = (long)(BASE_STEPS_PER_REV * MICROSTEP * GEAR_RATIO);
 
 // ---------------- Speed (เริ่มแบบปลอดภัย) ----------------
-// ความถี่พัลส์ ~ 1/(2*HALF_PERIOD_US)
-// 100us ~ 5 kHz (แนะนำเริ่มช้า ๆ เพื่อตัดปัญหาหลุดสเต็ปจากเร่งทันที)
-static volatile uint32_t HALF_PERIOD_US = 100;
-
-// ---------------- Behavior switches ----------------
-static const bool HOLD_TORQUE = true;  // true = ค้างแรงบิดหลังถึงเป้า, false = ปล่อย ENA
+// ความถี่พัลส์ ~ 1/(2*HALF_PERIOD_US) ; 100us ~ 5kHz
+static volatile uint32_t HALF_PERIOD_US = 300;  //  ถ้าอยากให้ช้า/เร็ว: ปรับค่านี้ มากทำให้ช้า
 
 // ---------------- Input filtering ----------------
-static const uint32_t CMD_DEBOUNCE_MS           = 120;  // ไม่รับคำสั่งถี่กว่า X ms
-static const int      CMD_MIN_DELTA_DEG         = 2;    // ค่าที่ต่างจากอันก่อนหน้า < นี้ = เมิน (กัน jitter)
-static const int      CMD_DEADBAND_TO_TARGET_DEG= 1;    // ใกล้เป้าหมายเดิม <= นี้ = ถือว่าเท่าเดิม
+static const uint32_t CMD_DEBOUNCE_MS            = 120; // ไม่รับคำสั่งถี่กว่า X ms
+static const int      CMD_MIN_DELTA_DEG          = 2;   // ต่างจากอันก่อน < นี้ = เมิน (กัน jitter)
+static const int      CMD_DEADBAND_TO_TARGET_DEG = 1;   // ใกล้เป้าหมายเดิม ≤ นี้ = ถือว่าเดิม
+
+// ---------------- ENA / Thermal behavior ----------------
+static const bool     HOLD_TORQUE = false;      // false = ปลด ENA หลังถึงเป้า (ลดความร้อน)
+static const uint32_t HOLD_AFTER_REACH_MS = 500;  // ปล่อย ENA หลังถึงเป้าเท่านี้ (ms)
+static const uint32_t IDLE_SLEEP_MS       = 5000; // ว่างนานขนาดนี้ก็ปลด ENA (ms)
 
 // ---------------- micro-ROS boilerplate ----------------
 #define RCCHECK(fn) do { rcl_ret_t rc=(fn); if(rc!=RCL_RET_OK){ while(1){ delay(100); } } } while(0)
@@ -71,9 +73,15 @@ static volatile long    steps_remaining = 0;         // เท่ากับ 0 
 static volatile long    current_steps   = 0;         // ตำแหน่งปัจจุบัน (step, อ้าง 0=0°)
 static volatile long    target_steps_abs = LONG_MIN; // เป้าหมายล่าสุด (abs step)
 
-// สำหรับ debounce
+// Debounce / processed
 static uint32_t         last_cmd_ms = 0;
-static int              last_cmd_deg_processed = -999; // เก็บมุมที่ "รับไปประมวลผลแล้ว"
+static int              last_cmd_deg_processed = -999; // มุมล่าสุดที่รับไปประมวลผลแล้ว
+
+// ENA / activity tracking
+static volatile bool    reach_event = false;   // ตั้งธงเมื่อถึงเป้าหมาย (ตั้งใน ISR)
+static bool             driver_is_enabled = false;
+static uint32_t         t_reach = 0;          // เวลาเมื่อถึงเป้าล่าสุด
+static uint32_t         t_last_activity = 0;  // time of last command/move
 
 hw_timer_t* tmr = nullptr;
 portMUX_TYPE spinlock = portMUX_INITIALIZER_UNLOCKED;
@@ -83,6 +91,7 @@ static inline void enable_driver(bool enable)
 {
   if (ENA_ACTIVE_LOW) digitalWrite(PIN_ENA, enable ? LOW : HIGH);
   else                digitalWrite(PIN_ENA, enable ? HIGH : LOW);
+  driver_is_enabled = enable;
 }
 
 static inline void set_direction(int8_t dir)
@@ -101,8 +110,6 @@ static inline int16_t angle_int_from_steps(long s)
 {
   long steps = s % STEPS_PER_REV;
   if (steps < 0) steps += STEPS_PER_REV;
-  // ใช้ integer math: floor((deg*steps)/360) แบบกลับกัน
-  // deg = round(steps*360/SPR) ก็ได้ แต่เพื่อความนิ่งใช้ปัดใกล้เคียง
   float degf = ( (float)steps * 360.0f ) / (float)STEPS_PER_REV;
   int16_t a = (int16_t)lroundf(degf);
   if (a >= 360) a -= 360;
@@ -116,11 +123,9 @@ static inline void publish_angle_now()
   RCSOFTCHECK(rcl_publish(&pub_fb, &fb_msg, NULL));
 }
 
-// แปลงองศา -> สเต็ป (ใช้ integer math เพื่อตัด round แล้วเด้งรอบ)
+// แปลงองศา -> สเต็ป (integer math เพื่อตัด wrap ใกล้ 360)
 static inline long steps_from_degrees_int(int deg)
 {
-  // floor((deg * STEPS_PER_REV) / 360.0) โดยใช้เลขเต็ม:
-  // เพิ่ม 0.5 เพื่อเอียงไปทางใกล้สุดก็ได้ แต่เลือก floor เพื่อตัดปัญหา wrap ใกล้ 360
   deg = normalize_deg(deg);
   long num = (long)deg * (long)STEPS_PER_REV;
   long s   = num / 360;        // floor
@@ -149,7 +154,7 @@ static inline long get_current_steps_atomic()
   return s;
 }
 
-// สั่งให้ขยับ delta_steps (relative) ด้วย ISR
+// สั่งให้ขยับ delta_steps (relative) + เปิด ENA ตอนเริ่ม + บันทึก activity
 static inline void start_move_steps(long delta_steps)
 {
   if (delta_steps == 0) {
@@ -157,20 +162,23 @@ static inline void start_move_steps(long delta_steps)
     RUN_DIR = 0;
     steps_remaining = 0;
     portEXIT_CRITICAL_ISR(&spinlock);
-    if (!HOLD_TORQUE) enable_driver(false);
+    // ไม่ปลด ENA ทันที ให้ลูปเป็นผู้ตัดสินใจตามเวลา
     return;
   }
 
-  int8_t dir = (delta_steps > 0) ? 1 : -1; // delta > 0 => CW
+  int8_t dir = (delta_steps > 0) ? 1 : -1;
   long   todo = labs(delta_steps);
 
   set_direction(dir);
-  enable_driver(true);
+  if (!driver_is_enabled) enable_driver(true);
 
   portENTER_CRITICAL_ISR(&spinlock);
   RUN_DIR = dir;
   steps_remaining = todo;
   portEXIT_CRITICAL_ISR(&spinlock);
+
+  t_last_activity = millis();
+  t_reach = 0;  // clear
 }
 
 // ระยะเชิงมุมแบบวงกลม (0..180)
@@ -180,30 +188,24 @@ static inline int circular_abs_deg_diff(int a, int b)
   return (da > 180) ? (360 - da) : da;
 }
 
-// ไปที่องศา absolute (0..359) แบบเลือกทางสั้นสุด + Debounce + Deadband + กันสั่งซ้ำ
+// ไปที่องศา absolute (0..359) — Debounce/Deadband/กันซ้ำ
 static void go_to_degree_filtered(int deg_in)
 {
   const uint32_t now = millis();
   const int      d   = normalize_deg(deg_in);
 
   // 1) Debounce เวลา
-  if (now - last_cmd_ms < CMD_DEBOUNCE_MS) {
-    return;
-  }
+  if (now - last_cmd_ms < CMD_DEBOUNCE_MS) return;
 
-  // 2) เมินค่าเป้าหมายที่ใกล้กับอันก่อนหน้ามาก ๆ (กัน jitter input)
+  // 2) เมินค่าใกล้อันก่อนมาก ๆ (กัน jitter)
   if (last_cmd_deg_processed != -999) {
-    if (circular_abs_deg_diff(d, last_cmd_deg_processed) < CMD_MIN_DELTA_DEG) {
-      // ยังนับว่าเป็นค่าเดิม
-      return;
-    }
+    if (circular_abs_deg_diff(d, last_cmd_deg_processed) < CMD_MIN_DELTA_DEG) return;
   }
 
-  // 3) ถ้าใกล้ "เป้าหมายที่ตั้งไว้แล้ว" มาก ๆ ให้ snap เป็นค่าเดิม (กันเด้งไปมารอบ ๆ เป้า)
+  // 3) ถ้าใกล้เป้าหมายเดิมมาก ๆ ก็ถือว่าเดิม
   if (target_steps_abs != LONG_MIN) {
     int target_deg_now = angle_int_from_steps(target_steps_abs);
     if (circular_abs_deg_diff(d, target_deg_now) <= CMD_DEADBAND_TO_TARGET_DEG) {
-      // ถือว่ายังสั่งมุมเดิม
       last_cmd_deg_processed = target_deg_now;
       last_cmd_ms = now;
       return;
@@ -214,7 +216,7 @@ static void go_to_degree_filtered(int deg_in)
   long target_abs = steps_from_degrees_int(d);
   long cur        = get_current_steps_atomic();
 
-  // ถ้ากำลังไปเป้านี้อยู่และยังไม่ถึง -> เมินคำสั่งซ้ำ
+  // กำลังไปเป้าเดิมอยู่แล้ว -> เมิน
   if (target_steps_abs == target_abs && steps_remaining > 0) {
     last_cmd_deg_processed = d;
     last_cmd_ms = now;
@@ -234,6 +236,7 @@ static void go_to_degree_filtered(int deg_in)
 
   last_cmd_deg_processed = d;
   last_cmd_ms = now;
+  t_last_activity = now;
 }
 
 // ---------------- ISR (ฮาร์ดแวร์ไทเมอร์) ----------------
@@ -248,26 +251,24 @@ void IRAM_ATTR onTimer()
     return;
   }
 
-  // Toggle พิน PUL ด้วยเรจิสเตอร์ (ไวกว่า digitalWrite)
+  // Toggle พิน PUL (ไวกว่า digitalWrite)
   uint32_t mask = (1U << PIN_PUL);
   if (!pul_high) {
     REG_WRITE(GPIO_OUT_W1TS_REG, mask); // HIGH
     pul_high = true;
   } else {
-    REG_WRITE(GPIO_OUT_W1TC_REG, mask); // LOW (นับสเต็ปที่ขอบนี้)
+    REG_WRITE(GPIO_OUT_W1TC_REG, mask); // LOW (นับสเต็ปที่ขอบลง)
     pul_high = false;
 
-    // อัปเดตตัวนับ
     steps_remaining--;
     if (RUN_DIR == 1)      current_steps++;
     else if (RUN_DIR == -1) current_steps--;
 
-    // ถึงเป้าหมายแล้ว: หยุดนิ่ง
+    // ถึงเป้าหมายแล้ว: หยุดนิ่ง (ไม่ปลด ENA ใน ISR)
     if (steps_remaining <= 0) {
       RUN_DIR = 0;
-      // snap ให้ตรงเป้าหมาย (ลด error จากการปัดเศษ)
-      if (target_steps_abs != LONG_MIN) current_steps = target_steps_abs;
-      if (!HOLD_TORQUE) enable_driver(false);
+      if (target_steps_abs != LONG_MIN) current_steps = target_steps_abs; // snap
+      reach_event = true;  // แจ้งให้ loop จัดการเวลา/ปลด ENA
     }
   }
 
@@ -285,6 +286,9 @@ static void cmd_cb(const void* msgin)
 
   // ส่ง fb หนึ่งครั้งเมื่อรับคำสั่ง (หลังฟิลเตอร์แล้ว)
   publish_angle_now();
+
+  // บันทึก activity ของคำสั่ง
+  t_last_activity = millis();
 
   Serial.print("[CMD] in=");
   Serial.print(target_deg);
@@ -365,11 +369,12 @@ void setup()
 
   // เริ่มประกาศมุม 0°
   publish_angle_now();
+
+  t_last_activity = millis();
 }
 
 void loop()
 {
-  static uint32_t t_led = 0;
   switch(state){
     case WAITING_AGENT:
       EXECUTE_EVERY_N_MS(500,
@@ -392,12 +397,29 @@ void loop()
 
         // ส่งเฟีดแบ็กมุมเป็นระยะ (100 ms)
         EXECUTE_EVERY_N_MS(100, publish_angle_now(););
+
+        // --- จัดการ ENA ให้เย็นลง ---
+        if (reach_event) { reach_event = false; t_reach = millis(); }
+
+        bool idle_now = (RUN_DIR == 0 && steps_remaining == 0);
+
+        // ปล่อย ENA หลังถึงเป้า (รอให้นิ่งตาม HOLD_AFTER_REACH_MS)
+        if (!HOLD_TORQUE && idle_now && driver_is_enabled && t_reach != 0) {
+          if (millis() - t_reach >= HOLD_AFTER_REACH_MS) {
+            enable_driver(false);
+          }
+        }
+
+        // ถ้าว่างนานมาก ๆ ก็ปิด ENA ด้วย (กันร้อน)
+        if (idle_now && driver_is_enabled && (millis() - t_last_activity >= IDLE_SLEEP_MS)) {
+          enable_driver(false);
+        }
       }
       break;
 
     case AGENT_DISCONNECTED:
       destroyEntities();
-      // เพื่อความปลอดภัย: หยุดมอเตอร์เมื่อหลุด agent
+      // ความปลอดภัย: หยุดมอเตอร์และปลด ENA
       portENTER_CRITICAL_ISR(&spinlock);
       RUN_DIR = 0;
       steps_remaining = 0;
