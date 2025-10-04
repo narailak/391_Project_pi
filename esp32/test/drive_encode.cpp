@@ -1,4 +1,4 @@
-// =========================== main.cpp (ESP32 + micro-ROS, Skid-Steer + Odometry, VX_MAX/WZ_MAX + per-wheel topics) ===========================
+// =========================== main.cpp (ESP32 + micro-ROS, Differential, fixed pins) ===========================
 #include <Arduino.h>
 #include <Wire.h>
 #include <cmath>
@@ -12,41 +12,41 @@
 #include <rclc/executor.h>
 
 #include <std_msgs/msg/float32_multi_array.h>
-#include <std_msgs/msg/float32.h>
 #include <std_msgs/msg/int16_multi_array.h>
-#include <std_msgs/msg/int32_multi_array.h>
 #include <std_msgs/msg/int32.h>
 #include <geometry_msgs/msg/twist.h>
-#include <nav_msgs/msg/odometry.h>
 
 // ---------------- Driver ----------------
-// #define DRIVER_L298N
+//#define DRIVER_L298N
 #define DRIVER_CYTRON
 
 // ---------------- Drive model -----------
-#define DRIVE_SKID_STEER
+#define DRIVE_DIFF
 
 #define RCCHECK(fn) { rcl_ret_t rc=(fn); if(rc!=RCL_RET_OK){ rclErrorLoop(); } }
 #define RCSOFTCHECK(fn) { (void)(fn); }
 
-#define EXECUTE_EVERY_N_MS(MS, X) do{ static int64_t t=-1; if(t==-1)t=uxr_millis(); if(uxr_millis()-t>(MS)){ X; t=uxr_millis(); } }while(0)
+#define EXECUTE_EVERY_N_MS(MS, X) \
+do{ static int64_t t=-1; if(t==-1)t=uxr_millis(); if(uxr_millis()-t>(MS)){ X; t=uxr_millis(); } }while(0)
 
 // ---------------- Pins & PWM ------------
+// ซ้าย = M1(หน้า), M3(หลัง)  | ขวา = M2(หน้า), M4(หลัง)
 #define L_DIR1  32
-#define L_PWM1  33
-#define L_DIR2  25
-#define L_PWM2  26
+#define L_PWM1  33 // *** CHANGED to match schematic ***
+#define L_DIR2  26
+#define L_PWM2  25
 
 #define R_DIR1  22
 #define R_PWM1  23
 #define R_DIR2  19
 #define R_PWM2  21
 
-// Quadrature encoders (A/B)
+// Quadrature encoders
+// *** CHANGED A/B swapped to match schematic ***
 #define ENC1_A  35
 #define ENC1_B  34
-#define ENC3_A  36
-#define ENC3_B  39
+#define ENC3_A   4
+#define ENC3_B   5
 #define ENC2_A  27
 #define ENC2_B  14
 #define ENC4_A  16
@@ -60,59 +60,44 @@
 #define PWM_CH_M4 3
 
 // ---------------- Robot params ----------
-const float WHEEL_RADIUS = 0.060f;   // m
-const float TRACK_WIDTH  = 0.200f;   // m
-const float MAX_RPM      = 60.0f;    // motor limit
+const float WHEEL_RADIUS = 0.060f;     // m
+const float TRACK_WIDTH  = 0.300f;     // m (ระยะล้อซ้าย-ขวา)
+const float MAX_RPM      = 60.0f;      // ลิมิตรอบล้อ
 
-// Encoder model
-const int   TICKS_PER_REV = 600;     // ticks per wheel revolution (แก้ให้ตรงจริง)
-const float GEAR_RATIO    = 1.0f;    // wheel_rev = motor_rev / GEAR_RATIO
-const bool  ENC_USE_X4    = true;
+// ความปลอดภัย/ความนิ่มนวล
+const float     DEADBAND          = 0.02f;  // m/s / rad/s ใกล้ศูนย์ตัดทิ้ง
+const uint32_t  CMD_TIMEOUT_MS    = 300;    // ถ้าไม่มีคำสั่งนานเกินนี้จะหยุด
+const float     SLEW_RPM_PER_SEC  = 400.0f; // จำกัดอัตราการเปลี่ยนรอบ (RPM/s)
 
-// -------- Command limits (software) -----
-const float VX_MAX = 0.80f;          // m/s
-const float WZ_MAX = 3.80f;          // rad/s
+// ---------------- Encoder → Distance ----
+// ปรับตามค่าจริงจากการเทส “หมุน 1 รอบล้อ” แล้วดูผลต่างตัวนับ
+const int   TICKS_PER_WHEEL_REV = 3718; 
+const float M_PER_TICK = (2.0f * (float)M_PI * WHEEL_RADIUS) / (float)TICKS_PER_WHEEL_REV;
 
-// Smooth/safety
-const float DEADBAND           = 0.02f;
-const uint32_t CMD_TIMEOUT_MS  = 300;
-const float SLEW_RPM_PER_SEC   = 800.0f;
-
-// ---------------- Encoders --------------
+// ---------------- Encoders (raw counters) --------------
 volatile long encoder1_count=0, encoder2_count=0, encoder3_count=0, encoder4_count=0;
 
-// --------- Odom / per-wheel states ------
-float odom_x=0.0f, odom_y=0.0f, odom_yaw=0.0f;
-long  last_e1=0, last_e2=0, last_e3=0, last_e4=0;
-float distance_accum=0.0f; // total path length (m)
+// prev snapshot สำหรับแปลงเป็นระยะ/ความเร็ว
+volatile long prev_enc1 = 0, prev_enc2 = 0, prev_enc3 = 0, prev_enc4 = 0;
 
-// per-wheel accumulative distances (m)
-float s1_acc=0.0f, s2_acc=0.0f, s3_acc=0.0f, s4_acc=0.0f;
+// ระยะสะสมของล้อ (เมตร)
+float wheel_m1 = 0.0f, wheel_m2 = 0.0f, wheel_m3 = 0.0f, wheel_m4 = 0.0f;
 
 // ---------------- ROS entities ----------
-rcl_publisher_t debug_motor_pub;     // Float32MultiArray (duty)
+rcl_publisher_t debug_motor_pub;     // Float32MultiArray (duty 4 ล้อ)
 std_msgs__msg__Float32MultiArray debug_motor_msg;
 
-rcl_publisher_t encoder_pub16;       // Int16MultiArray (legacy quick debug)
-std_msgs__msg__Int16MultiArray encoder_msg16;
-
-rcl_publisher_t raw_counts_pub;      // Int32MultiArray (e1..e4)
-std_msgs__msg__Int32MultiArray raw_counts_msg;
-
-rcl_publisher_t odom_pub;            // nav_msgs/Odometry
-nav_msgs__msg__Odometry odom_msg;
-
-rcl_publisher_t distance_pub;        // std_msgs/Float32 (total)
-std_msgs__msg__Float32 distance_msg;
-
-rcl_publisher_t wheel_dist4_pub;     // Float32MultiArray (s1..s4 accum)
-std_msgs__msg__Float32MultiArray wheel_dist4_msg;
-
-rcl_publisher_t wheel_vel4_pub;      // Float32MultiArray (v1..v4 instant m/s)
-std_msgs__msg__Float32MultiArray wheel_vel4_msg;
+rcl_publisher_t encoder_pub;         // Int16MultiArray (นับดิบ 16-bit wrap)
+std_msgs__msg__Int16MultiArray encoder_msg;
 
 rcl_publisher_t counter_pub;         // Int32
 std_msgs__msg__Int32 counter_msg;
+
+// ใหม่: ระยะสะสม (เมตร) และ ความเร็วล้อ (m/s)
+rcl_publisher_t wheel_m_pub;         // Float32MultiArray [m1,m2,m3,m4]
+rcl_publisher_t wheel_vel_pub;       // Float32MultiArray [v1,v2,v3,v4]
+std_msgs__msg__Float32MultiArray wheel_m_msg;
+std_msgs__msg__Float32MultiArray wheel_vel_msg;
 
 rcl_subscription_t cmd_sub;          // Twist /man/cmd_move
 geometry_msgs__msg__Twist cmd_msg;
@@ -125,6 +110,7 @@ rcl_node_t node;
 rcl_init_options_t init_options;
 
 enum { WAITING_AGENT, AGENT_AVAILABLE, AGENT_CONNECTED, AGENT_DISCONNECTED } state = WAITING_AGENT;
+unsigned long long time_offset = 0;
 
 // ---------------- Command state ----------
 volatile float cmd_vx = 0.0f;  // m/s
@@ -136,14 +122,12 @@ float m1_rpm=0, m2_rpm=0, m3_rpm=0, m4_rpm=0;
 float tgt_m1_rpm=0, tgt_m2_rpm=0, tgt_m3_rpm=0, tgt_m4_rpm=0;
 
 // ---------- Helpers ----------
-static inline uint8_t rpm_to_duty(float rpm){
+uint8_t rpm_to_duty(float rpm){
   float a = fabsf(rpm)/MAX_RPM; if(a>1)a=1;
   return (uint8_t)(a*255.0f);
 }
-static inline float clampf(float v, float lo, float hi){ return v<lo?lo:(v>hi?hi:v); }
-static inline float v_to_rpm(float v_mps){ return (v_mps / WHEEL_RADIUS) * 60.0f / (2.0f*(float)M_PI); }
-static inline float norm_angle(float a){ while(a >  M_PI) a-=2*M_PI; while(a < -M_PI) a+=2*M_PI; return a; }
-static inline float expo_curve(float u, float e){ float a = clampf(e, 0.0f, 1.0f); return (1.0f - a)*u + a*(u*u*u); }
+float clampf(float v, float lo, float hi){ return v<lo?lo:(v>hi?hi:v); }
+float v_to_rpm(float v_mps){ return (v_mps / WHEEL_RADIUS) * 60.0f / (2.0f*(float)M_PI); }
 
 // ---------- Enc ISR ----------
 void IRAM_ATTR encoder1_ISR(){ (digitalRead(ENC1_A)==digitalRead(ENC1_B))?encoder1_count++:encoder1_count--; }
@@ -164,16 +148,15 @@ bool createEntities();
 bool destroyEntities();
 void controlStep(float dt);
 void publishData();
-void computeAndPublishOdom(float dt);
 void controlCb(rcl_timer_t*, int64_t);
 void counterCb(rcl_timer_t*, int64_t);
 void twistCb(const void *msgin);
 
 // ======================= setup/loop ===============================================
-static void smartPinMode(int pin){
-  // GPIO 34..39 ไม่มี PULLUP ภายใน → ใช้ INPUT
-  if(pin>=34 && pin<=39) pinMode(pin, INPUT);
-  else                   pinMode(pin, INPUT_PULLUP);
+static inline void smartPinMode(int pin){
+  // GPIO 34..39 = input-only ไม่มี PULLUP ภายใน
+  if (pin>=34 && pin<=39) pinMode(pin, INPUT);
+  else                    pinMode(pin, INPUT_PULLUP);
 }
 
 void setup(){
@@ -203,6 +186,8 @@ void setup(){
   attachInterrupt(digitalPinToInterrupt(ENC2_A), encoder2_ISR, CHANGE);
   attachInterrupt(digitalPinToInterrupt(ENC3_A), encoder3_ISR, CHANGE);
   attachInterrupt(digitalPinToInterrupt(ENC4_A), encoder4_ISR, CHANGE);
+
+  Serial.println("ESP32 Differential + micro-ROS: /man/cmd_move -> encoders + distance/velocity out");
 }
 
 void loop(){
@@ -229,9 +214,7 @@ void controlCb(rcl_timer_t*, int64_t){
   uint32_t now = millis();
   float dt = (now - last_ms) / 1000.0f; if(dt<=0) dt = 0.02f;
   last_ms = now;
-
   controlStep(dt);
-  computeAndPublishOdom(dt);
   publishData();
 }
 
@@ -243,23 +226,10 @@ void counterCb(rcl_timer_t*, int64_t){
 void twistCb(const void *msgin){
   const auto *m = (const geometry_msgs__msg__Twist*)msgin;
 
-  float vx = (float)m->linear.x;   // m/s
-  float wz = (float)m->angular.z;  // rad/s
+  float vx = (float)m->linear.x;   // เดินหน้า/ถอยหลัง (m/s)
+  float wz = (float)m->angular.z;  // หมุน (rad/s)
 
-  // gain for steering input
-  wz *= 8.0f;
-
-  // clamp & expo
-  vx = clampf(vx, -VX_MAX, VX_MAX);
-  wz = clampf(wz, -WZ_MAX, WZ_MAX);
-
-  vx = VX_MAX * expo_curve(vx / VX_MAX, 0.30f);
-  wz = WZ_MAX * expo_curve(wz / WZ_MAX, 0.50f);
-
-  // reduce forward speed when turning hard
-  float turn_mix = 1.0f - 0.5f * (fabsf(wz)/WZ_MAX);
-  vx *= clampf(turn_mix, 0.5f, 1.0f);
-
+  // deadband
   if (fabsf(vx) < DEADBAND) vx = 0.0f;
   if (fabsf(wz) < DEADBAND) wz = 0.0f;
 
@@ -272,66 +242,63 @@ void twistCb(const void *msgin){
 bool createEntities(){
   allocator = rcl_get_default_allocator();
 
-  // messages (allocate arrays)
   debug_motor_msg.data.capacity = 4; debug_motor_msg.data.size = 4;
   debug_motor_msg.data.data = (float*)malloc(4*sizeof(float));
 
-  encoder_msg16.data.capacity = 4; encoder_msg16.data.size = 4;
-  encoder_msg16.data.data = (int16_t*)malloc(4*sizeof(int16_t));
+  encoder_msg.data.capacity = 4; encoder_msg.data.size = 4;
+  encoder_msg.data.data = (int16_t*)malloc(4*sizeof(int16_t));
 
-  raw_counts_msg.data.capacity = 4; raw_counts_msg.data.size = 4;
-  raw_counts_msg.data.data = (int32_t*)malloc(4*sizeof(int32_t));
+  // ใหม่: บัฟเฟอร์ระยะสะสม + ความเร็วล้อ
+  wheel_m_msg.data.capacity = 4; wheel_m_msg.data.size = 4;
+  wheel_m_msg.data.data = (float*)malloc(4 * sizeof(float));
+  wheel_vel_msg.data.capacity = 4; wheel_vel_msg.data.size = 4;
+  wheel_vel_msg.data.data = (float*)malloc(4 * sizeof(float));
 
-  wheel_dist4_msg.data.capacity = 4; wheel_dist4_msg.data.size = 4;
-  wheel_dist4_msg.data.data = (float*)malloc(4*sizeof(float));
-
-  wheel_vel4_msg.data.capacity = 4; wheel_vel4_msg.data.size = 4;
-  wheel_vel4_msg.data.data = (float*)malloc(4*sizeof(float));
-
-  std_msgs__msg__Float32__init(&distance_msg);
   std_msgs__msg__Int32__init(&counter_msg);
   geometry_msgs__msg__Twist__init(&cmd_msg);
-  nav_msgs__msg__Odometry__init(&odom_msg);
 
-  // init node
   init_options = rcl_get_zero_initialized_init_options();
   RCCHECK(rcl_init_options_init(&init_options, allocator));
-  RCCHECK(rcl_init_options_set_domain_id(&init_options, 96));   // ให้ตรงกับฝั่ง Pi
+  RCCHECK(rcl_init_options_set_domain_id(&init_options, 96)); // ให้ตรงกับฝั่ง Pi
 
   RCCHECK(rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator));
-  RCCHECK(rclc_node_init_default(&node, "esp32_skid_controller", "", &support));
+  RCCHECK(rclc_node_init_default(&node, "esp32_diff_controller", "", &support));
 
-  // publishers
-  RCCHECK(rclc_publisher_init_best_effort(&debug_motor_pub, &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray), "/motor_debug/duty"));
+  RCCHECK(rclc_publisher_init_best_effort(
+    &debug_motor_pub, &node,
+    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray),
+    "/motor_debug/duty"));
 
-  RCCHECK(rclc_publisher_init_best_effort(&encoder_pub16, &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int16MultiArray), "/motor_feedback/encoders16"));
+  RCCHECK(rclc_publisher_init_best_effort(
+    &encoder_pub, &node,
+    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int16MultiArray),
+    "/motor_feedback/encoders"));
 
-  RCCHECK(rclc_publisher_init_best_effort(&raw_counts_pub, &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int32MultiArray), "/encoders/raw_counts"));
+  // ใหม่: ระยะสะสมล้อ (เมตร)
+  RCCHECK(rclc_publisher_init_best_effort(
+    &wheel_m_pub, &node,
+    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray),
+    "/motor_feedback/wheel_m"));
 
-  RCCHECK(rclc_publisher_init_best_effort(&odom_pub, &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(nav_msgs, msg, Odometry), "/wheel_odom"));
+  // ใหม่: ความเร็วล้อ (m/s)
+  RCCHECK(rclc_publisher_init_best_effort(
+    &wheel_vel_pub, &node,
+    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray),
+    "/motor_feedback/wheel_vel"));
 
-  RCCHECK(rclc_publisher_init_best_effort(&distance_pub, &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "/wheel_distance"));
+  RCCHECK(rclc_publisher_init_best_effort(
+    &counter_pub, &node,
+    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int32),
+    "/esp32/debug/counter"));
 
-  RCCHECK(rclc_publisher_init_best_effort(&wheel_dist4_pub, &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray), "/wheel_distance_per_wheel"));
+  RCCHECK(rclc_subscription_init_default(
+    &cmd_sub, &node,
+    ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist),
+    "/man/cmd_move"));
 
-  RCCHECK(rclc_publisher_init_best_effort(&wheel_vel4_pub, &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray), "/wheel_velocity_per_wheel"));
-
-  // subscriber
-  RCCHECK(rclc_subscription_init_default(&cmd_sub, &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), "/man/cmd_move"));
-
-  // timers
-  RCCHECK(rclc_timer_init_default(&control_timer, &support, RCL_MS_TO_NS(20), controlCb));    // 50 Hz
+  RCCHECK(rclc_timer_init_default(&control_timer, &support, RCL_MS_TO_NS(20), controlCb)); // 50 Hz
   RCCHECK(rclc_timer_init_default(&counter_timer, &support, RCL_MS_TO_NS(1000), counterCb));
 
-  // executor
   executor = rclc_executor_get_zero_initialized_executor();
   RCCHECK(rclc_executor_init(&executor, &support.context, 3, &allocator));
   RCCHECK(rclc_executor_add_subscription(&executor, &cmd_sub, &cmd_msg, &twistCb, ON_NEW_DATA));
@@ -340,8 +307,13 @@ bool createEntities(){
 
   syncTime();
   last_cmd_ms = millis();
-  last_e1 = encoder1_count; last_e2 = encoder2_count;
-  last_e3 = encoder3_count; last_e4 = encoder4_count;
+
+  // ป้องกันกระโดดเฟรมแรก: ให้ prev_* = ค่าเริ่มปัจจุบัน
+  prev_enc1 = encoder1_count;
+  prev_enc2 = encoder2_count;
+  prev_enc3 = encoder3_count;
+  prev_enc4 = encoder4_count;
+
   return true;
 }
 
@@ -350,12 +322,13 @@ bool destroyEntities(){
   (void)rmw_uros_set_context_entity_destroy_session_timeout(rmw_ctx, 0);
 
   rcl_publisher_fini(&debug_motor_pub, &node);
-  rcl_publisher_fini(&encoder_pub16, &node);
-  rcl_publisher_fini(&raw_counts_pub, &node);
-  rcl_publisher_fini(&odom_pub, &node);
-  rcl_publisher_fini(&distance_pub, &node);
-  rcl_publisher_fini(&wheel_dist4_pub, &node);
-  rcl_publisher_fini(&wheel_vel4_pub, &node);
+  rcl_publisher_fini(&encoder_pub, &node);
+  rcl_publisher_fini(&counter_pub, &node);
+
+  // ใหม่: ปล่อย publisher ระยะ/ความเร็ว
+  rcl_publisher_fini(&wheel_m_pub, &node);
+  rcl_publisher_fini(&wheel_vel_pub, &node);
+
   rcl_subscription_fini(&cmd_sub, &node);
   rcl_timer_fini(&control_timer);
   rcl_timer_fini(&counter_timer);
@@ -363,19 +336,21 @@ bool destroyEntities(){
   rcl_node_fini(&node);
   rclc_support_fini(&support);
 
-  if (debug_motor_msg.data.data) free(debug_motor_msg.data.data);
-  if (encoder_msg16.data.data) free(encoder_msg16.data.data);
-  if (raw_counts_msg.data.data) free(raw_counts_msg.data.data);
-  if (wheel_dist4_msg.data.data) free(wheel_dist4_msg.data.data);
-  if (wheel_vel4_msg.data.data) free(wheel_vel4_msg.data.data);
+  if (debug_motor_msg.data.data)   free(debug_motor_msg.data.data);
+  if (encoder_msg.data.data)       free(encoder_msg.data.data);
+  if (wheel_m_msg.data.data)       free(wheel_m_msg.data.data);
+  if (wheel_vel_msg.data.data)     free(wheel_vel_msg.data.data);
+
   return true;
 }
 
 // ======================= Control ================================================
 void controlStep(float dt){
+  // ถ้า timeout – หยุดรถ
   if (millis() - last_cmd_ms > CMD_TIMEOUT_MS){
     tgt_m1_rpm = tgt_m2_rpm = tgt_m3_rpm = tgt_m4_rpm = 0.0f;
   } else {
+    // Differential IK
     float vx = cmd_vx;   // m/s
     float wz = cmd_wz;   // rad/s
 
@@ -385,12 +360,14 @@ void controlStep(float dt){
     float rpm_left  = clampf(v_to_rpm(v_left),  -MAX_RPM, MAX_RPM);
     float rpm_right = clampf(v_to_rpm(v_right), -MAX_RPM, MAX_RPM);
 
-    tgt_m1_rpm = rpm_left;  // LF
-    tgt_m2_rpm = rpm_right; // RF
-    tgt_m3_rpm = rpm_left;  // LR
-    tgt_m4_rpm = rpm_right; // RR
+    // mapping: [M1=ซ้ายหน้า, M2=ขวาหน้า, M3=ซ้ายหลัง, M4=ขวาหลัง]
+    tgt_m1_rpm = rpm_left;
+    tgt_m2_rpm = rpm_right;
+    tgt_m3_rpm = rpm_left;
+    tgt_m4_rpm = rpm_right;
   }
 
+  // Slew-rate limit
   auto slew = [&](float cur, float tgt)->float{
     float max_step = SLEW_RPM_PER_SEC * dt;
     float diff = tgt - cur;
@@ -410,132 +387,79 @@ void controlStep(float dt){
   setMotor4(m4_rpm);
 }
 
-// ----- Encoder → Odometry & per-wheel topics -----
-void computeAndPublishOdom(float dt){
-  // read deltas
-  long e1 = encoder1_count, e2 = encoder2_count, e3 = encoder3_count, e4 = encoder4_count;
-  long d1 = e1 - last_e1, d2 = e2 - last_e2, d3 = e3 - last_e3, d4 = e4 - last_e4;
-  last_e1 = e1; last_e2 = e2; last_e3 = e3; last_e4 = e4;
-
-  // ticks per wheel revolution
-  const float ticks_per_rev_wheel = (ENC_USE_X4 ? 4.0f : 1.0f) * (float)TICKS_PER_REV / GEAR_RATIO;
-
-  auto ticks_to_s = [&](long dticks)->float{
-    return ( (2.0f * (float)M_PI * WHEEL_RADIUS) * ((float)dticks / ticks_per_rev_wheel) );
-  };
-
-  // per-wheel distances (this cycle)
-  float s1 = ticks_to_s(d1); // LF
-  float s2 = ticks_to_s(d2); // RF
-  float s3 = ticks_to_s(d3); // LR
-  float s4 = ticks_to_s(d4); // RR
-
-  // per-wheel instantaneous velocities (m/s)
-  float v1 = s1 / dt;
-  float v2 = s2 / dt;
-  float v3 = s3 / dt;
-  float v4 = s4 / dt;
-
-  // accumulate per-wheel distances
-  s1_acc += fabsf(s1);
-  s2_acc += fabsf(s2);
-  s3_acc += fabsf(s3);
-  s4_acc += fabsf(s4);
-
-  // side averages
-  float sL = 0.5f*(s1 + s3);
-  float sR = 0.5f*(s2 + s4);
-
-  // body velocity
-  float v  = (sR + sL) * 0.5f / dt;
-  float wz = (sR - sL) / TRACK_WIDTH / dt;
-
-  // integrate pose
-  float ds = (sR + sL)*0.5f;
-  if (fabsf(wz) < 1e-6f){
-    odom_x += ds * cosf(odom_yaw);
-    odom_y += ds * sinf(odom_yaw);
-  }else{
-    float r = v / wz;
-    float dtheta = (sR - sL) / TRACK_WIDTH;
-    odom_x += r * (sinf(odom_yaw + dtheta) - sinf(odom_yaw));
-    odom_y += r * (-cosf(odom_yaw + dtheta) + cosf(odom_yaw));
-    odom_yaw = norm_angle(odom_yaw + dtheta);
-  }
-  odom_yaw = norm_angle(odom_yaw);
-
-  // total distance
-  distance_accum += fabsf(ds);
-
-  // ---- publish odometry ----
-  odom_msg.header.frame_id.data = const_cast<char*>("odom");
-  odom_msg.child_frame_id.data  = const_cast<char*>("base_link");
-  odom_msg.header.stamp.sec     = (int32_t)(millis()/1000);
-  odom_msg.header.stamp.nanosec = (uint32_t)((millis()%1000)*1000000UL);
-
-  odom_msg.pose.pose.position.x = odom_x;
-  odom_msg.pose.pose.position.y = odom_y;
-  odom_msg.pose.pose.position.z = 0.0;
-
-  float cy = cosf(odom_yaw*0.5f), sy = sinf(odom_yaw*0.5f);
-  odom_msg.pose.pose.orientation.x = 0.0;
-  odom_msg.pose.pose.orientation.y = 0.0;
-  odom_msg.pose.pose.orientation.z = sy;
-  odom_msg.pose.pose.orientation.w = cy;
-
-  odom_msg.twist.twist.linear.x  = v;
-  odom_msg.twist.twist.linear.y  = 0.0;
-  odom_msg.twist.twist.angular.z = wz;
-
-  RCSOFTCHECK(rcl_publish(&odom_pub, &odom_msg, NULL));
-
-  // ---- publish total distance ----
-  distance_msg.data = distance_accum;
-  RCSOFTCHECK(rcl_publish(&distance_pub, &distance_msg, NULL));
-
-  // ---- publish per-wheel accum distances ----
-  wheel_dist4_msg.data.data[0] = s1_acc;
-  wheel_dist4_msg.data.data[1] = s2_acc;
-  wheel_dist4_msg.data.data[2] = s3_acc;
-  wheel_dist4_msg.data.data[3] = s4_acc;
-  RCSOFTCHECK(rcl_publish(&wheel_dist4_pub, &wheel_dist4_msg, NULL));
-
-  // ---- publish per-wheel velocities (m/s) ----
-  wheel_vel4_msg.data.data[0] = v1;
-  wheel_vel4_msg.data.data[1] = v2;
-  wheel_vel4_msg.data.data[2] = v3;
-  wheel_vel4_msg.data.data[3] = v4;
-  RCSOFTCHECK(rcl_publish(&wheel_vel4_pub, &wheel_vel4_msg, NULL));
-
-  // ---- publish raw counts (int32) ----
-  raw_counts_msg.data.data[0] = (int32_t)e1;
-  raw_counts_msg.data.data[1] = (int32_t)e2;
-  raw_counts_msg.data.data[2] = (int32_t)e3;
-  raw_counts_msg.data.data[3] = (int32_t)e4;
-  RCSOFTCHECK(rcl_publish(&raw_counts_pub, &raw_counts_msg, NULL));
-}
-
 void publishData(){
-  // motor duty (0..255) for quick debug
+  // ---------------- duty (0..255) ----------------
   debug_motor_msg.data.data[0] = rpm_to_duty(m1_rpm);
   debug_motor_msg.data.data[1] = rpm_to_duty(m2_rpm);
   debug_motor_msg.data.data[2] = rpm_to_duty(m3_rpm);
   debug_motor_msg.data.data[3] = rpm_to_duty(m4_rpm);
   RCSOFTCHECK(rcl_publish(&debug_motor_pub, &debug_motor_msg, NULL));
 
-  // legacy 16-bit encoder snapshot (kept for compatibility)
-  encoder_msg16.data.data[0] = (int16_t)(encoder1_count & 0xFFFF);
-  encoder_msg16.data.data[1] = (int16_t)(encoder2_count & 0xFFFF);
-  encoder_msg16.data.data[2] = (int16_t)(encoder3_count & 0xFFFF);
-  encoder_msg16.data.data[3] = (int16_t)(encoder4_count & 0xFFFF);
-  RCSOFTCHECK(rcl_publish(&encoder_pub16, &encoder_msg16, NULL));
+  // ---------------- encoders (int16 wrap สำหรับ debug เร็ว ๆ) ----------------
+  encoder_msg.data.data[0] = (int16_t)(encoder1_count & 0xFFFF);
+  encoder_msg.data.data[1] = (int16_t)(encoder2_count & 0xFFFF);
+  encoder_msg.data.data[2] = (int16_t)(encoder3_count & 0xFFFF);
+  encoder_msg.data.data[3] = (int16_t)(encoder4_count & 0xFFFF);
+  RCSOFTCHECK(rcl_publish(&encoder_pub, &encoder_msg, NULL));
+
+  // ---------------- ใหม่: ระยะสะสม (m) และความเร็วล้อ (m/s) ----------------
+  static uint32_t last_ms = 0;
+  uint32_t now_ms = millis();
+  float dt = (last_ms == 0) ? 0.02f : (now_ms - last_ms) / 1000.0f;
+  if (dt <= 0.0f) dt = 0.02f;
+  last_ms = now_ms;
+
+  // snapshot current counters
+  long c1 = encoder1_count;
+  long c2 = encoder2_count;
+  long c3 = encoder3_count;
+  long c4 = encoder4_count;
+
+  // delta ticks
+  long d1 = c1 - prev_enc1;
+  long d2 = c2 - prev_enc2;
+  long d3 = c3 - prev_enc3;
+  long d4 = c4 - prev_enc4;
+
+  // save for next round
+  prev_enc1 = c1; prev_enc2 = c2; prev_enc3 = c3; prev_enc4 = c4;
+
+  // delta distance (m)
+  float dm1 = (float)d1 * M_PER_TICK;
+  float dm2 = (float)d2 * M_PER_TICK;
+  float dm3 = (float)d3 * M_PER_TICK;
+  float dm4 = (float)d4 * M_PER_TICK;
+
+  // accumulate
+  wheel_m1 += dm1;  wheel_m2 += dm2;  wheel_m3 += dm3;  wheel_m4 += dm4;
+
+  // wheel velocities (m/s)
+  float v1 = dm1 / dt;
+  float v2 = dm2 / dt;
+  float v3 = dm3 / dt;
+  float v4 = dm4 / dt;
+
+  // publish
+  wheel_m_msg.data.data[0] = wheel_m1;
+  wheel_m_msg.data.data[1] = wheel_m2;
+  wheel_m_msg.data.data[2] = wheel_m3;
+  wheel_m_msg.data.data[3] = wheel_m4;
+  RCSOFTCHECK(rcl_publish(&wheel_m_pub, &wheel_m_msg, NULL));
+
+  wheel_vel_msg.data.data[0] = v1;
+  wheel_vel_msg.data.data[1] = v2;
+  wheel_vel_msg.data.data[2] = v3;
+  wheel_vel_msg.data.data[3] = v4;
+  RCSOFTCHECK(rcl_publish(&wheel_vel_pub, &wheel_vel_msg, NULL));
 }
 
 // ======================= Time & Error ===========================================
 void syncTime(){
   RCCHECK(rmw_uros_sync_session(10));
 }
+
 void rclErrorLoop(){
-  const int LED_PIN=13; pinMode(LED_PIN,OUTPUT);
+  const int LED_PIN=2; // LED บนบอร์ด
+  pinMode(LED_PIN,OUTPUT);
   while(true){ digitalWrite(LED_PIN,HIGH); delay(100); digitalWrite(LED_PIN,LOW); delay(100); }
 }

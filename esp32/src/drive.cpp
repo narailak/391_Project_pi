@@ -33,8 +33,8 @@
 #define L_DIR1  32
 #define L_PWM1  33
 // *** CHANGED to match schematic ***
-#define L_DIR2  25
-#define L_PWM2  26
+#define L_DIR2  26
+#define L_PWM2  25
 
 #define R_DIR1  22
 #define R_PWM1  23
@@ -45,11 +45,11 @@
 // *** CHANGED A/B swapped to match schematic ***
 #define ENC1_A  35
 #define ENC1_B  34
-#define ENC3_A  36
-#define ENC3_B  39
+#define ENC3_A  4
+#define ENC3_B  16
 #define ENC2_A  27
 #define ENC2_B  14
-#define ENC4_A  16
+#define ENC4_A  5
 #define ENC4_B  17
 
 #define PWM_FREQ        20000
@@ -61,13 +61,13 @@
 
 // ---------------- Robot params ----------
 const float WHEEL_RADIUS = 0.060f;     // m
-const float TRACK_WIDTH  = 0.200f;     // m (ระยะล้อซ้าย-ขวา)
-const float MAX_RPM      = 150.0f;     // ลิมิตรอบล้อ
+const float TRACK_WIDTH  = 0.300f;     // m (ระยะล้อซ้าย-ขวา)
+const float MAX_RPM      = 60.0f;     // ลิมิตรอบล้อ
 
 // ความปลอดภัย/ความนิ่มนวล
 const float DEADBAND           = 0.02f;     // m/s / rad/s ใกล้ศูนย์ตัดทิ้ง
 const uint32_t CMD_TIMEOUT_MS  = 300;       // ถ้าไม่มีคำสั่งนานเกินนี้จะหยุด
-const float SLEW_RPM_PER_SEC   = 400.0f;    // จำกัดอัตราการเปลี่ยนรอบ (RPM/s)
+const float SLEW_RPM_PER_SEC   = 200.0f;    // จำกัดอัตราการเปลี่ยนรอบ (RPM/s)
 
 // ---------------- Encoders --------------
 volatile long encoder1_count=0, encoder2_count=0, encoder3_count=0, encoder4_count=0;

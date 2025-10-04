@@ -27,6 +27,14 @@ def generate_launch_description():
     )
     enable_cams = LaunchConfiguration('enable_cams')
 
+    # --- rosbridge websocket port ---
+    rosbridge_port_arg = DeclareLaunchArgument(
+        'rosbridge_port',
+        default_value='9090',
+        description='WebSocket port for rosbridge_server'
+    )
+    rosbridge_port = LaunchConfiguration('rosbridge_port')
+
     # ---------- Paths ----------
     pkg_share = get_package_share_directory('robot_bringup')
     def cfg(name: str):
@@ -43,7 +51,6 @@ def generate_launch_description():
                 name='joy_node',
                 parameters=[{'dev': '/dev/input/js0', 'deadzone': 0.08}],
                 output='screen',
-                # บังคับ absolute /joy ให้เป็น relative "joy" => /man/joy
                 remappings=[('/joy', 'joy')],
             ))
         else:
@@ -57,57 +64,83 @@ def generate_launch_description():
                 name='joystick_node',
                 parameters=[cfg('joystick.yaml')],
                 output='screen',
-                remappings=[('cmd_vel', 'cmd_move')],
+                remappings=[
+                    ('cmd_vel', 'cmd_move'),
+                    ('/cmd_vel', 'cmd_move'),
+                    ('/joy', 'joy'),
+                    ('/man/joy', 'joy'),
+                ],
             ))
         else:
             actions.append(LogInfo(msg='[bringup] skip joystick_controller (not found)'))
 
         # 2) drive_controller / drive_node
         if _pkg_exists('drive_controller'):
-            actions.append(Node(package='drive_controller', executable='drive_node', name='drive_node',
-                                parameters=[cfg('drive.yaml')], output='screen'))
+            actions.append(Node(
+                package='drive_controller', executable='drive_node', name='drive_node',
+                parameters=[cfg('drive.yaml')], output='screen',
+                remappings=[('/joy', 'joy'), ('/man/joy', 'joy')],
+            ))
         else:
             actions.append(LogInfo(msg='[bringup] skip drive_controller (not found)'))
 
         # 3) linear_controller / linear_node
         if _pkg_exists('linear_controller'):
-            actions.append(Node(package='linear_controller', executable='linear_node', name='linear_node',
-                                parameters=[cfg('linear.yaml')], output='screen'))
+            actions.append(Node(
+                package='linear_controller', executable='linear_node', name='linear_node',
+                parameters=[cfg('linear.yaml')], output='screen',
+                remappings=[('/joy', 'joy'), ('/man/joy', 'joy')],
+            ))
         else:
             actions.append(LogInfo(msg='[bringup] skip linear_controller (not found)'))
 
         # 4) servo_switch180_controller / servo_switch180_node
         if _pkg_exists('servo_switch180_controller'):
-            actions.append(Node(package='servo_switch180_controller', executable='servo_switch180_node', name='servo_switch180_node',
-                                parameters=[cfg('servo_switch.yaml')], output='screen'))
+            actions.append(Node(
+                package='servo_switch180_controller', executable='servo_switch180_node', name='servo_switch180_node',
+                parameters=[cfg('servo_switch.yaml')], output='screen',
+                remappings=[('/joy', 'joy'), ('/man/joy', 'joy')],
+            ))
         else:
             actions.append(LogInfo(msg='[bringup] skip servo_switch180_controller (not found)'))
 
         # 5) gripper_controller / gripper_node
         if _pkg_exists('gripper_controller'):
-            actions.append(Node(package='gripper_controller', executable='gripper_node', name='gripper_node',
-                                parameters=[cfg('gripper.yaml')], output='screen'))
+            actions.append(Node(
+                package='gripper_controller', executable='gripper_node', name='gripper_node',
+                parameters=[cfg('gripper.yaml')], output='screen',
+                remappings=[('/joy', 'joy'), ('/man/joy', 'joy')],
+            ))
         else:
             actions.append(LogInfo(msg='[bringup] skip gripper_controller (not found)'))
 
         # 6) dril_controller / dril_node
         if _pkg_exists('dril_controller'):
-            actions.append(Node(package='dril_controller', executable='dril_node', name='dril_node',
-                                parameters=[cfg('dril.yaml')], output='screen'))
+            actions.append(Node(
+                package='dril_controller', executable='dril_node', name='dril_node',
+                parameters=[cfg('dril.yaml')], output='screen',
+                remappings=[('/joy', 'joy'), ('/man/joy', 'joy')],
+            ))
         else:
             actions.append(LogInfo(msg='[bringup] skip dril_controller (not found)'))
 
         # 7) servo_dril_controller / servo_dril_node
         if _pkg_exists('servo_dril_controller'):
-            actions.append(Node(package='servo_dril_controller', executable='servo_dril_node', name='servo_dril_node',
-                                parameters=[], output='screen'))
+            actions.append(Node(
+                package='servo_dril_controller', executable='servo_dril_node', name='servo_dril_node',
+                parameters=[], output='screen',
+                remappings=[('/joy', 'joy'), ('/man/joy', 'joy')],
+            ))
         else:
             actions.append(LogInfo(msg='[bringup] skip servo_dril_controller (not found)'))
 
         # 8) tao_controller / tao_node
         if _pkg_exists('tao_controller'):
-            actions.append(Node(package='tao_controller', executable='tao_node', name='tao_node',
-                                parameters=[], output='screen'))
+            actions.append(Node(
+                package='tao_controller', executable='tao_node', name='tao_node',
+                parameters=[], output='screen',
+                remappings=[('/joy', 'joy'), ('/man/joy', 'joy')],
+            ))
         else:
             actions.append(LogInfo(msg='[bringup] skip tao_controller (not found)'))
 
@@ -140,8 +173,33 @@ def generate_launch_description():
 
         return [GroupAction(actions)]
 
+    # --- Nodes ที่ควรอยู่นอก namespace (global): rosbridge & rosapi ---
+    outside_ns_nodes = []
+    if _pkg_exists('rosbridge_server'):
+        outside_ns_nodes.append(Node(
+            package='rosbridge_server',
+            executable='rosbridge_websocket',
+            name='rosbridge_websocket',
+            output='screen',
+            parameters=[{'port': LaunchConfiguration('rosbridge_port')}],  # default 9090
+        ))
+    else:
+        outside_ns_nodes.append(LogInfo(msg='[bringup] skip rosbridge_server (not found)'))
+
+    if _pkg_exists('rosapi'):
+        outside_ns_nodes.append(Node(
+            package='rosapi',
+            executable='rosapi_node',
+            name='rosapi',
+            output='screen',
+        ))
+    else:
+        outside_ns_nodes.append(LogInfo(msg='[bringup] skip rosapi (not found)'))
+
     return LaunchDescription([
         set_domain,
         enable_cams_arg,
-        OpaqueFunction(function=make_group)
+        rosbridge_port_arg,
+        OpaqueFunction(function=make_group),
+        *outside_ns_nodes,   # รันนอก namespace
     ])

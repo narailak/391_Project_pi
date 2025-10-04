@@ -23,7 +23,7 @@ class JoyDril(Node):
         self.declare_parameter('joy_topic', '/man/joy')
         self.declare_parameter('pub_topic', '/man/moter_dril')
         self.declare_parameter('a_button_index', 0)   # ส่วนใหญ่ XInput: A = index 0
-        self.declare_parameter('on_value', 50)
+        self.declare_parameter('on_value', 100)
         self.declare_parameter('off_value', 0)
         self.declare_parameter('publish_on_change_only', True)  # ลดสแปมบนบัส
 

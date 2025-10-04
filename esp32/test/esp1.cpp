@@ -28,8 +28,8 @@
 // ---------------- DC Motor Pins & PWM (updated) ----------------
 #define L_DIR1  32
 #define L_PWM1  33
-#define L_DIR2  18    // moved from 26
-#define L_PWM2  13    // moved from 25
+#define L_DIR2  26
+#define L_PWM2  25
 #define R_DIR1  22
 #define R_PWM1  23
 #define R_DIR2  19
@@ -61,7 +61,7 @@ const float MAX_RPM      = 60.0f;
 
 const float DEADBAND           = 0.02f;
 const uint32_t CMD_TIMEOUT_MS  = 300;
-const float SLEW_RPM_PER_SEC   = 400.0f;
+const float SLEW_RPM_PER_SEC   = 200.0f;
 
 // ---------------- Stepper pins (25/26/27) ----------------
 static const int PIN_PUL = 25;

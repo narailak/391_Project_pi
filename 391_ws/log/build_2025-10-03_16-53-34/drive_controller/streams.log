@@ -1,0 +1,21 @@
+[8.655s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/drive_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drive_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/drive_controller/install.log --single-version-externally-managed install_data
+[9.468s] running egg_info
+[9.620s] writing ../../build/drive_controller/drive_controller.egg-info/PKG-INFO
+[9.620s] writing dependency_links to ../../build/drive_controller/drive_controller.egg-info/dependency_links.txt
+[9.620s] writing entry points to ../../build/drive_controller/drive_controller.egg-info/entry_points.txt
+[9.621s] writing requirements to ../../build/drive_controller/drive_controller.egg-info/requires.txt
+[9.621s] writing top-level names to ../../build/drive_controller/drive_controller.egg-info/top_level.txt
+[9.728s] reading manifest file '../../build/drive_controller/drive_controller.egg-info/SOURCES.txt'
+[9.742s] writing manifest file '../../build/drive_controller/drive_controller.egg-info/SOURCES.txt'
+[9.775s] running build
+[9.776s] running build_py
+[9.776s] running install
+[9.798s] running install_lib
+[9.828s] running install_data
+[9.828s] running install_egg_info
+[9.867s] removing '/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller-0.0.0-py3.12.egg-info' (and everything under it)
+[9.872s] Copying ../../build/drive_controller/drive_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages/drive_controller-0.0.0-py3.12.egg-info
+[9.872s] running install_scripts
+[10.773s] Installing drive_node script to /home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/drive_controller
+[10.773s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/drive_controller/install.log'
+[11.582s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/drive_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drive_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/drive_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/drive_controller/install.log --single-version-externally-managed install_data

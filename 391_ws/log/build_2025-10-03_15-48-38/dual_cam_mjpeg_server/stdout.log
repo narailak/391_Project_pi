@@ -1,0 +1,22 @@
+running egg_info
+writing ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/PKG-INFO
+writing dependency_links to ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/dependency_links.txt
+writing entry points to ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/entry_points.txt
+writing requirements to ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/requires.txt
+writing top-level names to ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/top_level.txt
+reading manifest file '../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/SOURCES.txt'
+writing manifest file '../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info/SOURCES.txt'
+running build
+running build_py
+copying dual_cam_mjpeg_server/node.py -> /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/build/lib/dual_cam_mjpeg_server
+running install
+running install_lib
+copying /home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/build/lib/dual_cam_mjpeg_server/node.py -> /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages/dual_cam_mjpeg_server
+byte-compiling /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages/dual_cam_mjpeg_server/node.py to node.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages/dual_cam_mjpeg_server-0.1.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/dual_cam_mjpeg_server/dual_cam_mjpeg_server.egg-info to /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/python3.12/site-packages/dual_cam_mjpeg_server-0.1.0-py3.12.egg-info
+running install_scripts
+Installing dual_cam_mjpeg_node script to /home/tpi5/391_Project_pi/391_ws/install/dual_cam_mjpeg_server/lib/dual_cam_mjpeg_server
+writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/dual_cam_mjpeg_server/install.log'
