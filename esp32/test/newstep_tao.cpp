@@ -18,9 +18,9 @@
 #include "soc/gpio_reg.h"
 
 // ---------------- Pins (ปรับตามการต่อจริง) ----------------
-static const int  PIN_PUL = 25;   
-static const int  PIN_DIR = 26;   
-static const int  PIN_ENA = 27;   
+static const int  PIN_PUL = 13;   
+static const int  PIN_DIR = 18;   
+static const int  PIN_ENA = 15;   
 static const bool ENA_ACTIVE_LOW = true; // TB6600 ทั่วไป: LOW=Enable, HIGH=Disable
 
 // ---------------- Stepper configuration ----------------
@@ -32,7 +32,7 @@ static const long  STEPS_PER_REV = (long)(BASE_STEPS_PER_REV * MICROSTEP * GEAR_
 
 // ---------------- Speed (เริ่มแบบปลอดภัย) ----------------
 // ความถี่พัลส์ ~ 1/(2*HALF_PERIOD_US) ; 100us ~ 5kHz
-static volatile uint32_t HALF_PERIOD_US = 300;  //  ถ้าอยากให้ช้า/เร็ว: ปรับค่านี้ มากทำให้ช้า
+static volatile uint32_t HALF_PERIOD_US = 50;  //  ถ้าอยากให้ช้า/เร็ว: ปรับค่านี้ มากทำให้ช้า
 
 // ---------------- Input filtering ----------------
 static const uint32_t CMD_DEBOUNCE_MS            = 120; // ไม่รับคำสั่งถี่กว่า X ms
