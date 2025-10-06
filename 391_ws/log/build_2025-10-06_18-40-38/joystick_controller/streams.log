@@ -1,0 +1,21 @@
+[1.612s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/joystick_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/joystick_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/joystick_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/joystick_controller/install.log --single-version-externally-managed install_data
+[2.112s] running egg_info
+[2.134s] writing ../../build/joystick_controller/joystick_controller.egg-info/PKG-INFO
+[2.134s] writing dependency_links to ../../build/joystick_controller/joystick_controller.egg-info/dependency_links.txt
+[2.138s] writing entry points to ../../build/joystick_controller/joystick_controller.egg-info/entry_points.txt
+[2.139s] writing requirements to ../../build/joystick_controller/joystick_controller.egg-info/requires.txt
+[2.140s] writing top-level names to ../../build/joystick_controller/joystick_controller.egg-info/top_level.txt
+[2.196s] reading manifest file '../../build/joystick_controller/joystick_controller.egg-info/SOURCES.txt'
+[2.198s] writing manifest file '../../build/joystick_controller/joystick_controller.egg-info/SOURCES.txt'
+[2.198s] running build
+[2.199s] running build_py
+[2.199s] running install
+[2.217s] running install_lib
+[2.251s] running install_data
+[2.251s] running install_egg_info
+[2.280s] removing '/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages/joystick_controller-0.0.0-py3.12.egg-info' (and everything under it)
+[2.285s] Copying ../../build/joystick_controller/joystick_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages/joystick_controller-0.0.0-py3.12.egg-info
+[2.290s] running install_scripts
+[2.539s] Installing joystick_node script to /home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/joystick_controller
+[2.541s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/install.log'
+[2.718s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/joystick_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/joystick_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/joystick_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/joystick_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/joystick_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/joystick_controller/install.log --single-version-externally-managed install_data

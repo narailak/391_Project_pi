@@ -1,0 +1,21 @@
+[3.221s] Invoking command in '/home/tpi5/391_Project_pi/391_ws/src/dril_controller': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dril_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dril_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/dril_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/dril_controller/install.log --single-version-externally-managed install_data
+[3.805s] running egg_info
+[3.829s] writing ../../build/dril_controller/dril_controller.egg-info/PKG-INFO
+[3.830s] writing dependency_links to ../../build/dril_controller/dril_controller.egg-info/dependency_links.txt
+[3.848s] writing entry points to ../../build/dril_controller/dril_controller.egg-info/entry_points.txt
+[3.859s] writing requirements to ../../build/dril_controller/dril_controller.egg-info/requires.txt
+[3.866s] writing top-level names to ../../build/dril_controller/dril_controller.egg-info/top_level.txt
+[3.936s] reading manifest file '../../build/dril_controller/dril_controller.egg-info/SOURCES.txt'
+[3.938s] writing manifest file '../../build/dril_controller/dril_controller.egg-info/SOURCES.txt'
+[3.939s] running build
+[3.939s] running build_py
+[3.940s] running install
+[3.951s] running install_lib
+[3.984s] running install_data
+[3.984s] running install_egg_info
+[4.013s] removing '/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages/dril_controller-0.0.0-py3.12.egg-info' (and everything under it)
+[4.013s] Copying ../../build/dril_controller/dril_controller.egg-info to /home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages/dril_controller-0.0.0-py3.12.egg-info
+[4.018s] running install_scripts
+[4.346s] Installing dril_node script to /home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/dril_controller
+[4.347s] writing list of installed files to '/home/tpi5/391_Project_pi/391_ws/build/dril_controller/install.log'
+[4.809s] Invoked command in '/home/tpi5/391_Project_pi/391_ws/src/dril_controller' returned '0': PYTHONPATH=/home/tpi5/391_Project_pi/391_ws/build/dril_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tpi5/391_Project_pi/391_ws/install/dril_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dril_controller build --build-base /home/tpi5/391_Project_pi/391_ws/build/dril_controller/build install --record /home/tpi5/391_Project_pi/391_ws/build/dril_controller/install.log --single-version-externally-managed install_data

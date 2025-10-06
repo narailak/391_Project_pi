@@ -5,7 +5,7 @@
 ROS2 node: joy_servo
 - Subscribes: /man/joy (sensor_msgs/Joy)
 - Publishes:  /man/cmd_servo_switch180 (std_msgs/Int16)
-- Behavior:   Press D-PAD RIGHT to toggle between 0 and 180
+- Behavior:   Press D-PAD RIGHT to toggle between off_value and on_value
 - Debounce:   rising-edge + time-based
 """
 
@@ -27,10 +27,13 @@ class JoyServo(Node):
         self.declare_parameter('debounce_time', 0.30)             # วินาที
 
         self.declare_parameter('dpad_lr_axis_index', 6)           # แกนซ้าย/ขวา ของ D-Pad (ส่วนมากคือ axis 6)
-        self.declare_parameter('axis_right_value', -1.0)           # ค่าที่ถือว่าเป็น "ขวา" (-1.0 บางจอย)
+        self.declare_parameter('axis_right_value', -1.0)          # ค่าที่ถือว่าเป็น "ขวา" (-1.0 บางจอย)
         self.declare_parameter('axis_tolerance', 0.2)             # เผื่อคลาดเคลื่อน
-
         self.declare_parameter('dpad_right_button_index', 13)     # fallback: ปุ่ม D-Pad ขวา
+
+        # ค่า toggle ปรับได้ (เหมือนที่ขอ)
+        self.declare_parameter('on_value', 220)                   # ค่าขณะ "เปิด"
+        self.declare_parameter('off_value', 40)                    # ค่าขณะ "ปิด"
 
         joy_topic = self.get_parameter('joy_topic').get_parameter_value().string_value
         pub_topic = self.get_parameter('pub_topic').get_parameter_value().string_value
@@ -41,10 +44,13 @@ class JoyServo(Node):
         self.axis_tolerance = float(self.get_parameter('axis_tolerance').value)
         self.dpad_right_button_index = int(self.get_parameter('dpad_right_button_index').value)
 
+        self.on_value  = int(self.get_parameter('on_value').value)
+        self.off_value = int(self.get_parameter('off_value').value)
+
         # -------- State --------
-        self.toggle_value = 0           # ค่าเริ่มต้น (0°)
+        self.toggle_value = self.off_value     # เริ่มต้นฝั่ง off
         self.last_press_time = 0.0
-        self.prev_right_active = False  # ใช้ตรวจจับ rising-edge
+        self.prev_right_active = False         # ใช้ตรวจจับ rising-edge
         self._last_dbg_time = 0.0
 
         # -------- Publisher --------
@@ -56,18 +62,20 @@ class JoyServo(Node):
 
         self.get_logger().info(
             f"joy_servo started | pub='{pub_topic}', debounce={self.debounce_time:.2f}s | "
-            f"axis6 right≈{self.axis_right_value} tol±{self.axis_tolerance} | "
-            f"fallback btn idx={self.dpad_right_button_index}"
+            f"axis{self.dpad_lr_axis_index} right≈{self.axis_right_value} tol±{self.axis_tolerance} | "
+            f"fallback btn idx={self.dpad_right_button_index} | on={self.on_value}, off={self.off_value}"
         )
 
-    def _safe_axis(self, axes, idx, default=0.0):
+    @staticmethod
+    def _safe_axis(axes, idx, default=0.0):
         return float(axes[idx]) if idx < len(axes) else float(default)
 
-    def _safe_button(self, buttons, idx, default=0):
+    @staticmethod
+    def _safe_button(buttons, idx, default=0):
         return int(buttons[idx]) if idx < len(buttons) else int(default)
 
     def _is_axis_right(self, val: float) -> bool:
-        # ถือว่าเป็น "ขวา" ถ้าแกนอยู่ใกล้ค่าที่กำหนด (เช่น +1.0 หรือ -1.0 แล้วแต่จอย) ภายใน tolerance
+        # ถือว่า "ขวา" ถ้าแกนอยู่ใกล้ค่าเป้าหมาย (เช่น +1.0 หรือ -1.0 แล้วแต่จอย) ภายใน tolerance
         return abs(val - self.axis_right_value) <= self.axis_tolerance
 
     def joy_callback(self, msg: Joy):
@@ -91,7 +99,7 @@ class JoyServo(Node):
 
         # Rising-edge + debounce
         if right_active and not self.prev_right_active and (now - self.last_press_time >= self.debounce_time):
-            self.toggle_value = 180 if self.toggle_value == 0 else 0
+            self.toggle_value = self.on_value if self.toggle_value == self.off_value else self.off_value
             self.last_press_time = now
 
             out = Int16()

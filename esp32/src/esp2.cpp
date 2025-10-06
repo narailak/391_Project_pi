@@ -10,6 +10,10 @@
 
 #include <std_msgs/msg/int16.h>
 
+// *** Low-level GPIO regs for fast PUL toggle (stepper) ***
+#include "soc/gpio_reg.h"
+#include "driver/gpio.h"
+
 // ========================== Shared Helpers / Macros ==========================
 #define RCCHECK(fn) do { rcl_ret_t rc=(fn); if(rc!=RCL_RET_OK){ while(1){ delay(100); } } } while(0)
 #define RCSOFTCHECK(fn) (void)(fn)
@@ -27,12 +31,13 @@ rcl_allocator_t   allocator;
 rcl_node_t        node;
 rcl_init_options_t init_options;
 
-// ========================== Servo Bundle ==========================
+// ========================== Servo Bundle (free-angle by model) ==========================
 struct ServoChan {
   Servo   servo;
   int     pin;
-  int     min_us;
-  int     max_us;
+  int     min_us;     // pulse lower bound (µs)
+  int     max_us;     // pulse upper bound (µs)
+  int     max_deg;    // mechanical/effective range (deg), e.g., 180 or 270
 
   const char* sub_topic;
   const char* pub_topic;
@@ -44,36 +49,46 @@ struct ServoChan {
 
   int16_t  last_angle = -1;
   uint32_t last_hb_ms = 0;
-
-  enum Mode { ANY_0_180, ONLY_0_90, ONLY_0_180 } mode;
 };
 
+// ---- Model-specific channels ----
+// S_GRIPPER = MG945 (std size) → 500..2500 µs, 0..180°
 static ServoChan make_gripper(){
   ServoChan ch{};
-  ch.pin=16; ch.min_us=500; ch.max_us=2500;
+  ch.pin=16; ch.min_us=500; ch.max_us=2500; ch.max_deg=180;
   ch.sub_topic="/man/cmd_gripper"; ch.pub_topic="/man/cmd_gripper/rpm";
-  ch.mode=ServoChan::ANY_0_180; return ch;
+  return ch;
 }
+
+// S_DRILS_DRIL = MG90S (micro) → 500..2500 µs, 0..180°
 static ServoChan make_dril_servo(){
   ServoChan ch{};
-  ch.pin=23; ch.min_us=500; ch.max_us=2500;
+  ch.pin=23; ch.min_us=500; ch.max_us=2500; ch.max_deg=180;
   ch.sub_topic="/man/cmd_servo_dril"; ch.pub_topic="/man/cmd_servo_dril/rpm";
-  ch.mode=ServoChan::ONLY_0_90; return ch;
+  return ch;
 }
+
+// S_SW180 = TD-8120MG (สามารถได้ถึง ~270°) → 500..2500 µs, 0..270°
 static ServoChan make_sw180(){
   ServoChan ch{};
-  ch.pin=17; ch.min_us=500; ch.max_us=2500;
+  ch.pin=17; ch.min_us=500; ch.max_us=2500; ch.max_deg=270;
   ch.sub_topic="/man/cmd_servo_switch180"; ch.pub_topic="/man/cmd_servo_switch180/rpm";
-  ch.mode=ServoChan::ONLY_0_180; return ch;
+  return ch;
 }
 
-static ServoChan CH_GRIPPER = make_gripper();
-static ServoChan CH_DRIL_SERVO = make_dril_servo();
-static ServoChan CH_SW180 = make_sw180();
+static ServoChan CH_GRIPPER     = make_gripper();
+static ServoChan CH_DRIL_SERVO  = make_dril_servo();
+static ServoChan CH_SW180       = make_sw180();
 
+static inline int clamp_angle(const ServoChan& ch, int angle){
+  if(angle < 0) angle = 0;
+  if(angle > ch.max_deg) angle = ch.max_deg;
+  return angle;
+}
 static inline int angle_to_us(const ServoChan& ch, int angle){
+  // map 0..max_deg  -> min_us..max_us
   long span = (long)ch.max_us - (long)ch.min_us;
-  long us   = (long)ch.min_us + (long)angle * span / 180L;
+  long us   = (long)ch.min_us + (long)angle * span / (long)ch.max_deg;
   if(us < ch.min_us) us = ch.min_us;
   if(us > ch.max_us) us = ch.max_us;
   return (int)us;
@@ -84,24 +99,19 @@ static inline void move_servo_angle(ServoChan& ch, int angle){
 static inline void publish_fb_servo(ServoChan& ch, int16_t angle){
   ch.pub_msg.data = angle; RCSOFTCHECK(rcl_publish(&ch.pub, &ch.pub_msg, NULL));
 }
-static inline bool accept_angle(const ServoChan& ch, int angle_in, int& angle_out){
-  switch(ch.mode){
-    case ServoChan::ANY_0_180: angle_out = constrain(angle_in, 0, 180); return true;
-    case ServoChan::ONLY_0_90: if(angle_in==0||angle_in==90){angle_out=angle_in; return true;} return false;
-    case ServoChan::ONLY_0_180: if(angle_in==0||angle_in==180){angle_out=angle_in; return true;} return false;
-  } return false;
-}
+
+// --- Sub callbacks: accept any angle within model range ---
 static void sub_cb_gripper(const void* msgin){
-  const auto* m=(const std_msgs__msg__Int16*)msgin; int a;
-  if(accept_angle(CH_GRIPPER,(int)m->data,a)){ move_servo_angle(CH_GRIPPER,a); CH_GRIPPER.last_angle=a; publish_fb_servo(CH_GRIPPER,a); }
+  const auto* m=(const std_msgs__msg__Int16*)msgin; int a=clamp_angle(CH_GRIPPER,(int)m->data);
+  move_servo_angle(CH_GRIPPER,a); CH_GRIPPER.last_angle=a; publish_fb_servo(CH_GRIPPER,a);
 }
 static void sub_cb_dril_servo(const void* msgin){
-  const auto* m=(const std_msgs__msg__Int16*)msgin; int a;
-  if(accept_angle(CH_DRIL_SERVO,(int)m->data,a)){ move_servo_angle(CH_DRIL_SERVO,a); CH_DRIL_SERVO.last_angle=a; publish_fb_servo(CH_DRIL_SERVO,a); }
+  const auto* m=(const std_msgs__msg__Int16*)msgin; int a=clamp_angle(CH_DRIL_SERVO,(int)m->data);
+  move_servo_angle(CH_DRIL_SERVO,a); CH_DRIL_SERVO.last_angle=a; publish_fb_servo(CH_DRIL_SERVO,a);
 }
 static void sub_cb_sw180(const void* msgin){
-  const auto* m=(const std_msgs__msg__Int16*)msgin; int a;
-  if(accept_angle(CH_SW180,(int)m->data,a)){ move_servo_angle(CH_SW180,a); CH_SW180.last_angle=a; publish_fb_servo(CH_SW180,a); }
+  const auto* m=(const std_msgs__msg__Int16*)msgin; int a=clamp_angle(CH_SW180,(int)m->data);
+  move_servo_angle(CH_SW180,a); CH_SW180.last_angle=a; publish_fb_servo(CH_SW180,a);
 }
 
 // ========================== Stepper (TB6600) ==========================
@@ -110,7 +120,27 @@ static const int PIN_DIR = 26;
 static const int PIN_ENA = 27;
 static const int LIMIT1_PIN = 18; // ซ้าย/-1
 static const int LIMIT2_PIN = 13; // ขวา/+1
-static volatile uint32_t HALF_PERIOD_US = 20;
+
+// ---- Stepper speed model (ใหม่) ----
+#define BASE_STEPS_PER_REV 200   // 1.8° stepper -> 200 steps/rev (ถ้า 0.9° ใช้ 400)
+#define MICROSTEP           16   // TB6600 DIP = 1/16 microstep
+#define PULSES_PER_REV (BASE_STEPS_PER_REV * MICROSTEP) // = 3200 pulses/rev @1/16
+
+static volatile uint32_t HALF_PERIOD_US = 20;  // µs (จะถูก override ด้วย set_speed_rpm)
+static inline void set_speed_rpm(float rpm){
+  // rpm -> HALF_PERIOD_US (toggle ใน ISR = ครึ่งคาบ)
+  // pulses per second (pps) = rpm * PULSES_PER_REV / 60
+  float pps = rpm * (float)PULSES_PER_REV / 60.0f;
+  if (pps < 1.0f) pps = 1.0f;
+  uint32_t half = (uint32_t)(1000000.0f / (2.0f * pps)); // µs
+  if (half < 2) half = 2; // guard
+  HALF_PERIOD_US = half;
+}
+static inline float current_rpm(){
+  // HALF_PERIOD_US -> rpm (ประมาณการจากความถี่พัลส์ปัจจุบัน)
+  float pps = 1000000.0f / (2.0f * (float)HALF_PERIOD_US);
+  return (pps * 60.0f) / (float)PULSES_PER_REV;
+}
 
 rcl_subscription_t sub_cmd_linear;
 std_msgs__msg__Int16   cmd_msg_linear;
@@ -181,24 +211,20 @@ static void cmd_cb_linear(const void* msgin){
 }
 
 // ========================== TB6612FNG (ช่อง A, ดริลมอเตอร์) ==========================
-// พิน TB6612 (ปรับตามการต่อจริง)
 #define TB_AIN1   19
 #define TB_AIN2   21
 #define TB_PWMA   22
 #define TB_STBY   5
 
-// PWM (LEDC) — ใช้ channel สูง เลี่ยงชนกับ ESP32Servo
 #define PWM_FREQ      20000    // 20 kHz
 #define PWM_RES_BITS  8        // 0..255
-#define PWM_CHANNEL   15       // *** เลือก 15 เพื่อลดโอกาสชนกับ Servo ***
+#define PWM_CHANNEL   15       // ใช้ channel สูง ลดโอกาสชนกับ Servo
 
-// ROS ดริลมอเตอร์
 rcl_subscription_t   sub_cmd_dril_motor;
 std_msgs__msg__Int16 cmd_msg_dril_motor;
 rcl_publisher_t      pub_fb_dril_motor;
 std_msgs__msg__Int16 fb_msg_dril_motor;
 
-// สถานะ/HB
 static int16_t  last_cmd_percent = 0;   // 0..100 ที่สั่ง
 static uint32_t last_hb_ms_dril = 0;
 
@@ -212,9 +238,6 @@ static inline void motor_forward(uint8_t pwm){
   digitalWrite(TB_AIN2, LOW);
   ledcWrite(PWM_CHANNEL, pwm);
 }
-// ถ้าต้องการ reverse ในอนาคต:
-// static inline void motor_reverse(uint8_t pwm){ digitalWrite(TB_AIN1, LOW); digitalWrite(TB_AIN2, HIGH); ledcWrite(PWM_CHANNEL, pwm); }
-
 static inline void publish_fb_dril_motor(int16_t percent){
   fb_msg_dril_motor.data = percent;
   RCSOFTCHECK(rcl_publish(&pub_fb_dril_motor, &fb_msg_dril_motor, NULL));
@@ -328,10 +351,13 @@ void setup(){
   timerAlarmWrite(tmr, HALF_PERIOD_US, true);
   timerAlarmEnable(tmr);
 
-  // --- Attach servos ---
-  CH_GRIPPER.servo.attach(CH_GRIPPER.pin, CH_GRIPPER.min_us, CH_GRIPPER.max_us);
-  CH_DRIL_SERVO.servo.attach(CH_DRIL_SERVO.pin, CH_DRIL_SERVO.min_us, CH_DRIL_SERVO.max_us);
-  CH_SW180.servo.attach(CH_SW180.pin, CH_SW180.min_us, CH_SW180.max_us);
+  // --- ตั้งความเร็วสเต็ปเปอร์แบบเข้าใจ microstep ---
+  set_speed_rpm(120.0f);  // ตัวอย่าง: ~120 RPM @ PULSES_PER_REV=3200
+
+  // --- Attach servos (per-model pulse windows) ---
+  CH_GRIPPER    .servo.attach(CH_GRIPPER.pin,     CH_GRIPPER.min_us,     CH_GRIPPER.max_us);
+  CH_DRIL_SERVO .servo.attach(CH_DRIL_SERVO.pin,  CH_DRIL_SERVO.min_us,  CH_DRIL_SERVO.max_us);
+  CH_SW180      .servo.attach(CH_SW180.pin,       CH_SW180.min_us,       CH_SW180.max_us);
 
   // --- TB6612 pins & PWM ---
   pinMode(TB_AIN1, OUTPUT);
@@ -341,7 +367,7 @@ void setup(){
   digitalWrite(TB_STBY, HIGH);   // enable driver
   motor_coast();                 // เริ่มที่หยุด
 
-  ledcSetup(PWM_CHANNEL, PWM_FREQ, PWM_RES_BITS);   // channel 15
+  ledcSetup(PWM_CHANNEL, PWM_FREQ, PWM_RES_BITS);
   ledcAttachPin(TB_PWMA, PWM_CHANNEL);
   ledcWrite(PWM_CHANNEL, 0);
 
@@ -349,6 +375,9 @@ void setup(){
   move_servo_angle(CH_GRIPPER, 0);
   move_servo_angle(CH_DRIL_SERVO, 0);
   move_servo_angle(CH_SW180, 0);
+
+  Serial.printf("[STEPPER] microstep=%d, pulses/rev=%d, target RPM=%.1f, HALF_PERIOD_US=%lu\n",
+                MICROSTEP, PULSES_PER_REV, current_rpm(), (unsigned long)HALF_PERIOD_US);
 }
 
 void loop(){
