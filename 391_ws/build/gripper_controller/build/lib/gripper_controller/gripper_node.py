@@ -26,8 +26,8 @@ class GripperToggle(Node):
         self.declare_parameter('pub_topic', '/man/cmd_gripper')
         self.declare_parameter('debounce_time', 0.30)     # วินาที
         self.declare_parameter('x_button_index', 2)       # XInput: X = index 2
-        self.declare_parameter('on_value', 95)            # ค่าที่อยากส่งค่าแรก 
-        self.declare_parameter('off_value', 15)            # ค่าที่อยากส่งอีกค่า
+        self.declare_parameter('on_value', 80)            # ค่าที่อยากส่งค่าแรก 
+        self.declare_parameter('off_value', 25)            # ค่าที่อยากส่งอีกค่า
 
         joy_topic = self.get_parameter('joy_topic').get_parameter_value().string_value
         pub_topic = self.get_parameter('pub_topic').get_parameter_value().string_value
