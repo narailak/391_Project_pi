@@ -32,8 +32,8 @@ class JoyServoDig(Node):
         self.declare_parameter('dpad_left_button_index', 13)   # fallback: ปุ่ม D-Pad ซ้าย
 
         # ค่า toggle ที่ต้องการ (ปรับง่ายเหมือนตัวอย่าง gripper)
-        self.declare_parameter('on_value', 120)                 # ค่าขณะ "เปิด"
-        self.declare_parameter('off_value', 30)                 # ค่าขณะ "ปิด"
+        self.declare_parameter('on_value', 125)                 # ค่าขณะ "เปิด"
+        self.declare_parameter('off_value', 25)                 # ค่าขณะ "ปิด"
 
         joy_topic = self.get_parameter('joy_topic').get_parameter_value().string_value
         pub_topic = self.get_parameter('pub_topic').get_parameter_value().string_value

@@ -1,4 +1,4 @@
-// ===================== main.cpp (ปรับให้เข้ากับมอเตอร์ 37mm) =====================
+// ===================== main.cpp (ESP32 + micro-ROS + ESP32Encoder - Full Version) =====================
 #include <Arduino.h>
 #include <Wire.h>
 #include <cmath>
@@ -57,7 +57,7 @@
 #define PWM_CH_M4 3
 
 // ============ ปรับตามมอเตอร์ 37mm ============
-const float WHEEL_RADIUS = 0.045f;         // m (ล้อ 65mm เส้นผ่านศูนย์กลาง → รัศมี 32.5mm)
+const float WHEEL_RADIUS = 0.0325f;         // m (ล้อ 65mm เส้นผ่านศูนย์กลาง → รัศมี 32.5mm)
 const float TRACK_WIDTH  = 0.300f;          // m (ระยะระหว่างล้อซ้าย-ขวา)
 
 // *** ข้อมูลมอเตอร์ ***
@@ -112,6 +112,7 @@ public:
       last_counts_[i] = 0;
       pos_rad_[i] = 0.0f;
       vel_rad_s_[i] = 0.0f;
+      vel_m_s_[i] = 0.0f;
       rpm_[i] = 0.0f;
       total_dist_m_[i] = 0.0f;
     }
@@ -124,6 +125,7 @@ public:
       last_counts_[i] = 0;
       pos_rad_[i] = 0.0f;
       vel_rad_s_[i] = 0.0f;
+      vel_m_s_[i] = 0.0f;
       rpm_[i] = 0.0f;
       total_dist_m_[i] = 0.0f;
     }
@@ -137,7 +139,7 @@ public:
     last_ts_ms_ = now;
 
     const float two_pi = 2.0f * M_PI;
-    const float C = 2.0f * M_PI * WHEEL_RADIUS; // circumference
+    const float C = 2.0f * M_PI * WHEEL_RADIUS; // circumference (m)
 
     for (int i=0; i<W_COUNT; ++i) {
       long cur = enc_[i].getCount() * inv_[i];
@@ -149,7 +151,8 @@ public:
       float delta_rev = (float)d / EFFECTIVE_PPR;
 
       // ระยะทาง (m)
-      total_dist_m_[i] += delta_rev * C;
+      float delta_dist = delta_rev * C;
+      total_dist_m_[i] += delta_dist;
       
       // มุม (rad)
       pos_rad_[i] = revolutions * two_pi;
@@ -158,6 +161,9 @@ public:
       float rev_per_sec = delta_rev / dt;
       vel_rad_s_[i] = rev_per_sec * two_pi;
 
+      // ความเร็วเชิงเส้น (m/s)
+      vel_m_s_[i] = delta_dist / dt;
+
       // RPM (สำหรับ debug)
       rpm_[i] = rev_per_sec * 60.0f;
     }
@@ -165,6 +171,7 @@ public:
 
   float getPosRad(int i) const { return pos_rad_[i]; }
   float getVelRadS(int i) const { return vel_rad_s_[i]; }
+  float getVelMS(int i) const { return vel_m_s_[i]; }
   float getRPM(int i) const { return rpm_[i]; }
   float getTotalDistM(int i) const { return total_dist_m_[i]; }
   long getCount(int i) const { return last_counts_[i]; }
@@ -179,6 +186,7 @@ private:
   long last_counts_[W_COUNT];
   float pos_rad_[W_COUNT];
   float vel_rad_s_[W_COUNT];
+  float vel_m_s_[W_COUNT];
   float rpm_[W_COUNT];
   float total_dist_m_[W_COUNT];
   uint32_t last_ts_ms_;
@@ -194,10 +202,13 @@ std_msgs__msg__Float32MultiArray debug_motor_msg;
 rcl_publisher_t encoder_pub;
 std_msgs__msg__Int16MultiArray encoder_msg;
 
-rcl_publisher_t encoder_vel_pub;
+rcl_publisher_t encoder_vel_pub;      // ⭐ ความเร็ว (m/s)
 std_msgs__msg__Float32MultiArray encoder_vel_msg;
 
-rcl_publisher_t encoder_rpm_pub;  // NEW: RPM publisher
+rcl_publisher_t encoder_dist_pub;     // ⭐ ระยะทาง (m)
+std_msgs__msg__Float32MultiArray encoder_dist_msg;
+
+rcl_publisher_t encoder_rpm_pub;
 std_msgs__msg__Float32MultiArray encoder_rpm_msg;
 
 rcl_publisher_t counter_pub;
@@ -370,6 +381,7 @@ void twistCb(const void *msgin){
 bool createEntities(){
   allocator = rcl_get_default_allocator();
 
+  // Allocate arrays
   debug_motor_msg.data.capacity = 4; 
   debug_motor_msg.data.size = 4;
   debug_motor_msg.data.data = (float*)malloc(4*sizeof(float));
@@ -381,6 +393,10 @@ bool createEntities(){
   encoder_vel_msg.data.capacity = 4;
   encoder_vel_msg.data.size = 4;
   encoder_vel_msg.data.data = (float*)malloc(4*sizeof(float));
+
+  encoder_dist_msg.data.capacity = 4;
+  encoder_dist_msg.data.size = 4;
+  encoder_dist_msg.data.data = (float*)malloc(4*sizeof(float));
 
   encoder_rpm_msg.data.capacity = 4;
   encoder_rpm_msg.data.size = 4;
@@ -396,6 +412,7 @@ bool createEntities(){
   RCCHECK(rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator));
   RCCHECK(rclc_node_init_default(&node, "esp32_diff_controller", "", &support));
 
+  // Publishers
   RCCHECK(rclc_publisher_init_best_effort(&debug_motor_pub, &node,
     ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray), 
     "/motor_debug/duty"));
@@ -408,6 +425,10 @@ bool createEntities(){
     ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray), 
     "/motor_feedback/velocity"));
 
+  RCCHECK(rclc_publisher_init_best_effort(&encoder_dist_pub, &node,
+    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray), 
+    "/motor_feedback/distance"));
+
   RCCHECK(rclc_publisher_init_best_effort(&encoder_rpm_pub, &node,
     ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray), 
     "/motor_feedback/rpm"));
@@ -416,13 +437,16 @@ bool createEntities(){
     ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int32), 
     "/esp32/debug/counter"));
 
+  // Subscription
   RCCHECK(rclc_subscription_init_default(&cmd_sub, &node,
     ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), 
     "/man/cmd_move"));
 
+  // Timers
   RCCHECK(rclc_timer_init_default(&control_timer, &support, RCL_MS_TO_NS(20), controlCb));
   RCCHECK(rclc_timer_init_default(&counter_timer, &support, RCL_MS_TO_NS(1000), counterCb));
 
+  // Executor
   executor = rclc_executor_get_zero_initialized_executor();
   RCCHECK(rclc_executor_init(&executor, &support.context, 3, &allocator));
   RCCHECK(rclc_executor_add_subscription(&executor, &cmd_sub, &cmd_msg, &twistCb, ON_NEW_DATA));
@@ -441,6 +465,7 @@ bool destroyEntities(){
   rcl_publisher_fini(&debug_motor_pub, &node);
   rcl_publisher_fini(&encoder_pub, &node);
   rcl_publisher_fini(&encoder_vel_pub, &node);
+  rcl_publisher_fini(&encoder_dist_pub, &node);
   rcl_publisher_fini(&encoder_rpm_pub, &node);
   rcl_publisher_fini(&counter_pub, &node);
   rcl_subscription_fini(&cmd_sub, &node);
@@ -453,6 +478,7 @@ bool destroyEntities(){
   if (debug_motor_msg.data.data) free(debug_motor_msg.data.data);
   if (encoder_msg.data.data) free(encoder_msg.data.data);
   if (encoder_vel_msg.data.data) free(encoder_vel_msg.data.data);
+  if (encoder_dist_msg.data.data) free(encoder_dist_msg.data.data);
   if (encoder_rpm_msg.data.data) free(encoder_rpm_msg.data.data);
   
   return true;
@@ -499,28 +525,35 @@ void controlStep(float dt){
 }
 
 void publishData(){
-  // Motor duty
+  // ========== Motor duty cycle (0-255) ==========
   debug_motor_msg.data.data[0] = rpm_to_duty(m1_rpm);
   debug_motor_msg.data.data[1] = rpm_to_duty(m2_rpm);
   debug_motor_msg.data.data[2] = rpm_to_duty(m3_rpm);
   debug_motor_msg.data.data[3] = rpm_to_duty(m4_rpm);
   RCSOFTCHECK(rcl_publish(&debug_motor_pub, &debug_motor_msg, NULL));
 
-  // Encoder counts
+  // ========== Encoder counts (ticks) ==========
   encoder_msg.data.data[0] = (int16_t)(encoders.getCount(W_M1) & 0xFFFF);
   encoder_msg.data.data[1] = (int16_t)(encoders.getCount(W_M2) & 0xFFFF);
   encoder_msg.data.data[2] = (int16_t)(encoders.getCount(W_M3) & 0xFFFF);
   encoder_msg.data.data[3] = (int16_t)(encoders.getCount(W_M4) & 0xFFFF);
   RCSOFTCHECK(rcl_publish(&encoder_pub, &encoder_msg, NULL));
 
-  // Velocities (rad/s)
-  encoder_vel_msg.data.data[0] = encoders.getVelRadS(W_M1);
-  encoder_vel_msg.data.data[1] = encoders.getVelRadS(W_M2);
-  encoder_vel_msg.data.data[2] = encoders.getVelRadS(W_M3);
-  encoder_vel_msg.data.data[3] = encoders.getVelRadS(W_M4);
+  // ========== ⭐ Velocity (m/s) ==========
+  encoder_vel_msg.data.data[0] = encoders.getVelMS(W_M1);
+  encoder_vel_msg.data.data[1] = encoders.getVelMS(W_M2);
+  encoder_vel_msg.data.data[2] = encoders.getVelMS(W_M3);
+  encoder_vel_msg.data.data[3] = encoders.getVelMS(W_M4);
   RCSOFTCHECK(rcl_publish(&encoder_vel_pub, &encoder_vel_msg, NULL));
 
-  // RPM (for debugging)
+  // ========== ⭐ Distance (m) ==========
+  encoder_dist_msg.data.data[0] = encoders.getTotalDistM(W_M1);
+  encoder_dist_msg.data.data[1] = encoders.getTotalDistM(W_M2);
+  encoder_dist_msg.data.data[2] = encoders.getTotalDistM(W_M3);
+  encoder_dist_msg.data.data[3] = encoders.getTotalDistM(W_M4);
+  RCSOFTCHECK(rcl_publish(&encoder_dist_pub, &encoder_dist_msg, NULL));
+
+  // ========== RPM (for debugging) ==========
   encoder_rpm_msg.data.data[0] = encoders.getRPM(W_M1);
   encoder_rpm_msg.data.data[1] = encoders.getRPM(W_M2);
   encoder_rpm_msg.data.data[2] = encoders.getRPM(W_M3);

@@ -118,8 +118,8 @@ static void sub_cb_sw180(const void* msgin){
 static const int PIN_PUL = 25;
 static const int PIN_DIR = 26;
 static const int PIN_ENA = 27;
-static const int LIMIT1_PIN = 18; // ซ้าย/-1
-static const int LIMIT2_PIN = 13; // ขวา/+1
+static const int LIMIT1_PIN = 13; // ซ้าย/-1
+static const int LIMIT2_PIN = 12; // ขวา/+1
 
 // ---- Stepper speed model (ใหม่) ----
 #define BASE_STEPS_PER_REV 200   // 1.8° stepper -> 200 steps/rev (ถ้า 0.9° ใช้ 400)
@@ -352,7 +352,7 @@ void setup(){
   timerAlarmEnable(tmr);
 
   // --- ตั้งความเร็วสเต็ปเปอร์แบบเข้าใจ microstep ---
-  set_speed_rpm(120.0f);  // ตัวอย่าง: ~120 RPM @ PULSES_PER_REV=3200
+  set_speed_rpm(90.0f);  // ตัวอย่าง: ~120 RPM @ PULSES_PER_REV=3200
 
   // --- Attach servos (per-model pulse windows) ---
   CH_GRIPPER    .servo.attach(CH_GRIPPER.pin,     CH_GRIPPER.min_us,     CH_GRIPPER.max_us);

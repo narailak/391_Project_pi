@@ -42,9 +42,6 @@ class Drive_node(Node):
         self.yaw_setpoint = self.yaw
 
         # ------ Parameters (แก้ทีหลังได้) ------
-        # wheel_radius_cm: รัศมีล้อจริงที่ต้องการใช้คำนวณระยะ (หน่วยเซนติเมตร)
-        # ticks_per_rev: จำนวนติ๊กต่อ "รอบล้อ 1 รอบ" หลังรวมควอดราเจอร์แล้ว
-        # gear_ratio: อัตราทด (counts_per_rev_effective = ticks_per_rev * gear_ratio)
         self.declare_parameter('wheel_radius_cm', 4.5)   # ตามที่สั่ง
         self.declare_parameter('ticks_per_rev', 2400)    # ดีฟอลต์ 600 * 4 (ควอดราเจอร์)
         self.declare_parameter('gear_ratio', 1.0)        # แก้ภายหลังได้
@@ -55,21 +52,24 @@ class Drive_node(Node):
 
         # ------ encoder accumulation state ------
         # last_counts: เก็บค่า int16 ล่าสุดที่รับมา (ความยาว 4)
-        # cum_counts:  สะสมจำนวนติ๊กของแต่ละล้อ (int64) หลังแก้ wrap แล้ว
+        # cum_counts:  สะสมจำนวนติ๊กของแต่ละล้อ (int64) หลังแก้ wrap แล้ว (absolute, ต่อเนื่อง)
         self.last_counts: Optional[List[int]] = None
         self.cum_counts: List[int] = [0, 0, 0, 0]
+
+        # ⭐ baseline นับจากตอนกด LB ล่าสุด (หน่วยเป็น "ติ๊กสะสมแบบต่อเนื่อง" เช่นเดียวกับ cum_counts)
+        self.base_counts: List[int] = [0, 0, 0, 0]
 
         # ===== Publishers =====
         self.send_robot_speed = self.create_publisher(
             Twist, "/cmd_vel", qos_profile=qos.qos_profile_system_default
         )
 
-        # ส่งรีเซ็ตเอ็นโค้ดเดอร์ (1 ตอนกด, 0 ตอนปล่อย) -> ESP32 ฟัง /reset/motor_feedback (std_msgs/Int16)
+        # (คงไว้ แต่จะไม่ใช้รีเซ็ตเอ็นโค้ดเดอร์จริง เพื่อให้สอดคล้องกับโจทย์)
         self.reset_pub = self.create_publisher(
             Int16, "/reset/motor_feedback", qos_profile=qos.qos_profile_system_default
         )
 
-        # ใหม่: ส่งระยะทางล้อทั้ง 4 (เซนติเมตร)
+        # ส่งระยะทางล้อทั้ง 4 (เซนติเมตร) — ระยะสัมพัทธ์จาก baseline ล่าสุด
         self.dist_pub = self.create_publisher(
             Float32MultiArray, "/motor_feedback/distance_cm", qos_profile=qos.qos_profile_system_default
         )
@@ -79,12 +79,12 @@ class Drive_node(Node):
             Twist, '/man/cmd_move', self.cmd_vel, qos_profile=qos.qos_profile_system_default
         )
 
-        # จอย (ปุ่ม LB) -> ส่งรีเซ็ต
+        # จอย (ปุ่ม LB) -> รีเซ็ต baseline ระยะ (ไม่รีเซ็ตเอ็นโค้ดเดอร์จริง)
         self.joy_sub = self.create_subscription(
             Joy, '/joy', self.joy_cb, qos_profile=qos.qos_profile_sensor_data
         )
 
-        # ใหม่: รับเอ็นโค้ดเดอร์ (Int16MultiArray: [enc1, enc2, enc3, enc4])
+        # รับเอ็นโค้ดเดอร์ (Int16MultiArray: [enc1, enc2, enc3, enc4])
         self.enc_sub = self.create_subscription(
             Int16MultiArray, '/motor_feedback/encoders', self.enc_cb, qos_profile=qos.qos_profile_sensor_data
         )
@@ -113,19 +113,19 @@ class Drive_node(Node):
 
     def _publish_distances_cm(self):
         """
-        คำนวณระยะ (cm) ของล้อทั้ง 4 จาก cum_counts แล้ว publish เป็น Float32MultiArray
+        แปลงระยะ (cm) ของล้อทั้ง 4 จาก (cum_counts - base_counts) แล้ว publish
         mapping: [M1=ซ้ายหน้า, M2=ขวาหน้า, M3=ซ้ายหลัง, M4=ขวาหลัง]
         """
         eff_cpr = self.ticks_per_rev * self.gear_ratio
         if eff_cpr <= 0.0:
-            # กันพังถ้าตั้งพารามิเตอร์ผิด
             self.get_logger().warn("ticks_per_rev * gear_ratio <= 0, skip distance publish")
             return
 
         circum_cm = 2.0 * math.pi * self.wheel_radius_cm
         distances = []
         for i in range(4):
-            rev = float(self.cum_counts[i]) / float(eff_cpr)
+            rel_counts = float(self.cum_counts[i] - self.base_counts[i])
+            rev = rel_counts / float(eff_cpr)
             dist_cm = rev * circum_cm
             distances.append(float(dist_cm))
 
@@ -138,7 +138,6 @@ class Drive_node(Node):
         linear_vel = msg.linear.y       # forward/backward ตามที่ผู้ใช้ตั้ง
         angular_vel = msg.angular.z * 5 # scale ที่ผู้ใช้ต้องการ
 
-        # simple diff kinematics -> RPM (optional debug)
         v_left  = linear_vel - (angular_vel * self.wheel_base / 2.0)
         v_right = linear_vel + (angular_vel * self.wheel_base / 2.0)
 
@@ -148,10 +147,8 @@ class Drive_node(Node):
         self.motor1Speed = rpm_left
         self.motor2Speed = rpm_right
 
-        # debug print (จะเห็นในเทอร์มินัล)
-        # print(f"Left Motor: {self.motor1Speed:.2f} RPM, Right Motor: {self.motor2Speed:.2f} RPM")
-
     def joy_cb(self, msg: Joy):
+        # Debounce LB
         lb_raw = 0
         if len(msg.buttons) > self.LB_INDEX:
             lb_raw = 1 if msg.buttons[self.LB_INDEX] > 0 else 0
@@ -170,37 +167,41 @@ class Drive_node(Node):
             self.lb_last_stable = lb_raw
             value_to_publish = 1 if self.lb_last_stable == 1 else 0
 
-            if self.last_published_value != value_to_publish:
-                self.last_published_value = value_to_publish
-                self.publish_reset_value(value_to_publish)
+            # ✅ ไม่สั่งรีเซ็ตเอ็นโค้ดเดอร์จริง — ใช้ baseline ฝั่ง Python เท่านั้น
+            if value_to_publish == 1:
+                # ตรึง baseline เป็นค่าปัจจุบันของ cum_counts
+                self.base_counts = list(self.cum_counts)
+                # ส่งระยะ 0 ทันที
+                zero_msg = Float32MultiArray()
+                zero_msg.data = [0.0, 0.0, 0.0, 0.0]
+                self.dist_pub.publish(zero_msg)
+                self.get_logger().info("[RESET] baseline set to current cum_counts; distance_cm -> [0,0,0,0]")
 
-                # ถ้าเราสั่งรีเซ็ตเอง ให้รีเซ็ตตัวสะสมฝั่งนี้ด้วยเพื่อซิงค์
-                if value_to_publish == 1:
-                    self.cum_counts = [0, 0, 0, 0]
-                    self.last_counts = None
-                    # ส่งระยะ 0 ทันที
-                    zero_msg = Float32MultiArray()
-                    zero_msg.data = [0.0, 0.0, 0.0, 0.0]
-                    self.dist_pub.publish(zero_msg)
-                    self.get_logger().info("[RESET] local cum_counts cleared & distance_cm -> [0,0,0,0]")
+            # ถ้าต้องการบอกสถานะปุ่ม (ไม่ไปรีเซ็ตฝั่ง ESP32)
+            self.last_published_value = value_to_publish
+            # ถ้าอยากปิด log นี้ ก็ลบได้
+            self.get_logger().info(f"[LB] pressed={value_to_publish}")
 
     def enc_cb(self, msg: Int16MultiArray):
         """
         รับค่าจาก /motor_feedback/encoders (Int16MultiArray, 4 ช่อง)
-        คลี่ส่วนต่าง (unwrap) จากค่าเดิม แล้วสะสม cum_counts
-        จากนั้นคำนวณระยะ (cm) และ publish ไป /motor_feedback/distance_cm
+        - คลี่ส่วนต่าง (unwrap) จากค่าเดิม -> อัปเดต cum_counts (absolute ต่อเนื่อง)
+        - คำนวณระยะ (cm) จาก (cum_counts - base_counts) แล้ว publish
         """
         data = list(msg.data)
         if len(data) < 4:
             self.get_logger().warn("encoders array length < 4, ignore")
             return
 
+        # เฟรมแรก: ให้ cum_counts = ค่าปัจจุบัน (signed 16-bit) เพื่อให้ได้ระยะทันที
         if self.last_counts is None:
             self.last_counts = [int(data[0]), int(data[1]), int(data[2]), int(data[3])]
-            # ยังไม่มี delta ให้คำนวณ แต่สามารถปล่อยเฟรมแรกได้เป็น 0
+            self.cum_counts  = [int(data[0]), int(data[1]), int(data[2]), int(data[3])]
+            # baseline เริ่มต้นคือศูนย์ (base_counts=[0,0,0,0]) -> ระยะแรกจะคิดจากค่าปัจจุบันทันที
             self._publish_distances_cm()
             return
 
+        # เฟรมถัดๆ ไป: สะสม delta แบบแก้ wrap
         for i in range(4):
             curr = int(data[i])
             prev = int(self.last_counts[i])
@@ -208,14 +209,14 @@ class Drive_node(Node):
             self.cum_counts[i] += int(d)
             self.last_counts[i] = curr
 
-        # คำนวณและส่งระยะ
+        # คำนวณและส่งระยะสัมพัทธ์จาก baseline
         self._publish_distances_cm()
 
     def publish_reset_value(self, value: int):
+        # คง method ไว้เผื่อใช้ในอนาคต แต่ไม่ได้เรียกใช้งานใน logic ใหม่นี้
         msg = Int16()
         msg.data = int(value)
         self.reset_pub.publish(msg)
-        self.get_logger().info(f"[LB] publish reset value: {value}")
 
     def sendData(self):
         motorspeed_msg = Twist()

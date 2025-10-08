@@ -71,7 +71,7 @@ void rclErrorLoop();
 #define PWM_CH_M3 2
 #define PWM_CH_M4 3
 
-const float WHEEL_RADIUS = 0.060f;   // m
+const float WHEEL_RADIUS = 0.045f;   // m
 const float TRACK_WIDTH  = 0.300f;   // m
 const float MAX_RPM      = 60.0f;
 
@@ -140,8 +140,8 @@ static const int   MICROSTEP          = 16;    // DIP on TB6600
 static const float GEAR_RATIO         = 1.0f;
 static const long  STEPS_PER_REV      = (long)(BASE_STEPS_PER_REV * MICROSTEP * GEAR_RATIO);
 
-// Speed (ครึ่งคาบพัลส์ us) => f ≈ 1/(2*HALF_PERIOD_US)
-static volatile uint32_t HALF_PERIOD_US = 200; // ~2.5 kHz
+// Speed (ครึ่งคาบพัลส์ us) => f ≈ 1/(2*HALF_PERIOD_US) 
+static volatile uint32_t HALF_PERIOD_US = 300; // มากขึ้นทำให้ช้าลง 
 
 // Behavior
 static const bool HOLD_TORQUE = true;  // true=ค้างแรงบิดเมื่อถึงเป้า
